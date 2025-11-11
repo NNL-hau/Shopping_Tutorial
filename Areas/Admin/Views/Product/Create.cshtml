@@ -1,0 +1,134 @@
+﻿@model ProductModel
+@{
+    ViewData["title"] = "Create Product";
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h4>Create Product</h4>
+<div class="col-md-9">
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label>Tên sản phẩm</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Giá bán</label>
+            <input asp-for="Price" pattern="[0-9.,]+" class="form-control typing-price" />
+
+            <span id="price-convert"></span>
+
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Giá vốn</label>
+            <input asp-for="CapitalPrice" pattern="[0-9.,]+" class="form-control typing-price" />
+
+            <span id="CapitalPrice-convert"></span>
+
+            <span asp-validation-for="CapitalPrice" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label>Mô tả</label>
+            <!-- Đảm bảo rằng textarea có id là editor -->
+            <textarea asp-for="Description" class="form-control" id="editor"></textarea>
+            <span asp-validation-for="Description" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.Categories">
+                <option>--Choose a category</option>
+            </select>
+            <span asp-validation-for="CategoryID" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Brand</label>
+            <select asp-for="BrandID" class="form-control" asp-items="ViewBag.Brands">
+                <option>--Choose a brand</option>
+            </select>
+            <span asp-validation-for="BrandID" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label>Image</label>
+            <input asp-for="ImageUpload" class="form-control" />
+            <span asp-validation-for="ImageUpload" class="text-danger"></span>
+            <img id="imgpreview" class="pt-2" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Thêm sản phẩm</button>
+        </div>
+    </form>
+
+    <a asp-action="Index">Back to list Product</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <!-- CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+    <script>
+               $("#ImageUpload").change(function(){
+            readURL(this);
+        });
+
+    </script>
+    <script>
+        $("#ImageUpload").change(function () {
+            readURL(this);
+        });
+    </script>
+    <script>
+        // Khởi tạo CKEditor cho trường mô tả
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+                $(".typing-price").on("keyup", function () {
+            var currency_input = $(this).val(); // Lấy giá trị người dùng nhập
+
+            // Kiểm tra nếu trường này là giá bán (Price)
+            if ($(this).attr("name") === "Price") {
+                $("#price-convert").html(
+                    new Intl.NumberFormat('vn-VN', { style: 'currency', currency: 'VND' }).format(
+                        currency_input * 1000 // Điều chỉnh nếu cần (bỏ *1000 nếu không cần)
+                    )
+                );
+            }
+
+            // Kiểm tra nếu trường này là giá vốn (CapitalPrice)
+            if ($(this).attr("name") === "CapitalPrice") {
+                $("#CapitalPrice-convert").html(
+                    new Intl.NumberFormat('vn-VN', { style: 'currency', currency: 'VND' }).format(
+                        currency_input * 1000 // Điều chỉnh nếu cần
+                    )
+                );
+            }
+        });
+
+
+    </script>
+ 
+}

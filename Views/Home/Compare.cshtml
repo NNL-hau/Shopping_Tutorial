@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["title"] = "List Compare";
+    var key = 0;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["title"]</title>
+    <style>
+        /* Màu sắc chính cho giao diện */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #3399ff;
+            font-size: 24px;
+            margin: 20px;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+                background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+                color: white;
+            font-weight: bold;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        /* Cải tiến nút xóa */
+        .btn-danger {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            background-color: #e60000;
+        }
+
+        th{
+            color:black !important;
+        }
+        /* Hình ảnh sản phẩm */
+        .product-image {
+            width: 90px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Danh sách so sánh</h3>
+
+    <form asp-action="CompareMany" asp-controller="Home" method="get">
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Chọn sản phẩm</th>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả sản phẩm</th>
+                <th>Giá sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var compare_product in Model)
+            {
+                key++;
+                <tr>
+                    <td><input type="checkbox" name="ids" value="@compare_product.Compares.Id" class="compare-select" /></td>
+                    <td>@key</td>
+                    <td>@compare_product.Product.Name</td>
+                    <td>@Html.Raw(@compare_product.Product.Description)</td>
+                    <td>@compare_product.Product.Price.ToString("#,##0") VNĐ</td>
+                    <td> 
+                        <img src="~/images/@compare_product.Product.Image" class="product-image" /> 
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return confirm('Bạn xác nhận muốn xóa?')" asp-action="DeleteCompare" asp-controller="Home" asp-route-Id="@compare_product.Compares.Id">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        <div style="margin: 20px;">
+            <button type="submit" class="btn btn-primary" id="compare-btn" disabled>So sánh sản phẩm</button>
+        </div>
+    </form>
+    <script>
+        (function(){
+            const selects = document.querySelectorAll('.compare-select');
+            const btn = document.getElementById('compare-btn');
+            function update() {
+                const checked = Array.from(selects).filter(i => i.checked).map(i => i.value);
+                btn.disabled = !(checked.length >= 2 && checked.length <= 5);
+                if (checked.length > 5) {
+                    // keep only first five
+                    Array.from(selects).forEach(i => { if (!checked.slice(0,5).includes(i.value)) i.checked = false; });
+                    update();
+                }
+            }
+            selects.forEach(i => i.addEventListener('change', update));
+        })();
+    </script>
+</body>
+</html>

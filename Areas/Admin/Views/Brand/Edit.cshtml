@@ -1,0 +1,57 @@
+﻿@model BrandModel
+@{
+    ViewData["title"] = "Edit Brand";
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h4>Sửa thương hiệu</h4>
+<div class="col-md-9">
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" /> <!-- Thêm dòng này để gửi ID -->
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label>Tên danh mục</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Mô tả</label>
+            <textarea asp-for="Description" class="form-control" id="editor"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Chức năng</label>
+            <select asp-for="Status" class="form-control">
+                <option value="1">Hiển thị</option>
+                <option value="0">Ẩn</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Lưu chỉnh sửa</button>
+        </div>
+    </form>
+
+
+    <a asp-action="Index">Trở lại trang danh mục thương hiệu</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

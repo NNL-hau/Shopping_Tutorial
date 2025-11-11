@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Test Hiệu Ứng Sản Phẩm Bán Chạy";
+}
+
+<div class="container">
+    <h1 class="text-center">Test Hiệu Ứng Sản Phẩm Bán Chạy</h1>
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="~/images/noimage.jpg" alt="Sản phẩm thường" width="150" height="220" />
+                        <h2>1,000,000 VNĐ</h2>
+                        <p>Sản phẩm thường</p>
+                        <button class="btn btn-default add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>Thêm giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4">
+            <div class="product-image-wrapper best-selling-product">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="~/images/noimage.jpg" alt="Sản phẩm bán chạy" width="150" height="220" />
+                        <h2>2,000,000 VNĐ</h2>
+                        <p>Sản phẩm bán chạy nhất</p>
+                        <button class="btn btn-default add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>Thêm giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="~/images/noimage.jpg" alt="Sản phẩm thường 2" width="150" height="220" />
+                        <h2>1,500,000 VNĐ</h2>
+                        <p>Sản phẩm thường khác</p>
+                        <button class="btn btn-default add-to-cart">
+                            <i class="fa fa-shopping-cart"></i>Thêm giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <p><strong>Lưu ý:</strong> Sản phẩm ở giữa có hiệu ứng bốc lửa và nhấp nháy để thể hiện đây là sản phẩm bán chạy nhất.</p>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay lại trang chủ</a>
+    </div>
+</div>

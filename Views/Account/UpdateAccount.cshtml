@@ -1,0 +1,134 @@
+﻿@model AppUserModel
+
+@{
+    ViewData["Title"] = "Update Account Info";
+}
+
+<style>
+    /* Đặt màu chính cho trang */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f6;
+    }
+
+    h3 {
+        color: #3399ff;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Tạo hiệu ứng cho các button và form */
+    .signup-form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .signup-form input {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+            .signup-form input:focus {
+                border-color: #3399ff;
+                outline: none;
+            }
+
+        .signup-form label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Button với tông màu chính */
+        .signup-form button {
+            background-color: #3399ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            /* Hover effect cho button */
+            .signup-form button:hover {
+                background-color: #267acc;
+            }
+
+    /* Các thông báo lỗi */
+    .text-danger {
+        color: #ff3d3d;
+    }
+</style>
+
+<H3>Chỉnh sửa thông tin cá nhân</H3>
+
+<section>
+    <form autocomplete="off" asp-action="UpdateInfoAccount" asp-controller="Account" method="post" onsubmit="return validatePhoneNumber();">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-1">
+                    <div class="signup-form">
+                        <!--sign up form-->
+                        <input type="hidden" asp-for="Id" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label>Tên đăng nhập</label>
+                            <input asp-for="UserName" readonly required class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input asp-for="Email" required class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input asp-for="PhoneNumber" required class="form-control" maxlength="10" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mật khẩu cũ</label>
+                            <input type="text" readonly value="@Model.PasswordHash" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mật khẩu mới</label>
+                            <input type="text" name="PasswordHash" required class="form-control" />
+                            <span asp-validation-for="PasswordHash" class="text-danger" />
+                        </div>
+
+                        <button class="btn btn-default">Chỉnh sửa</button>
+                    </div><!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    function validatePhoneNumber() {
+        var phoneNumber = document.getElementById("PhoneNumber").value;
+        var phonePattern = /^\d{10}$/; // Regular expression for 10 digits
+        if (!phonePattern.test(phoneNumber)) {
+            alert("Số điện thoại phải chứa chính xác 10 chữ số.");
+            return false;
+        }
+        return true;
+    }
+</script>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BrandModel>
+
+@{
+    ViewData["title"] = "List Brand";
+
+    Paginate pager = new Paginate();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+
+        pageNo = pager.CurrentPage;
+    }
+
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h3>Danh sách thương hiệu</h3>
+<a asp-action="Create" asp-controller="Brand" class="btn btn-primary">Thêm thương hiệu</a>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên thương hiệu</th>
+            <th scope="col">Mô tả thương hiệuh</th>
+            <th scope="col">Sản phẩm của thương hiệu</th>
+            <th scope="col">Quản lý sản phẩm</th>
+            <th scope="col">Chỉnh sửa</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+
+                <td>@item.Slug</td>
+                <td>
+                    @if (@item.Status == 1)
+                    {
+                        <span class="text text-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="text text-danger">Ẩn</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning btn-sm" asp-controller="Brand" asp-route-Id="@item.Id">Chính sửa</a>
+                    <a asp-action="Delete" class="btn btn-danger btn-sm" asp-controller="Brand" asp-route-Id="@item.Id">Xóa</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<partial name="_paging" model="@pager" />

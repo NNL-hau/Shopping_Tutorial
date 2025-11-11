@@ -1,0 +1,278 @@
+@model Shopping_Tutorial.Models.ViewModels.CompareManyViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "So sánh sản phẩm";
+    var count = Model.Products?.Count ?? 0;
+}
+
+<div id="chat-popup" style="display: flex; flex-direction: column;
+    width: 100%; height: 100%; background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 40px auto 0 auto;">
+
+    <!-- Header -->
+    <div id="chat-header" style="background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; padding: 10px; text-align: center;">
+        <h4>Hỗ trợ chọn sản phẩm </h4>
+    </div>
+
+    <!-- Tin nhắn + sản phẩm -->
+    <div id="chat-messages" style="padding: 10px; flex-grow: 1; overflow-y: auto;">
+        <div class="message">
+            <div class="message-container">
+                <img src="/images/6.jpg" alt="Bot" class="profile-image" />
+                <div class="bot-message">Xin chào! Dưới đây là các sản phẩm mà bạn đang muốn so sánh ? Hãy chat với tôi để được hỗ trợ lựa chọn nhé !</div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm nằm trong chat -->
+        <div class="bot-message" style="display: flex; flex-wrap: wrap; gap: 12px; background: transparent; box-shadow: none;">
+            @foreach (var p in Model.Products)
+            {
+                <div class="product-card">
+                    <img src="~/images/@p.Image" alt="@p.Name" />
+                    <div class="info">
+                        <strong>@p.Name</strong>
+                        <div>Giá: @p.Price.ToString("#,##0") VNĐ</div>
+                        <div>Thương hiệu: @p.Brand?.Name</div>
+                        <div>Danh mục: @p.Category?.Name</div>
+                        <div>Danh mục: @Html.Raw(p.Description)</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Câu hỏi nhanh -->
+    <div id="chat-quick-questions" style="padding: 6px 10px; background: transparent; border-top: none; display: block; max-height: 150px; overflow-y: auto;">
+        <button type="button" class="quick-question" data-question="So sánh ram các sản phẩm mình chọn giúp mình">So sánh Ram</button>
+        <button type="button" class="quick-question" data-question="Thông số các sản phẩm mình chọn có gì khác biệt">So sánh thông số</button>
+        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có chế độ bảo hành tốt hơn nếu hỏng">So sánh bảo hành</button>
+        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có thể hỗ trợ chơi game và đồ hoạ">So sánh chơi game và đồ hoạ</button>
+        <button type="button" class="quick-question" data-question="Sản phẩm nào mình chọn giá phù hợp mà chạy ổn với người đi học hoặc văn phòng">
+            Sánh giá sản phẩm nào mình chọn cái nào phù hợp với công việc văn phòng và học
+        </button>
+        
+    </div>
+    <!-- Input -->
+    <div   id="chat-input" style="padding: 10px; background-color: #f8f9fa; display: flex;">
+        <input type="text" id="user-input" style="flex: 1; padding: 5px;" placeholder="Nhập tin nhắn..." />
+        <button id="send-button" style="margin-left: 5px; border-radius: 5%; padding: 5px; color: white; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); border: none;">Gửi</button>
+    </div>
+</div>
+
+<style>
+    /* Tin nhắn người dùng */
+    .user-message {
+        background-color: #3366FF;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 70%;
+        word-wrap: break-word;
+        margin: 6px 0 6px auto;
+        display: inline-block;
+    }
+
+    /* Tin nhắn bot */
+    .bot-message {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 100%;
+        word-wrap: break-word;
+        margin: 6px auto 6px 0;
+        display: inline-block;
+    }
+
+    /* Card sản phẩm trong chat */
+    .product-card {
+        flex: 1 1 calc(33.33% - 12px);
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        min-width: 180px;
+        max-width: 220px;
+    }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-card .info {
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .message-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    /* Nút câu hỏi nhanh */
+    #chat-quick-questions .quick-question {
+        background: #f2f2f2; /* nền xám nhạt */
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        color: #333;
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 6px;
+        opacity: 0.85; /* mặc định hơi mờ */
+        transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #chat-quick-questions .quick-question:hover {
+        background: #e0e0e0; /* xám hơn khi hover */
+        color: #0066FF;
+        border-color: #cfe3ff;
+        opacity: 0.7; /* mờ đi khi hover */
+    }
+</style>
+
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    async function handleUserInput() {
+        const userMessage = userInput.value.trim();
+
+        if (userMessage) {
+            addMessage(userMessage, true);
+            userInput.value = '';
+
+            sendButton.disabled = true;
+            userInput.disabled = true;
+
+            try {
+                const response = await fetch('/Chat/GetResponseCompare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get response');
+                }
+
+                const data = await response.json();
+                addMessage(data.response, false);
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.', false);
+            } finally {
+                sendButton.disabled = false;
+                userInput.disabled = false;
+                userInput.focus();
+            }
+        }
+    }
+
+    function addMessage(message, isUser) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+
+        const profileImage = document.createElement('img');
+        profileImage.classList.add('profile-image');
+        profileImage.src = isUser ? '/images/user.jpg' : '/images/6.jpg';
+        profileImage.alt = isUser ? 'User' : 'Bot';
+
+        const messageContent = document.createElement('div');
+        messageContent.classList.add(isUser ? 'user-message' : 'bot-message');
+
+        let formattedMessage = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        formattedMessage = formattedMessage.replace(/\n/g, '<br/>');
+        formattedMessage = formattedMessage.replace(/^- (.*)/gm, '<li>$1</li>');
+
+
+        messageContent.innerHTML = formattedMessage; // Sử dụng innerHTML để hiển thị HTML
+
+        messageContainer.appendChild(profileImage);
+        messageContainer.appendChild(messageContent);
+        messageElement.appendChild(messageContainer);
+
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleUserInput();
+        }
+    });
+
+    // Hiển thị/đóng cửa sổ chat (chỉ chạy nếu có các phần tử này trên trang)
+    var chatOpenBtn = document.getElementById('chat-widget-button');
+    if (chatOpenBtn) {
+        chatOpenBtn.addEventListener('click', function () {
+            document.getElementById('chat-popup').style.display = 'block';
+        });
+    }
+
+    var chatCloseBtn = document.getElementById('close-chat');
+    if (chatCloseBtn) {
+        chatCloseBtn.addEventListener('click', function () {
+            document.getElementById('chat-popup').style.display = 'none';
+        });
+    }
+
+    // Chỉ gắn sự kiện scroll nếu có jQuery (trang này Layout = null nên có thể không có)
+    if (window.jQuery) {
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop() > 100) {
+                $(".header-bottom").addClass("sticky-header");
+            } else {
+                $(".header-bottom").removeClass("sticky-header");
+            }
+        });
+    }
+
+    // Gán sự kiện cho các nút câu hỏi nhanh và ẩn sau lần bấm đầu tiên
+    // Gán sự kiện câu hỏi nhanh khi DOM đã sẵn sàng
+    (function attachQuickQuestionHandlers() {
+        var container = document.getElementById('chat-quick-questions');
+        if (!container) return;
+        var quickHidden = false;
+        container.querySelectorAll('.quick-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var q = this.getAttribute('data-question');
+                if (!q) return;
+                userInput.value = q;
+                handleUserInput();
+                if (!quickHidden) {
+                    container.style.display = 'none';
+                    quickHidden = true;
+                }
+            });
+        });
+    })();
+</script>

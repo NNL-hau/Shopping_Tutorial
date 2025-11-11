@@ -1,0 +1,29 @@
+@model IEnumerable<ProductModel>
+@foreach (var item in Model)
+{
+    <div class="col-sm-3">
+        <div class="product-image-wrapper">
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <a asp-action="Details" asp-controller="Product" asp-route-Id="@item.Id">
+                        <img src="~/images/@item.Image" alt="@item.Name" width="150" height="180" />
+                        <h2>@item.Price.ToString("#,##0 ") VNĐ</h2>
+                        <p>@item.Name</p>
+                        <p>Danh mục : @item.Category?.Name</p>
+                        <p>Thương hiệu : @item.Brand?.Name</p>
+                    </a>
+                    @if (item.Quantity > 0)
+                    {
+                        <button class="btn btn-default add-to-cart" data-product_id="@item.Id"><i class="fa fa-shopping-cart"></i>Thêm giỏ hàng</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-default "><i class="fa fa-shopping-cart"></i>Hết Hàng</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

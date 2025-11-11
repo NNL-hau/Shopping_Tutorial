@@ -1,0 +1,156 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Order Details";
+    decimal total = 0;
+    decimal subtotal = 0;
+    decimal thanhtoan = 0;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Chi tiết đơn mua</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f9ff;
+            margin: 20px;
+            color: #333;
+        }
+
+        h3 {
+            color: #3399FF;
+            border-bottom: 2px solid #3399FF;
+            padding-bottom: 10px;
+        }
+
+        .table {
+            width: 100%;
+            background-color: white;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .table th {
+                background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* Màu bong bóng chat */
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            .table img {
+                border-radius: 5px;
+            }
+
+        .summary-row td {
+            font-weight: bold;
+            background-color: #e8f4ff;
+        }
+
+        .note {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h3>Chi tiết đơn mua</h3>
+
+    <div class="table table-responsive">
+        @if (Model.OrderDetails == null || !Model.OrderDetails.Any())
+        {
+            <p class="note">Không có thông tin đơn hàng nào.</p>
+        }
+        else
+        {
+            <table class="table" id="detail_order">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Mã mua</th>
+                        <th>Tên người mua</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        subtotal = item.Quantity * item.Price;
+                        total += subtotal;
+                        thanhtoan = total * (1 - Model.AppliedCoupon.GiaNhap) + ViewBag.ShippingCost;
+
+                        <tr>
+                            <input type="hidden" asp-for="@item.OrderCode" class="getId" />
+                            <td><img src="~/images/@item.Product.Image" alt="@item.Product.Name" width="50" height="50" /></td>
+                            <td>@item.OrderCode</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Price.ToString("#,##0") VND</td>
+                            <td>@item.Quantity</td>
+                            <td>@subtotal.ToString("#,##0") VND</td>
+                        </tr>
+                    }
+
+                    <tr class="summary-row">
+                        <td colspan="2">Tổng </td>
+                        <td colspan="2">Tổng: @total.ToString("#,##0") VND</td>
+                        <td>Vận chuyển: @ViewBag.ShippingCost.ToString("#,##0") VND</td>
+                        @if (Model.AppliedCoupon != null && Model.AppliedCoupon.GiaNhap > 0)
+                        {
+                            decimal discount = total * (decimal)Model.AppliedCoupon.GiaNhap;
+                            <td>Giảm: -@discount.ToString("#,##0") VND</td>
+                            <td>Thanh toán: @thanhtoan.ToString("#,##0") VND</td>
+                        }
+                        else
+                        {
+                            <td colspan="2">Thanh toán: @thanhtoan.ToString("#,##0") VND</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    <script>
+        new DataTable('#detail_order', {
+            layout: {
+                topStart: {
+                    buttons: ['pdf', 'print']
+                }
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.select-update-order').change(function () {
+                var status = $(this).val();
+                var ordercode = $('.getId').val();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("UpdateOrder")",
+                    data: { status: status, ordercode: ordercode },
+                    success: function (result) {
+                        if (result.success) {
+                            Swal.fire("Cập nhật đơn hàng thành công.");
+                        } else {
+                            Swal.fire("Cập nhật đơn hàng thất bại." + result.message);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

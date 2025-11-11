@@ -1,0 +1,378 @@
+﻿@model IEnumerable<ProductModel>
+<partial name="_SliderPartial" />
+<div class="row">
+<div class="col-sm-3">
+    @Html.Partial("_SidebarPartial")
+</div>
+
+<div class="col-sm-9 padding-right">
+    <partial name="_FilterProductsPartial" />
+    <div class="features_items">
+        <!--features_items-->
+        <h2 class="title text-center">Sản phẩm nổi bật</h2>
+        <div class="row">
+        @{ var __list = Model.ToList(); }
+        @for (int __i = 0; __i < __list.Count; __i++)
+        {
+            var item = __list[__i];
+            <div class="col-sm-4">
+                <div class="product-image-wrapper @(ViewBag.BestSellingProductId != null && item.Id == (long)ViewBag.BestSellingProductId ? "best-selling-product" : "")">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            <a asp-action="Details" asp-controller="Product" asp-route-Id="@item.Id">
+                                <img src="~/images/@item.Image" alt="@item.Name" width="150" height="220" />
+                                <h2>@item.Price.ToString("#,##0 ") VNĐ</h2>
+                                <p>@item.Name</p>
+                                <p>Danh mục : @item.Category.Name</p>
+                                <p>Thương hiệu : @item.Brand.Name</p>
+                            </a>
+                            @if (item.Quantity > 0)
+                            {
+                                <button class="btn btn-default add-to-cart" data-product_id="@item.Id">
+                                    <i class="fa fa-shopping-cart"></i>Thêm giỏ hàng
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-default">
+                                    <i class="fa fa-shopping-cart"></i>Hết Hàng
+                                </button>
+                            }
+                        </div>
+                        <!--Phần hover-->
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>@item.Price.ToString("#,##0 ") VNĐ</h2>
+                                <p>@item.Name</p>
+                                <a class="btn btn-default" asp-action="Details" asp-controller="Product" asp-route-Id="@item.Id">
+                                    <i class="fa fa-address-card" aria-hidden="true"></i>Chi tiết sản phẩm
+                                </a>
+                                @if (item.Quantity > 0)
+                                {
+                                    <button class="btn btn-default add-to-cart" data-product_id="@item.Id">
+                                        <i class="fa fa-shopping-cart"></i>Thêm giỏ hàng
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-default">
+                                        <i class="fa fa-shopping-cart"></i>Hết Hàng
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="choose">
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            <ul class="nav nav-pills nav-justified">
+                                <li>
+                                    <button class="btn add-btn-wishlist" data-product_id="@item.Id">Thêm Yêu Thích</button>
+                                </li>
+                                <li>
+                                    <button class="btn add-btn-compare" data-product_id="@item.Id">Thêm So Sánh</button>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+            if (((__i + 1) % 3) == 0)
+            {
+                <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+            }
+        }
+        </div>
+    </div><!--features_items-->
+
+    @{
+        var pg = ViewBag.Pagination as Shopping_Tutorial.Models.Paginate;
+        string sortBy = ViewBag.SortBy as string ?? "";
+        string startPrice = ViewBag.StartPrice as string ?? "";
+        string endPrice = ViewBag.EndPrice as string ?? "";
+    }
+    @if (pg != null && pg.TotalPages > 1)
+    {
+        <nav aria-label="Pagination">
+            <ul class="pagination">
+                <li class="@(pg.CurrentPage == 1 ? "disabled" : "")">
+                    <a href="@Url.Action("Index", new { page = pg.CurrentPage - 1 < 1 ? 1 : pg.CurrentPage - 1, sort_by = sortBy, startprice = startPrice, endprice = endPrice })">«</a>
+                </li>
+                @for (int i = pg.StartPage; i <= pg.EndPage; i++)
+                {
+                    <li class="@(i == pg.CurrentPage ? "active" : "")">
+                        <a href="@Url.Action("Index", new { page = i, sort_by = sortBy, startprice = startPrice, endprice = endPrice })">@i</a>
+                    </li>
+                }
+                <li class="@(pg.CurrentPage == pg.TotalPages ? "disabled" : "")">
+                    <a href="@Url.Action("Index", new { page = pg.CurrentPage + 1 > pg.TotalPages ? pg.TotalPages : pg.CurrentPage + 1, sort_by = sortBy, startprice = startPrice, endprice = endPrice })">»</a>
+                </li>
+            </ul>
+        </nav>
+    }
+</div>
+</div>
+
+<style>
+    .choose ul {
+        padding: 0;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h2.title.text-center {
+        color: #3399FF;
+    }
+
+
+        .choose ul li {
+            list-style: none;
+            flex: 1;
+            margin: 0 5px;
+        }
+
+    .choose button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Đổi màu từ vàng sang #3399FF */
+    .add-btn-wishlist {
+        background: #ff4d4d;
+        color: white;
+    }
+
+        .add-btn-wishlist:hover {
+            background: #cc0000;
+        }
+    /* Giá tiền trong sản phẩm và overlay */
+    .productinfo h2,
+    .product-overlay h2 {
+        color: #3399FF;
+       
+    }
+    .add-btn-compare {
+        background: #3399FF;
+        color: white;
+    }
+
+        .add-btn-compare:hover {
+            background: #267ACC;
+        }
+
+    /* Nếu có dùng btn-warning từ Bootstrap, ghi đè màu vàng thành #3399FF */
+    .btn-warning {
+        background-color: #3399FF;
+        border-color: #3399FF;
+        color: black;
+    }
+
+    .product-overlay {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee)
+        !important; /* nền xanh với độ mờ */
+        color: black !important;
+    }
+
+       
+        .product-overlay .overlay-content p,
+        .product-overlay .overlay-content a,
+        .product-overlay .overlay-content button {
+            color: black !important;
+        }
+
+        .product-overlay .overlay-content h2{
+             color: white!important;
+        }
+        .product-overlay .overlay-content .btn-default {
+            background-color: white;
+            color: #3399FF;
+            border: 1px solid #3399FF;
+        }
+
+            .product-overlay .overlay-content .btn-default:hover {
+                background-color: #3399FF;
+                color: white;
+            }
+
+
+        .btn-warning:hover {
+            background-color: #267ACC;
+            border-color: #267ACC;
+        }
+    /* Giá tiền trong sản phẩm và overlay */
+    .productinfo h2,
+    .product-overlay h2 {
+        color: #3399FF;
+    }
+
+    /* Nền cho overlay: từ vàng → xanh */
+    .product-overlay {
+        background-color: rgba(51, 153, 255, 0.9); /* nền xanh nhạt */
+        color: white;
+    }
+
+        /* Nút trong overlay */
+        .product-overlay .btn {
+            background-color: #3399FF;
+            border: none;
+            color: black !important;
+          
+            font-weight: bold;
+        }
+
+            .product-overlay .btn:hover {
+                background-color: #267ACC;
+                color: black; /* giữ màu chữ đen khi hover */
+            }
+
+        /* Nếu cần chỉnh thêm cho nội dung văn bản trong overlay */
+        .product-overlay h2,
+        .product-overlay p {
+            color: white;
+        }
+</style>
+
+
+@section Scripts {
+	<script>
+				$(document).ready(function() {
+			$('.add-to-cart').click(function () {
+				var Id = $(this).data("product_id");
+				console.log("Product ID: " + Id); // Kiểm tra ID sản phẩm
+
+				$.ajax({
+					type: "POST",
+					url: "@Url.Action("Add", "Cart")",
+					data: { Id: Id },
+					success: function (result) {
+						if (result) {
+							Swal.fire("Thêm giỏ hàng thành công.");
+						} else {
+							Swal.fire("Có lỗi xảy ra.");
+						}
+					},
+					error: function (xhr, status, error) {
+						console.error("Error: " + error); // Kiểm tra lỗi
+						Swal.fire("Có lỗi xảy ra khi thêm vào giỏ hàng.");
+					}
+				});
+			});
+		});
+	</script>
+	<!---Add to Wishlish Script--->
+	<script>
+		$(document).ready(function () {
+			$('.add-btn-wishlist').click(function () {
+				var Id = $(this).data("product_id");
+
+				//alert(product_id);
+
+				$.ajax({
+					type: "POST",
+					url: "@Url.Action("AddWishlist", "Home")",
+					data: { Id: Id }, // Send data to the server
+
+					success: function (result) {
+						// Handle successful update
+						if (result) {
+
+							Swal.fire("Bạn đã thêm sản phẩm vào danh sách yêu thích !.");
+						}
+					}
+
+				});
+			});
+		});
+	</script>
+	<!---Add to Wishlish Script--->
+	<script>
+		$(document).ready(function () {
+			$('.add-btn-compare').click(function () {
+				var Id = $(this).data("product_id");
+
+				//alert(product_id);
+
+				$.ajax({
+					type: "POST",
+					url: "@Url.Action("AddCompare", "Home")",
+					data: { Id: Id }, // Send data to the server
+
+					success: function (result) {
+						// Handle successful update
+						if (result) {
+
+							Swal.fire("Bạn đã thêm sản phẩm vào danh sách so sánh !.");
+						}
+					}
+
+				});
+			});
+		});
+	</script>
+	<!---//Add to Wishlish Script--->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+	<script>
+		$(document).ready(function () {
+
+			$("#slider-range").slider({
+				range: true,
+				min: 1000000,
+				max: 100000000,
+				step: 1000000,
+				values: [1000000, 100000000],
+				slide: function (event, ui) {
+					// Hiển thị giá trị slider với ba số 0 và chữ "VNĐ"
+					$("#amount").val(ui.values[0] + " VNĐ" + " - " + ui.values[1] + " VNĐ");
+				}
+			});
+
+			// Định dạng giá trị ban đầu
+			$("#amount").val($("#slider-range").slider("values", 0) + " VNĐ" + " - " + $("#slider-range").slider("values", 1) + " VNĐ");
+
+			//btn lọc giá
+		$('.btn-locgia').on('click', function () {
+
+			var url = $(this).data("current_url");
+			// alert(url);
+			if (url) {
+				window.location = url + "?startprice=" + $("#slider-range").slider("values", 0)
+					+ "&endprice=" + $("#slider-range").slider("values", 1);
+			}
+			return false;
+			});
+
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$('#sort_by').on('change', function () {
+
+				var url = $(this).val();
+				// alert(url);
+				if (url) {
+					window.location = url;
+				}
+				return false;
+			});
+
+		});
+	</script>
+}
