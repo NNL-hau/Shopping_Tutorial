@@ -5,63 +5,13 @@
     var count = Model.Products?.Count ?? 0;
 }
 
-<div id="chat-popup" style="display: flex; flex-direction: column;
-    width: 100%; height: 100%; background-color: #FFF;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 40px auto 0 auto;">
-
-    <!-- Header -->
-    <div id="chat-header" style="background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; padding: 10px; text-align: center;">
-        <h4>Hỗ trợ chọn sản phẩm </h4>
-    </div>
-
-    <!-- Tin nhắn + sản phẩm -->
-    <div id="chat-messages" style="padding: 10px; flex-grow: 1; overflow-y: auto;">
-        <div class="message">
-            <div class="message-container">
-                <img src="/images/6.jpg" alt="Bot" class="profile-image" />
-                <div class="bot-message">Xin chào! Dưới đây là các sản phẩm mà bạn đang muốn so sánh ? Hãy chat với tôi để được hỗ trợ lựa chọn nhé !</div>
-            </div>
-        </div>
-
-        <!-- Sản phẩm nằm trong chat -->
-        <div class="bot-message" style="display: flex; flex-wrap: wrap; gap: 12px; background: transparent; box-shadow: none;">
-            @foreach (var p in Model.Products)
-            {
-                <div class="product-card">
-                    <img src="~/images/@p.Image" alt="@p.Name" />
-                    <div class="info">
-                        <strong>@p.Name</strong>
-                        <div>Giá: @p.Price.ToString("#,##0") VNĐ</div>
-                        <div>Thương hiệu: @p.Brand?.Name</div>
-                        <div>Danh mục: @p.Category?.Name</div>
-                        <div>Danh mục: @Html.Raw(p.Description)</div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-
-    <!-- Câu hỏi nhanh -->
-    <div id="chat-quick-questions" style="padding: 6px 10px; background: transparent; border-top: none; display: block; max-height: 150px; overflow-y: auto;">
-        <button type="button" class="quick-question" data-question="So sánh ram các sản phẩm mình chọn giúp mình">So sánh Ram</button>
-        <button type="button" class="quick-question" data-question="Thông số các sản phẩm mình chọn có gì khác biệt">So sánh thông số</button>
-        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có chế độ bảo hành tốt hơn nếu hỏng">So sánh bảo hành</button>
-        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có thể hỗ trợ chơi game và đồ hoạ">So sánh chơi game và đồ hoạ</button>
-        <button type="button" class="quick-question" data-question="Sản phẩm nào mình chọn giá phù hợp mà chạy ổn với người đi học hoặc văn phòng">
-            Sánh giá sản phẩm nào mình chọn cái nào phù hợp với công việc văn phòng và học
-        </button>
-        
-    </div>
-    <!-- Input -->
-    <div   id="chat-input" style="padding: 10px; background-color: #f8f9fa; display: flex;">
-        <input type="text" id="user-input" style="flex: 1; padding: 5px;" placeholder="Nhập tin nhắn..." />
-        <button id="send-button" style="margin-left: 5px; border-radius: 5%; padding: 5px; color: white; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); border: none;">Gửi</button>
-    </div>
-</div>
-
-<style>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/viewer/styles.css" />
+    <style>
     /* Tin nhắn người dùng */
     .user-message {
         background-color: #3366FF;
@@ -148,9 +98,68 @@
         border-color: #cfe3ff;
         opacity: 0.7; /* mờ đi khi hover */
     }
-</style>
+    </style>
+</head>
+<body>
+    <div id="chat-popup" style="display: flex; flex-direction: column;
+    width: 100%; height: 100%; background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 40px auto 0 auto;">
 
-<script>
+        <!-- Header -->
+        <div id="chat-header" style="background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; padding: 10px; text-align: center;">
+            <h4>Hỗ trợ chọn sản phẩm </h4>
+        </div>
+
+        <!-- Tin nhắn + sản phẩm -->
+        <div id="chat-messages" style="padding: 10px; flex-grow: 1; overflow-y: auto;">
+            <div class="message">
+                <div class="message-container">
+                    <img src="/images/6.jpg" alt="Bot" class="profile-image" />
+                    <div class="bot-message">Xin chào! Dưới đây là các sản phẩm mà bạn đang muốn so sánh ? Hãy chat với tôi để được hỗ trợ lựa chọn nhé !</div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm nằm trong chat -->
+            <div class="bot-message" style="display: flex; flex-wrap: wrap; gap: 12px; background: transparent; box-shadow: none;">
+                @foreach (var p in Model.Products)
+                {
+                    <div class="product-card">
+                        <img src="~/images/@p.Image" alt="@p.Name" />
+                        <div class="info">
+                            <strong>@p.Name</strong>
+                            <div>Giá: @p.Price.ToString("#,##0") VNĐ</div>
+                            <div>Thương hiệu: @p.Brand?.Name</div>
+                            <div>Danh mục: @p.Category?.Name</div>
+                            <div>Danh mục: @Html.Raw(p.Description)</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Câu hỏi nhanh -->
+        <div id="chat-quick-questions" style="padding: 6px 10px; background: transparent; border-top: none; display: block; max-height: 150px; overflow-y: auto;">
+            <button type="button" class="quick-question" data-question="So sánh ram các sản phẩm mình chọn giúp mình">So sánh Ram</button>
+            <button type="button" class="quick-question" data-question="Thông số các sản phẩm mình chọn có gì khác biệt">So sánh thông số</button>
+            <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có chế độ bảo hành tốt hơn nếu hỏng">So sánh bảo hành</button>
+            <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có thể hỗ trợ chơi game và đồ hoạ">So sánh chơi game và đồ hoạ</button>
+            <button type="button" class="quick-question" data-question="Sản phẩm nào mình chọn giá phù hợp mà chạy ổn với người đi học hoặc văn phòng">
+                Sánh giá sản phẩm nào mình chọn cái nào phù hợp với công việc văn phòng và học
+            </button>
+
+        </div>
+        <!-- Input -->
+        <div id="chat-input" style="padding: 10px; background-color: #f8f9fa; display: flex;">
+            <input type="text" id="user-input" style="flex: 1; padding: 5px;" placeholder="Nhập tin nhắn..." />
+            <button id="send-button" style="margin-left: 5px; border-radius: 5%; padding: 5px; color: white; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); border: none;">Gửi</button>
+        </div>
+    </div>
+
+    <section id="product-compare-3d"></section>
+
+    <script>
     const chatMessages = document.getElementById('chat-messages');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
@@ -276,3 +285,6 @@
         });
     })();
 </script>
+    <script type="module" src="/viewer/js/productViewerModule.js"></script>
+</body>
+</html>
