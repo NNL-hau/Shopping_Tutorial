@@ -10,6 +10,8 @@ using Shopping_Tutorial.Models.MoMo;
 using Shopping_Tutorial.Repository;
 using Shopping_Tutorial.Services.Momo;
 using Shopping_Tutorial.Services.Vnpay;
+using Shopping_Tutorial.Data;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +29,22 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDb"));
 });
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseInMemoryDatabase("ProductViewerDb");
+});
+
 builder.Services.AddTransient<IEmailSender,EmailSender>();
 
 // Add services to the container
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
@@ -85,6 +99,8 @@ var app = builder.Build();
 // Cấu hình trang lỗi
 app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode={0}");
 app.UseSession(); // Cấu hình sử dụng session
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -97,6 +113,8 @@ app.UseRouting(); // Cấu hình cho việc định tuyến
 
 app.UseAuthentication(); // Cấu hình xác thực
 app.UseAuthorization(); // Cấu hình phân quyền
+
+app.MapControllers();
 
 // Các route cho các khu vực
 app.MapAreaControllerRoute(
@@ -122,8 +140,15 @@ app.MapControllerRoute(
 
 
 // Khởi tạo dữ liệu khi ứng dụng bắt đầu
-var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<DataContext>();
-SeedData.SeedingData(context);
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var mainContext = services.GetRequiredService<DataContext>();
+    Shopping_Tutorial.Repository.SeedData.SeedingData(mainContext);
+
+    var viewerContext = services.GetRequiredService<AppDbContext>();
+    Shopping_Tutorial.Data.SeedData.Initialize(viewerContext);
+}
 
 // Chạy ứng dụng
 app.Run();
