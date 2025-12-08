@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AppUserModel>
+
+@{
+    ViewData["title"] = "Danh sách người dùng";
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h3>Danh sách người dùng</h3>
+<a class="btn btn-primary" asp-action="Create" asp-controller="Khach">Thêm người sử dụng</a>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+
+            <th scope="col">Id</th>
+            <th scope="col">Tên người sử dụng</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mã hóa mật khẩu</th>
+
+            <th scope="col">Số điện thoại</th>
+           
+            <th scope="col">chỉnh sửa</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <th>@user.Id</th>
+                <th>@user.UserName</th>
+                <td>@user.Email</td>
+                <td>@user.PasswordHash</td>
+                <td>@user.PhoneNumber</td>
+             
+
+
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning btn-sm" asp-controller="Khach" asp-route-Id="@user.Id">Chỉnh sửa</a>
+                    <a asp-action="Delete" class="btn btn-danger btn-sm" asp-controller="Khach" asp-route-Id="@user.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

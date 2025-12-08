@@ -1,0 +1,235 @@
+﻿@{
+    ViewData["Title"] = "Homepage";
+    Layout = null;
+
+}
+<link href="~/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css" rel="stylesheet">
+<link href="~/css/prettyPhoto.css" rel="stylesheet">
+<link href="~/css/price-range.css" rel="stylesheet">
+<link href="~/css/animate.css" rel="stylesheet">
+<link href="~/css/main.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+<link href="~/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+<div class="col-sm-12">
+    <section class="hero-section text-center reveal" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://bizweb.dktcdn.net/100/558/309/themes/999496/assets/banner1_product1.jpg?1758009184577') center/cover no-repeat; border-radius: 12px; padding: 120px 40px; margin-bottom: 40px; color: #fff;">
+        <h1 style="font-weight: 800; margin-bottom: 20px; font-size: 7rem;">Chào mừng đến PC Shop</h1>
+        <p style="font-size: 56px; margin-bottom: 40px;">Nâng cấp dàn PC của bạn với linh kiện chính hãng, giá tốt, bảo hành uy tín.</p>
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Login" asp-route-returnUrl="/Home/Index" style="background:#3399FF;border-color:#3399FF;font-weight:bold; font-size: 42px; padding: 15px 30px;">
+            <i class="fa fa-lock"></i> Đăng nhập để mua sắm
+        </a>
+    </section>
+
+    <section class="about-section reveal" style="background:#fff;border-radius:12px;padding:0;margin-bottom:20px;border:1px solid #eee;overflow:hidden;">
+        <div class="row" style="margin:0;align-items:stretch;display:flex;">
+            <div class="col-sm-7 reveal" data-reveal-delay="100" data-reveal="left" style="padding:0;">
+                <img src="https://bizweb.dktcdn.net/100/558/309/themes/999496/assets/bn-video.jpg?1758009184577" alt="PC Banner" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div class="col-sm-5 reveal" data-reveal-delay="200" data-reveal="right" style="background: radial-gradient(120% 120% at 0% 0%, #ff7e5f 0%, #6a11cb 60%, #2a2a72 100%); color:#fff; padding:30px; display:flex; flex-direction:column; justify-content:center;">
+                <h2 style="font-weight:800;margin-bottom:12px;font-size:32px;">Về  PC Shop</h2>
+                <p style="opacity:0.95;line-height:1.8;margin-bottom:18px;font-size:18px;">
+                    PC Shop mang đến một dải sản phẩm rộng lớn, từ máy tính văn phòng, laptop học sinh, sinh viên, máy tính chơi game (gaming PC) đến các linh kiện máy tính rời như card màn hình, CPU, mainboard, và RAM. Tất cả các sản phẩm đều được cam kết là hàng chính hãng 100%, có nguồn gốc rõ ràng từ các thương hiệu hàng đầu thế giới như ASUS, MSI, Gigabyte, Intel và AMD, đảm bảo hiệu suất và độ bền vượt trội.
+                </p>
+                <a href="#" style="align-self:flex-start;background:#ffffff;border:0;color:#1f2a44;font-weight:700;border-radius:9999px;padding:10px 16px;text-decoration:none;">Xem thêm</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="products-section reveal" style="background:#fff;border-radius:12px;padding:25px 20px;border:1px solid #eee;margin-top:20px;">
+        <h2 class="title text-center" style="color:#3399FF;font-weight:700;">Danh mục sản phẩm </h2>
+        <div class="row">
+
+
+
+            @await Component.InvokeAsync("Products", new { take = 8 })
+
+        </div>
+    </section>
+
+    <!-- Banner Section - Two banners side by side -->
+    <section class="banner-section reveal" style="background:#fff;border-radius:12px;padding:20px;border:1px solid #eee;margin-top:20px;">
+        <div class="row" style="margin:0;">
+            <div class="col-sm-6" style="padding:0 10px;">
+                <a href="#" style="display:block;text-decoration:none;">
+                    <img src="https://bizweb.dktcdn.net/100/558/309/themes/999496/assets/banner_col_1.png?1758009184577"
+                         alt="Banner 1"
+                         style="width:100%;height:auto;border-radius:8px;transition:transform 0.3s ease;"
+                         onmouseover="this.style.transform='scale(1.02)'"
+                         onmouseout="this.style.transform='scale(1)'">
+                </a>
+            </div>
+            <div class="col-sm-6" style="padding:0 10px;">
+                <a href="#" style="display:block;text-decoration:none;">
+                    <img src="https://bizweb.dktcdn.net/100/558/309/themes/999496/assets/banner_col_2.png?1758009184577"
+                         alt="Banner 2"
+                         style="width:100%;height:auto;border-radius:8px;transition:transform 0.3s ease;"
+                         onmouseover="this.style.transform='scale(1.02)'"
+                         onmouseout="this.style.transform='scale(1)'">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-footer reveal" style="background:#2b2d31;color:#d9d9d9;border-radius:12px;padding:30px 20px;margin-bottom:20px;">
+        <div class="row" style="margin-bottom:20px;display:flex;align-items:flex-start;gap:10px;">
+            <div class="col-sm-4 reveal" data-reveal-delay="0">
+                <h3 style="color:#fff;font-weight:800;font-size:20px;margin-bottom:12px;">PC Shop</h3>
+                <p>Thương hiệu máy tính uy tín mang đến sản phẩm chính hãng, dịch vụ tốt đến tay khách hàng.</p>
+                <div style="display:flex;gap:10px;margin-top:10px;align-items:center;">
+                    <a href="#" aria-label="Facebook">
+                        <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/social_fb_img.svg?1758073309604" alt="Facebook" style="height:28px;width:auto;display:block;" />
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/social_insta_img.svg?1758073309604" alt="Instagram" style="height:28px;width:auto;display:block;" />
+                    </a>
+                    <a href="#" aria-label="Shopee">
+                        <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/social_shopee_img.svg?1758073309604" alt="Shopee" style="height:28px;width:auto;display:block;" />
+                    </a>
+                    <a href="#" aria-label="Lazada">
+                        <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/social_lazada_img.svg?1758073309604" alt="Lazada" style="height:28px;width:auto;display:block;" />
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/social_tiktok_img.svg?1758073309604" alt="TikTok" style="height:28px;width:auto;display:block;" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 reveal" data-reveal-delay="120">
+                <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:8px;">
+                    <i class="fa fa-phone" style="color:#fff;margin-top:3px;"></i>
+                    <div>
+                        <div style="color:#fff;font-weight:700;">Đặt hàng</div>
+                        <div>0334626089</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:8px;">
+                    <i class="fa fa-envelope" style="color:#fff;margin-top:3px;"></i>
+                    <div>
+                        <div style="color:#fff;font-weight:700;">Email</div>
+                        <div>anhhung9hot@gmail.com</div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                    <i class="fa fa-map-marker" style="color:#fff;margin-top:3px;"></i>
+                    <div>
+                        <div style="color:#fff;font-weight:700;">Địa chỉ</div>
+                        <div>57 P. Đại An, P. Văn Quán, Hà Đông, Hà Nội, Việt Nam</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 reveal" data-reveal-delay="240">
+                <div style="color:#fff;font-weight:700;margin-bottom:8px;">Hỗ trợ thanh toán</div>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+                    <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/payment_1.svg?1758073309604" alt="Payment Logo 1" style="height:28px;width:auto;display:block;background:#fff;border-radius:6px;padding:4px;" />
+                    <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/payment_4.svg?1758073309604" alt="Payment Logo 4" style="height:28px;width:auto;display:block;background:#fff;border-radius:6px;padding:4px;" />
+                </div>
+            </div>
+        </div>
+
+        <hr style="border-color:#3a3c41;" />
+
+        <div class="row">
+            <div class="col-sm-3 reveal" data-reveal-delay="0" data-reveal="left">
+                <h4 style="color:#fff;font-weight:700;">Về chúng tôi</h4>
+                <ul style="margin-left:18px;">
+                    <li>Giới thiệu</li>
+                    <li>Hệ thống cửa hàng</li>
+                    <li>Tuyển dụng</li>
+                    <li>Liên hệ</li>
+                </ul>
+            </div>
+            <div class="col-sm-3 reveal" data-reveal-delay="120">
+                <h4 style="color:#fff;font-weight:700;">Chính sách</h4>
+                <ul style="margin-left:18px;">
+                    <li>Chính sách bảo mật</li>
+                    <li>Giao hàng</li>
+                    <li>Đổi trả</li>
+                    <li>Điều khoản & Điều kiện</li>
+                </ul>
+            </div>
+            <div class="col-sm-3 reveal" data-reveal-delay="240">
+                <h4 style="color:#fff;font-weight:700;">Thông tin khác</h4>
+                <ul style="margin-left:18px;">
+                    <li>Phương thức thanh toán</li>
+                    <li>Khách hàng thân thiết</li>
+                    <li>Hóa đơn điện tử</li>
+                    <li>Hướng dẫn mua hàng</li>
+                </ul>
+            </div>
+            <div class="col-sm-3 reveal" data-reveal-delay="360" data-reveal="right">
+                <h4 style="color:#fff;font-weight:700;">Zalo Mini Apps</h4>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <img src="https://bizweb.dktcdn.net/100/592/467/themes/1036709/assets/zalo-buy-qrcode.jpg?1758073309604" alt="Zalo QR" style="width:84px;height:84px;border-radius:8px;object-fit:cover;background:#fff;" />
+                    <div>
+                        Quét QR để mua hàng nhanh chóng
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .6s ease, transform .6s ease;
+    }
+
+        .reveal[data-reveal="left"] {
+            transform: translateX(-24px);
+        }
+
+        .reveal[data-reveal="right"] {
+            transform: translateX(24px);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+    .hero-section .btn-primary:hover {
+        background: #267ACC;
+        border-color: #267ACC;
+    }
+
+    .title.text-center {
+        margin-bottom: 15px;
+    }
+
+</style>
+
+<script>
+    (function () {
+        var elements = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            elements.forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target;
+                    var delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+                    setTimeout(function () { el.classList.add('is-visible'); }, delay);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.12 });
+        elements.forEach(function (el) { observer.observe(el); });
+    })();
+</script>
+

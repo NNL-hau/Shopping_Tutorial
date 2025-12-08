@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\huong_dan_3d.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\huong_dan_3d.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\migrations\\20251127025736_3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\migrations\\20251127025736_3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\views\\home\\comparemany.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\views\\home\\comparemany.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\views\\home\\compare.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\views\\home\\compare.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\views\\home\\testeffect.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\views\\home\\testeffect.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\views\\home\\comparetwo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\views\\home\\comparetwo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\models\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\quick_start_3d.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\quick_start_3d.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|c:\\users\\lamma\\downloads\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\shopping_tutorial\\migration_3d_features.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3592E55A-68E5-40EB-8126-ED3EC7208275}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\migration_3d_features.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 16,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAkwAkBAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-11-27T04:11:08.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20251127025736_3d.cs",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Migrations\\20251127025736_3d.cs",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Migrations\\20251127025736_3d.cs",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Migrations\\20251127025736_3d.cs",
+              "RelativeToolTip": "Shopping_Tutorial\\Migrations\\20251127025736_3d.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T02:57:38.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CompareTwo.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\CompareTwo.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Views\\Home\\CompareTwo.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\CompareTwo.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Views\\Home\\CompareTwo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T02:33:52.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CompareMany.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\CompareMany.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Views\\Home\\CompareMany.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\CompareMany.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Views\\Home\\CompareMany.cshtml",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T02:33:38.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\appsettings.json",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\appsettings.json",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\appsettings.json",
+              "RelativeToolTip": "Shopping_Tutorial\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-27T02:27:07.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HUONG_DAN_3D.md",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\HUONG_DAN_3D.md",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\HUONG_DAN_3D.md",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\HUONG_DAN_3D.md",
+              "RelativeToolTip": "Shopping_Tutorial\\HUONG_DAN_3D.md",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T07:55:51.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Compare.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\Compare.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Views\\Home\\Compare.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\Compare.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Views\\Home\\Compare.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T02:34:02Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TestEffect.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\TestEffect.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Views\\Home\\TestEffect.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Views\\Home\\TestEffect.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Views\\Home\\TestEffect.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T02:34:09.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAswKsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:01:17.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T01:01:09.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T01:01:02.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductModel.cs",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Models\\ProductModel.cs",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\Models\\ProductModel.cs",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Models\\ProductModel.cs",
+              "RelativeToolTip": "Shopping_Tutorial\\Models\\ProductModel.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T01:00:12.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "QUICK_START_3D.md",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\QUICK_START_3D.md",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\QUICK_START_3D.md",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\QUICK_START_3D.md",
+              "RelativeToolTip": "Shopping_Tutorial\\QUICK_START_3D.md",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T07:58:34.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MIGRATION_3D_FEATURES.md",
+              "DocumentMoniker": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\MIGRATION_3D_FEATURES.md",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\MIGRATION_3D_FEATURES.md",
+              "ToolTip": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\MIGRATION_3D_FEATURES.md",
+              "RelativeToolTip": "Shopping_Tutorial\\MIGRATION_3D_FEATURES.md",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T08:21:24.073Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

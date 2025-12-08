@@ -1,0 +1,154 @@
+﻿    @model CouponModel
+    @{
+        ViewData["title"] = "Create Coupon";
+    }
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+    <h4>Tạo giảm giá</h4>
+    <div class="col-md-9">
+        <form asp-action="Create" autocomplete="off" asp-controller="Coupon" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label>Tên mã giảm giá</label>
+                <input  asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" />
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Mô tả</label>
+                <!-- Đảm bảo rằng textarea có id là editor -->
+                <textarea asp-for="Description" class="form-control" id="editor"></textarea>
+                <span asp-validation-for="Description" class="text-danger" />
+            </div>
+        
+            <div class="form-group">
+                <label>Số thực của giảm giá (0.xx->1)</label>
+                <input asp-for="GiaNhap" class="form-control" />
+                <span asp-validation-for="GiaNhap" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+            <label>Kích hoạt nhấn 1</label>
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
+        
+        
+            <div class="form-group">
+                <label>Ngày bắt đầu</label>
+                <!-- Đảm bảo rằng textarea có id là editor -->
+                <input asp-for="DateStart" class="form-control" />
+                <span asp-validation-for="DateStart" class="text-danger" />
+            </div>
+        
+            <div class="form-group">
+                <label>Ngày kết thúc</label>
+                <!-- Đảm bảo rằng textarea có id là editor -->
+                <input asp-for="DateExpired" class="form-control" />
+                <span asp-validation-for="DateExpired" class="text-danger" />
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <label>Chức năng</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="1">Hiển thị</option>
+                    <option value="0">Ẩn</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger" />
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary">Thêm mã giảm giá</button>
+            </div>
+        </form>
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>Tên </th>
+                    <th>Mô tả</th>
+                    <th>Số thực</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Chế độ</th>
+                    <th>Hết hạn</th>
+                </tr>
+            </thead>
+        <tbody>
+            @foreach (var coupon in ViewBag.Coupons)
+            {
+                <tr>
+                    <td>@coupon.Name</td>
+                    <td>@coupon.Description</td>
+                    <td>@coupon.GiaNhap</td> <!-- THÊM DÒNG NÀY -->
+                    <td>@coupon.DateStart.ToString("dd-MM-yyyy")</td>
+                    <td>@coupon.DateExpired.ToString("dd-MM-yyyy")</td>
+                    <td>@(coupon.Status == 1 ? "Hiển thị" : "Ẩn")</td>
+                    <td>
+                        @if (coupon.DateExpired < DateTime.Now)
+                        {
+                            <span class="text text-danger">Expired</span>
+                        }
+                        else
+                        {
+                            TimeSpan remainingTime = coupon.DateExpired - DateTime.Now;
+                            int daysRemaining = remainingTime.Days;
+                            @if (daysRemaining == 0)
+                            {
+                                <span class="text text-danger">Hôm nay</span>
+                            }
+                            else
+                            {
+                                <span class="text text-success">@daysRemaining ngày nữa</span>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        </table>
+
+    
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+        <script>
+            $(function () {
+                $("#datepicker").datepicker({
+                    changeYear: true,
+                    minDate: 0,
+                    showButtonPanel: true,
+                    dateFormat: 'dd/mm/yy'
+
+                });
+
+            });
+            $(function () {
+                $("#datepicker2").datepicker({
+                    changeYear: true,
+                    minDate: +1,
+                    showButtonPanel: true,
+                    dateFormat: 'dd/mm/yy'
+
+                        });
+
+                    });
+        </script>
+    }

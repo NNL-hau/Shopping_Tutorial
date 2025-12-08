@@ -1,0 +1,648 @@
+@model ProductModel
+@using System
+@using System.Globalization
+@using System.Text.Json
+@using System.Text.Encodings.Web
+@using System.Linq
+@{
+    ViewData["Title"] = "3D Viewer - " + Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var invariant = CultureInfo.InvariantCulture;
+    Func<string?, string> resolveModelPath = (string? path) =>
+    {
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return string.Empty;
+        }
+
+        return Uri.IsWellFormedUriString(path, UriKind.Absolute)
+            ? path
+            : Url.Content(path);
+    };
+
+    var modelPath = resolveModelPath(Model.Product3D?.Model3DPath);
+    if (string.IsNullOrEmpty(modelPath))
+    {
+        modelPath = resolveModelPath(Model.Model3DLink);
+    }
+
+    var defaultScale = (double)(Model.Product3D?.DefaultScale ?? 1.0m);
+    var cameraX = (double)(Model.Product3D?.CameraPositionX ?? 0m);
+    var cameraY = (double)(Model.Product3D?.CameraPositionY ?? 2m);
+    var cameraZ = (double)(Model.Product3D?.CameraPositionZ ?? 5m);
+    var supportAR = Model.Product3D?.SupportAR ?? false;
+    var supportVR = Model.Product3D?.SupportVR ?? false;
+    var annotationPayload = Model.Annotations?
+        .OrderBy(a => a.DisplayOrder)
+        .Select(a => new
+        {
+            title = a.Title,
+            content = a.Content,
+            x = (double)a.PositionX,
+            y = (double)a.PositionY,
+            z = (double)a.PositionZ,
+            color = a.MarkerColor ?? "#ff4444"
+        }) ?? Enumerable.Empty<object>();
+    var annotationJson = JsonSerializer.Serialize(annotationPayload, new JsonSerializerOptions
+    {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+    });
+    var hasModel3D = !string.IsNullOrEmpty(modelPath);
+}
+
+<style>
+    #canvas-container {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .controls-panel {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        min-width: 250px;
+    }
+
+    .product-info {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .annotation-popup {
+        position: absolute;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        max-width: 300px;
+        z-index: 200;
+        display: none;
+    }
+
+    .annotation-popup h4 {
+        margin: 0 0 10px 0;
+        color: #3399FF;
+    }
+
+    .annotation-popup p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .btn-3d {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        transition: all 0.3s;
+    }
+
+    .btn-3d:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .annotation-marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #ff4444;
+        border: 3px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 150;
+        animation: pulse 2s infinite;
+    }
+
+    @@keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    .configurator-panel {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .color-option {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s;
+    }
+
+    .color-option:hover {
+        transform: scale(1.1);
+        border-color: #3399FF;
+    }
+
+    .color-option.selected {
+        border-color: #3399FF;
+        box-shadow: 0 0 10px rgba(51, 153, 255, 0.5);
+    }
+</style>
+
+<div class="container" style="margin-top: 20px;">
+    <div class="product-info">
+        <h2>@Model.Name</h2>
+        <p><strong>Giá:</strong> @Model.Price.ToString("#,##0") VNĐ</p>
+        <p><strong>Thương hiệu:</strong> @Model.Brand?.Name</p>
+        <p><strong>Danh mục:</strong> @Model.Category?.Name</p>
+    </div>
+
+    @if (!hasModel3D)
+    {
+        <div class="alert alert-warning" role="alert">
+            Hiện sản phẩm chưa có file 3D (.glb). Hệ thống sẽ hiển thị mô hình minh họa để bạn tiếp tục thao tác.
+        </div>
+    }
+
+    <div id="canvas-container">
+        <canvas id="threejs-canvas"></canvas>
+        
+        <div class="controls-panel">
+            <h4 style="margin-top: 0; color: #3399FF;">Điều khiển</h4>
+            <button class="btn-3d" onclick="resetCamera()">🔍 Reset Camera</button>
+            <button class="btn-3d" onclick="toggleWireframe()">📐 Wireframe</button>
+            <button class="btn-3d" onclick="enterAR()">🥽 AR Mode</button>
+            <button class="btn-3d" onclick="enterVR()">🥽 VR Mode</button>
+            <button class="btn-3d" onclick="addAnnotation()">➕ Thêm chú thích</button>
+            <button class="btn-3d" onclick="addToCart3D()">🛒 Thêm vào giỏ hàng</button>
+        </div>
+
+        <div id="annotation-popup" class="annotation-popup">
+            <h4 id="annotation-title"></h4>
+            <p id="annotation-content"></p>
+            <button class="btn-3d" onclick="closeAnnotation()" style="margin-top: 10px; padding: 5px 10px;">Đóng</button>
+        </div>
+    </div>
+
+    <!-- Configurator Panel -->
+    <div class="configurator-panel">
+        <h3 style="color: #3399FF; margin-top: 0;">🔧 Tùy chỉnh sản phẩm</h3>
+        
+        <div style="margin-bottom: 20px;">
+            <h4>Màu sắc:</h4>
+            <div id="color-options">
+                <div class="color-option selected" style="background: #3498db;" data-color="#3498db" onclick="changeColor('#3498db')"></div>
+                <div class="color-option" style="background: #e74c3c;" data-color="#e74c3c" onclick="changeColor('#e74c3c')"></div>
+                <div class="color-option" style="background: #2ecc71;" data-color="#2ecc71" onclick="changeColor('#2ecc71')"></div>
+                <div class="color-option" style="background: #f39c12;" data-color="#f39c12" onclick="changeColor('#f39c12')"></div>
+                <div class="color-option" style="background: #9b59b6;" data-color="#9b59b6" onclick="changeColor('#9b59b6')"></div>
+                <div class="color-option" style="background: #34495e;" data-color="#34495e" onclick="changeColor('#34495e')"></div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4>Vật liệu:</h4>
+            <select id="material-select" class="form-control" onchange="changeMaterial(this.value)" style="max-width: 300px;">
+                <option value="standard">Tiêu chuẩn</option>
+                <option value="metal">Kim loại</option>
+                <option value="glass">Thủy tinh</option>
+                <option value="plastic">Nhựa</option>
+                <option value="wood">Gỗ</option>
+            </select>
+        </div>
+
+        <div>
+            <h4>Linh kiện:</h4>
+            <div id="components-list">
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox" checked onchange="toggleComponent('screen', this.checked)"> Màn hình
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox" checked onchange="toggleComponent('keyboard', this.checked)"> Bàn phím
+                </label>
+                <label style="display: block; margin: 10px 0;">
+                    <input type="checkbox" checked onchange="toggleComponent('battery', this.checked)"> Pin
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Three.js and WebXR libraries -->
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/webxr/VRButton.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/webxr/ARButton.js"></script>
+
+<script>
+    let scene, camera, renderer, controls;
+    let productMesh = null;
+    let annotations = [];
+    let currentColor = '#3498db';
+    let currentMaterial = 'standard';
+    let wireframeMode = false;
+    let arSession = null;
+    let vrSession = null;
+
+    const MODEL_PATH = @Html.Raw(JsonSerializer.Serialize(modelPath));
+    const HAS_MODEL = @(hasModel3D.ToString().ToLowerInvariant());
+    const DEFAULT_SCALE = @(defaultScale.ToString(invariant));
+    const CAMERA_POSITION = {
+        x: @(cameraX.ToString(invariant)),
+        y: @(cameraY.ToString(invariant)),
+        z: @(cameraZ.ToString(invariant))
+    };
+    const SUPPORT_AR = @(supportAR.ToString().ToLowerInvariant());
+    const SUPPORT_VR = @(supportVR.ToString().ToLowerInvariant());
+    const SERVER_ANNOTATIONS = @Html.Raw(annotationJson);
+
+    // Initialize Three.js scene
+    function init3D() {
+        const container = document.getElementById('canvas-container');
+        const canvas = document.getElementById('threejs-canvas');
+
+        // Scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+
+        // Camera
+        camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.set(CAMERA_POSITION.x, CAMERA_POSITION.y, CAMERA_POSITION.z);
+
+        // Renderer
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.xr.enabled = true;
+
+        // Controls
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(5, 10, 5);
+        directionalLight.castShadow = true;
+        scene.add(directionalLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 0.5);
+        pointLight.position.set(-5, 5, -5);
+        scene.add(pointLight);
+
+        // Load model + annotations
+        loadProductModel();
+        loadAnnotationsFromServer();
+
+        // Handle window resize
+        window.addEventListener('resize', onWindowResize);
+
+        // Animation loop
+        animate();
+    }
+
+    function loadProductModel() {
+        if (HAS_MODEL && MODEL_PATH) {
+            const loader = new THREE.GLTFLoader();
+            loader.load(
+                MODEL_PATH,
+                (gltf) => {
+                    productMesh = gltf.scene;
+                    productMesh.scale.set(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE);
+                    productMesh.traverse(child => {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
+                    scene.add(productMesh);
+                },
+                undefined,
+                (error) => {
+                    console.error('Không thể tải mô hình 3D', error);
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'alert alert-danger';
+                    errorDiv.style.position = 'absolute';
+                    errorDiv.style.top = '10px';
+                    errorDiv.style.left = '10px';
+                    errorDiv.style.zIndex = '1000';
+                    errorDiv.style.maxWidth = '80%';
+                    errorDiv.innerHTML = `<strong>Lỗi tải mô hình:</strong> Không thể tải file từ <code>${MODEL_PATH}</code>.<br>Chi tiết: ${error.message || 'File không tồn tại hoặc lỗi định dạng.'}`;
+                    document.getElementById('canvas-container').appendChild(errorDiv);
+                    
+                    createFallbackModel();
+                }
+            );
+        } else {
+            createFallbackModel();
+        }
+    }
+
+    function createFallbackModel() {
+        const geometry = new THREE.BoxGeometry(2, 2, 1);
+        const material = new THREE.MeshStandardMaterial({
+            color: currentColor,
+            metalness: 0.3,
+            roughness: 0.4
+        });
+        productMesh = new THREE.Mesh(geometry, material);
+        productMesh.castShadow = true;
+        productMesh.receiveShadow = true;
+        productMesh.scale.set(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE);
+        scene.add(productMesh);
+    }
+
+    function loadAnnotationsFromServer() {
+        if (SERVER_ANNOTATIONS && SERVER_ANNOTATIONS.length > 0) {
+            SERVER_ANNOTATIONS.forEach(a => {
+                addAnnotationAtPosition(a.x, a.y, a.z, a.title, a.content, a.color);
+            });
+        } else {
+            addAnnotationAtPosition(0, 1, 0.6, 'Màn hình', 'Màn hình chất lượng cao với độ phân giải sắc nét');
+            addAnnotationAtPosition(0, -0.5, 0.6, 'Bàn phím', 'Bàn phím cơ học với đèn nền RGB');
+            addAnnotationAtPosition(-1, 0, 0.6, 'Cổng kết nối', 'Nhiều cổng USB-C và USB-A');
+        }
+    }
+
+    function addAnnotationAtPosition(x, y, z, title, content, markerColor = '#ff4444') {
+        const annotation = {
+            position: new THREE.Vector3(x, y, z),
+            title: title,
+            content: content,
+            color: markerColor,
+            marker: null
+        };
+
+        // Create 3D marker
+        const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+        const markerMaterial = new THREE.MeshBasicMaterial({ color: new THREE.Color(markerColor) });
+        const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+        marker.position.copy(annotation.position);
+        marker.userData = { annotation: annotation };
+        scene.add(marker);
+
+        annotation.marker = marker;
+        annotations.push(annotation);
+
+        // Add click handler
+        marker.onClick = function() {
+            showAnnotationPopup(annotation, x, y, z);
+        };
+    }
+
+    function forEachMeshMaterial(callback) {
+        if (!productMesh) return;
+
+        const invoke = (target) => {
+            if (target.isMesh && target.material) {
+                callback(target.material, target);
+            }
+        };
+
+        if (productMesh.traverse) {
+            productMesh.traverse(child => invoke(child));
+        } else {
+            invoke(productMesh);
+        }
+    }
+
+    function showAnnotationPopup(annotation, x, y, z) {
+        const popup = document.getElementById('annotation-popup');
+        document.getElementById('annotation-title').textContent = annotation.title;
+        document.getElementById('annotation-content').textContent = annotation.content;
+        
+        // Convert 3D position to screen coordinates
+        const vector = new THREE.Vector3(x, y, z);
+        vector.project(camera);
+        
+        const widthHalf = window.innerWidth / 2;
+        const heightHalf = window.innerHeight / 2;
+        
+        const xPos = (vector.x * widthHalf) + widthHalf;
+        const yPos = -(vector.y * heightHalf) + heightHalf;
+        
+        popup.style.left = xPos + 'px';
+        popup.style.top = yPos + 'px';
+        popup.style.display = 'block';
+    }
+
+    function closeAnnotation() {
+        document.getElementById('annotation-popup').style.display = 'none';
+    }
+
+    function addAnnotation() {
+        const title = prompt('Nhập tiêu đề chú thích:');
+        if (!title) return;
+        
+        const content = prompt('Nhập nội dung chú thích:');
+        if (!content) return;
+
+        // Add annotation at center of product
+        addAnnotationAtPosition(0, 1, 0.6, title, content);
+    }
+
+    function resetCamera() {
+        camera.position.set(CAMERA_POSITION.x, CAMERA_POSITION.y, CAMERA_POSITION.z);
+        controls.reset();
+    }
+
+    function toggleWireframe() {
+        wireframeMode = !wireframeMode;
+        forEachMeshMaterial(material => {
+            material.wireframe = wireframeMode;
+        });
+    }
+
+    function changeColor(color) {
+        currentColor = color;
+        forEachMeshMaterial(material => {
+            if (material.color) {
+                material.color.setStyle(color);
+            }
+        });
+        
+        // Update selected color UI
+        document.querySelectorAll('.color-option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        document.querySelector(`[data-color="${color}"]`).classList.add('selected');
+    }
+
+    function changeMaterial(materialType) {
+        currentMaterial = materialType;
+        if (!productMesh) return;
+
+        const color = new THREE.Color(currentColor);
+
+        forEachMeshMaterial((material, mesh) => {
+            let newMaterial;
+
+            switch(materialType) {
+                case 'metal':
+                    newMaterial = new THREE.MeshStandardMaterial({
+                        color: color,
+                        metalness: 0.9,
+                        roughness: 0.1
+                    });
+                    break;
+                case 'glass':
+                    newMaterial = new THREE.MeshPhysicalMaterial({
+                        color: color,
+                        transparent: true,
+                        opacity: 0.7,
+                        roughness: 0.1,
+                        metalness: 0.0
+                    });
+                    break;
+                case 'plastic':
+                    newMaterial = new THREE.MeshStandardMaterial({
+                        color: color,
+                        metalness: 0.0,
+                        roughness: 0.8
+                    });
+                    break;
+                case 'wood':
+                    newMaterial = new THREE.MeshStandardMaterial({
+                        color: color,
+                        metalness: 0.0,
+                        roughness: 0.9
+                    });
+                    break;
+                default:
+                    newMaterial = new THREE.MeshStandardMaterial({
+                        color: color,
+                        metalness: 0.3,
+                        roughness: 0.4
+                    });
+            }
+
+            newMaterial.wireframe = wireframeMode;
+            mesh.material = newMaterial;
+        });
+    }
+
+    function toggleComponent(componentName, enabled) {
+        // This would show/hide specific parts of the 3D model
+        console.log(`Component ${componentName} ${enabled ? 'enabled' : 'disabled'}`);
+        // In a real implementation, you would manipulate the 3D model parts here
+    }
+
+    function enterAR() {
+        if (!SUPPORT_AR) {
+            alert('Sản phẩm này chưa bật chế độ AR.');
+            return;
+        }
+        if (navigator.xr) {
+            const arButton = ARButton.createButton(renderer, {
+                sessionInit: {
+                    requiredFeatures: ['local-floor'],
+                    optionalFeatures: ['bounded-floor']
+                }
+            });
+            document.body.appendChild(arButton);
+            arButton.click();
+        } else {
+            alert('Trình duyệt của bạn không hỗ trợ AR. Vui lòng sử dụng Chrome trên Android hoặc Safari trên iOS.');
+        }
+    }
+
+    function enterVR() {
+        if (!SUPPORT_VR) {
+            alert('Sản phẩm này chưa bật chế độ VR.');
+            return;
+        }
+        if (navigator.xr) {
+            const vrButton = VRButton.createButton(renderer);
+            document.body.appendChild(vrButton);
+            vrButton.click();
+        } else {
+            alert('Trình duyệt của bạn không hỗ trợ VR. Vui lòng sử dụng trình duyệt hỗ trợ WebXR.');
+        }
+    }
+
+    function addToCart3D() {
+        // Add product to cart via AJAX
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Add", "Cart")",
+            data: { Id: @Model.Id },
+            success: function (result) {
+                Swal.fire("Thêm giỏ hàng thành công từ 3D Viewer!");
+            },
+            error: function (xhr, status, error) {
+                Swal.fire("Có lỗi xảy ra khi thêm vào giỏ hàng.");
+            }
+        });
+    }
+
+    function onWindowResize() {
+        const container = document.getElementById('canvas-container');
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    // Raycasting for annotation clicks
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    function onMouseClick(event) {
+        const container = document.getElementById('canvas-container');
+        const rect = container.getBoundingClientRect();
+        
+        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(scene.children, true);
+
+        for (let i = 0; i < intersects.length; i++) {
+            const object = intersects[i].object;
+            if (object.userData.annotation) {
+                const annotation = object.userData.annotation;
+                showAnnotationPopup(annotation, 
+                    annotation.position.x, 
+                    annotation.position.y, 
+                    annotation.position.z);
+                break;
+            }
+        }
+    }
+
+    // Initialize when page loads
+    window.addEventListener('load', function() {
+        init3D();
+        document.getElementById('threejs-canvas').addEventListener('click', onMouseClick);
+    });
+</script>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}
+

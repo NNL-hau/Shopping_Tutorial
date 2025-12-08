@@ -1,0 +1,332 @@
+﻿@model StatisticalModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<style>
+    .btn-primary{
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+</style>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Thống kê số lượng -->
+        <div class="col-md-12">
+            <h5 class="text-primary mb-4">Thống kê số lượng</h5>
+            <div class="d-flex justify-content-start flex-wrap">
+                <div class="stat-item mr-4 mb-3">
+                    <strong>Tổng đơn hàng:</strong> @ViewBag.CountOrder
+                </div>
+                <div class="stat-item mr-4 mb-3">
+                    <strong>Tổng sản phẩm:</strong> @ViewBag.CountProduct
+                </div>
+                <div class="stat-item mr-4 mb-3">
+                    <strong>Tổng danh mục sản phẩm:</strong> @ViewBag.CountCategory
+                </div>
+                <div class="stat-item mb-3">
+                    <strong>Tổng khách hàng:</strong> @ViewBag.CountUser
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Thống kê bán hàng -->
+        <div class="col-md-12 mt-5">
+            <h5 class="text-primary mb-4">Thống kê bán hàng</h5>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <select class="form-control filter-select">
+                     
+                        <option value="60">Tháng trước</option>
+                        <option value="120">3 tháng trước</option>
+                        <option value="365">1 năm trước</option>
+                        <option value="800">2 năm trước</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="form-group">
+                        <label for="date_from">Từ ngày</label>
+                        <input type="date" class="form-control" id="date_from" asp-for="@Model.DateCreated" />
+                    </div>
+                    <div class="form-group">
+                        <label for="date_to">Đến ngày</label>
+                        <input type="date" class="form-control" id="date_to" asp-for="@Model.DateCreated" />
+                    </div>
+                    <button id="filterButton" class="btn btn-primary mt-3">Lọc</button>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <h6 class="text-secondary mb-3">Thống kê trực quan</h6>
+                    <div id="myfirstchart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    /* Style cho phần thống kê số lượng */
+    .stat-item {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        min-width: 200px;
+    }
+
+    /* Căn chỉnh giữa và cách đều các phần tử thống kê */
+    .d-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+ 
+
+
+    
+
+    /* Tinh chỉnh khoảng cách giữa các phần tử */
+    .stat-item + .stat-item {
+        margin-left: 15px;
+    }
+
+</style>
+
+@*@section Scripts {
+    <script>
+        $(document).ready(function () {
+             var ChartNooris = new Morris.Line({
+                            element: 'myfirstchart',
+                            data: [],
+                            xkey: 'date',
+                            ykeys: ['sold', 'quantity', 'revenue', 'profit'],
+                            labels: ["Đơn hàng", "Số lượng bán ra", "Doanh thu", "Lợi nhuận"],
+                        
+                        });
+            // Fetch all data for the chart
+            $.ajax({
+                url: "@Url.Action("GetChartData","Dashboard")",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data ) {
+                        ChartNooris.setData(data.map(function (item) {
+                            return {
+                                date: new Date(item.date).getTime(), // Chuyển thành timestamp
+                                sold: item.sold,
+                                quantity: item.quantity,
+                                revenue: item.revenue,
+                                profit: item.profit
+                            };
+                        }));
+
+                       
+                        // Lưu đối tượng biểu đồ để cập nhật sau này
+                        window.myChart = myChart;
+                    } else {
+                        console.warn("No data available");
+                       ChartNooris.setData([]);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error fetching data", error);
+                }
+            });
+
+            // Xử lý sự kiện khi thay đổi bộ lọc
+                  
+        $('.filter-select').on('change', function () {
+            var days = $(this).val();
+            var endDate = new Date();
+            var startDate = new Date(endDate.getTime()-days*24*60*60*1000);
+      // alert(startDate);
+      // alert(endDate);
+
+            $.ajax({
+                url: "@Url.Action("GetChartDataBySelect", "Dashboard")",
+                type: "POST",
+                dataType: "json",
+                data: { 
+                    startDate: startDate.toISOString().split('T')[0],
+                    endDate: endDate.toISOString().split('T')[0]
+                },
+                success: function (data) {
+                    
+                    if (data ) {
+                        ChartNooris.setData(data.map(function (item) {
+                            return {
+                                date: item.date,
+                                sold: item.sold,
+                                quantity: item.quantity,
+                                revenue: item.revenue,
+                                profit: item.profit
+                            };
+                        }));
+                    }
+                         else {
+                            console.warn("Chart instance not found.");
+                            ChartNooris.setData([]);
+                        }
+                     
+                },
+                error: function (error) {
+                    console.error("Error fetching filtered data: ", error);
+                }
+            });
+        });
+
+
+                   $("#filterButton").click(function (){
+
+                    var fromDate = $("#date_from").val();
+        var toDate = $("#date_to").val();
+
+
+            $.ajax({
+                     url: "@Url.Action("FilterData", "Dashboard")",
+                data: { fromDate: fromDate, toDate: toDate }, // Corrected variable name
+                type: "POST",
+                success: function (data) {
+                    if (data) {
+                        ChartNooris.setData(data.map(function (item) {
+                            return {
+                                date: item.date,
+                                sold: item.sold,
+                                quantity: item.quantity,
+                                revenue: item.revenue,
+                                profit: item.profit
+                            };
+                        }));
+                    } else {
+                        console.warn("Chart instance not found.");
+                        ChartNooris.setData([]);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error fetching filtered data: ", error);
+                }
+            });
+        });
+
+
+        
+
+     });
+    </script>
+}*@
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var ChartNooris = new Morris.Line({
+                element: 'myfirstchart',
+                data: [],
+                xkey: 'date',
+                ykeys: ['sold', 'quantity', 'revenue', 'profit'],
+                labels: ["Đơn hàng", "Số lượng bán ra", "Doanh thu", "Lợi nhuận"],
+            });
+
+            // Fetch all data for the chart
+            $.ajax({
+                url: "@Url.Action("GetChartData", "Dashboard")",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        ChartNooris.setData(data.map(function (item) {
+                            return {
+                                date: new Date(item.date).getTime(), // Chuyển thành timestamp
+                                sold: item.sold,
+                                quantity: item.quantity,
+                                revenue: item.revenue,
+                                profit: item.profit
+                            };
+                        }));
+                        // Lưu đối tượng biểu đồ để cập nhật sau này
+                        window.myChart = myChart;
+                    } else {
+                        console.warn("No data available");
+                        ChartNooris.setData([]);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error fetching data", error);
+                }
+            });
+
+            // Xử lý sự kiện khi thay đổi bộ lọc
+            $('.filter-select').on('change', function () {
+                var days = $(this).val();
+                var endDate = new Date();
+                var startDate = new Date(endDate.getTime() - days * 24 * 60 * 60 * 1000);
+
+                $.ajax({
+                    url: "@Url.Action("GetChartDataBySelect", "Dashboard")",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        startDate: startDate.toISOString().split('T')[0],
+                        endDate: endDate.toISOString().split('T')[0]
+                    },
+                    success: function (data) {
+                        if (data) {
+                            ChartNooris.setData(data.map(function (item) {
+                                return {
+                                    date: item.date,
+                                    sold: item.sold,
+                                    quantity: item.quantity,
+                                    revenue: item.revenue,
+                                    profit: item.profit
+                                };
+                            }));
+                        } else {
+                            console.warn("Chart instance not found.");
+                            ChartNooris.setData([]);
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error fetching filtered data: ", error);
+                    }
+                });
+            });
+
+            // Xử lý sự kiện lọc theo ngày
+            $("#filterButton").click(function () {
+                var fromDate = $("#date_from").val();
+                var toDate = $("#date_to").val();
+
+                $.ajax({
+                    url: "@Url.Action("FilterData", "Dashboard")",
+                    data: { fromDate: fromDate, toDate: toDate },
+                    type: "POST",
+                    success: function (data) {
+                        if (data) {
+                            ChartNooris.setData(data.map(function (item) {
+                                return {
+                                    date: item.date,
+                                    sold: item.sold,
+                                    quantity: item.quantity,
+                                    revenue: item.revenue,
+                                    profit: item.profit
+                                };
+                            }));
+                        } else {
+                            console.warn("Chart instance not found.");
+                            ChartNooris.setData([]);
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error fetching filtered data: ", error);
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+

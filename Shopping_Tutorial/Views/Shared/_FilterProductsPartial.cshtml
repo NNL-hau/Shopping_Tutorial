@@ -1,0 +1,85 @@
+﻿@{
+    var currentUrl = Url.ActionContext.HttpContext.Request.Path;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <h5>Sắp xếp theo</h5>
+            <select class="form-control" id="sort_by">
+                <option>---------</option>
+                <option value="@currentUrl?sort_by=price_increase">Giá tăng dần</option>
+                <option value="@currentUrl?sort_by=price_decrease">Giá giảm dần</option>
+                <option value="@currentUrl?sort_by=price_newest">Mới nhất</option>
+                <option value="@currentUrl?sort_by=price_oldest">Cũ nhất</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <h5>Lọc theo giá</h5>
+            <form asp-action="Index" asp-controller="Category">
+                <p>
+                    <input type="text" id="amount" readonly
+                           style="border:0; color:#3399FF; font-weight:bold; width: 250px;">
+
+
+                </p>
+
+                <!-- Bọc thanh trượt và nút lọc trong 1 div để căn chỉnh ngang -->
+                <div class="filter-container">
+                    <div id="slider-range"></div>
+                    <button type="submit" name="locgia" data-current_url="@currentUrl" class="btn btn-danger btn-locgia">Lọc giá</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+           <style>
+  
+    /* Căn chỉnh thanh trượt và nút lọc giá ngang hàng */
+    .filter-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Khoảng cách giữa thanh trượt và nút */
+    }
+
+    #amount {
+        border: 0;
+        color: #3399FF;
+        font-weight: bold;
+        width: 100%;
+        min-width: 250px;
+    }
+
+    /* Thanh trượt giá */
+    #slider-range {
+        flex: 1; /* Chiếm hết phần trống */
+        height: 5px;
+        background: #ddd;
+        border-radius: 5px;
+
+    }
+
+    /* Nút lọc giá */
+    .btn-locgia {
+        width: 30%; /* Tự động theo nội dung */
+        padding: 8px 15px;
+        background: #3399FF;
+        
+       
+        border: none;
+        font-size: 14px;
+        margin-left: 10%;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+        .btn-locgia:hover {
+            background: #3399FF;
+            transform: scale(1.05);
+        }
+
+</style>

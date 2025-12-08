@@ -1,0 +1,503 @@
+@model Shopping_Tutorial.Models.ViewModels.CompareManyViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "So sánh sản phẩm";
+    var count = Model.Products?.Count ?? 0;
+}
+
+<div id="chat-popup" style="display: flex; flex-direction: column;
+    width: 100%; height: 100%; background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 40px auto 0 auto;">
+
+    <!-- Header -->
+    <div id="chat-header" style="background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; padding: 10px; text-align: center;">
+        <h4>Hỗ trợ chọn sản phẩm </h4>
+    </div>
+
+    <!-- Tin nhắn + sản phẩm -->
+    <div id="chat-messages" style="padding: 10px; flex-grow: 1; overflow-y: auto;">
+        <div class="message">
+            <div class="message-container">
+                <img src="/images/6.jpg" alt="Bot" class="profile-image" />
+                <div class="bot-message">Xin chào! Dưới đây là các sản phẩm mà bạn đang muốn so sánh ? Hãy chat với tôi để được hỗ trợ lựa chọn nhé !</div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm nằm trong chat -->
+        <div class="bot-message" style="display: flex; flex-wrap: wrap; gap: 12px; background: transparent; box-shadow: none;">
+            @foreach (var p in Model.Products)
+            {
+                <div class="product-card">
+                    <img src="~/images/@p.Image" alt="@p.Name" />
+                    <div class="info">
+                        <strong>@p.Name</strong>
+                        <div>Giá: @p.Price.ToString("#,##0") VNĐ</div>
+                        <div>Thương hiệu: @p.Brand?.Name</div>
+                        <div>Danh mục: @p.Category?.Name</div>
+                        <div>Danh mục: @Html.Raw(p.Description)</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Câu hỏi nhanh -->
+    <div id="chat-quick-questions" style="padding: 6px 10px; background: transparent; border-top: none; display: block; max-height: 150px; overflow-y: auto;">
+        <button type="button" class="quick-question" data-question="So sánh ram các sản phẩm mình chọn giúp mình">So sánh Ram</button>
+        <button type="button" class="quick-question" data-question="Thông số các sản phẩm mình chọn có gì khác biệt">So sánh thông số</button>
+        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có chế độ bảo hành tốt hơn nếu hỏng">So sánh bảo hành</button>
+        <button type="button" class="quick-question" data-question="sản phẩm nào mình chọn có thể hỗ trợ chơi game và đồ hoạ">So sánh chơi game và đồ hoạ</button>
+        <button type="button" class="quick-question" data-question="Sản phẩm nào mình chọn giá phù hợp mà chạy ổn với người đi học hoặc văn phòng">
+            Sánh giá sản phẩm nào mình chọn cái nào phù hợp với công việc văn phòng và học
+        </button>
+        
+    </div>
+    <!-- Input -->
+    <div   id="chat-input" style="padding: 10px; background-color: #f8f9fa; display: flex;">
+        <input type="text" id="user-input" style="flex: 1; padding: 5px;" placeholder="Nhập tin nhắn..." />
+        <button id="send-button" style="margin-left: 5px; border-radius: 5%; padding: 5px; color: white; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); border: none;">Gửi</button>
+    </div>
+</div>
+
+<style>
+    /* Tin nhắn người dùng */
+    .user-message {
+        background-color: #3366FF;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 70%;
+        word-wrap: break-word;
+        margin: 6px 0 6px auto;
+        display: inline-block;
+    }
+
+    /* Tin nhắn bot */
+    .bot-message {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 100%;
+        word-wrap: break-word;
+        margin: 6px auto 6px 0;
+        display: inline-block;
+    }
+
+    /* Card sản phẩm trong chat */
+    .product-card {
+        flex: 1 1 calc(33.33% - 12px);
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        min-width: 180px;
+        max-width: 220px;
+    }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-card .info {
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .message-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    /* Nút câu hỏi nhanh */
+    #chat-quick-questions .quick-question {
+        background: #f2f2f2; /* nền xám nhạt */
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        color: #333;
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 6px;
+        opacity: 0.85; /* mặc định hơi mờ */
+        transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #chat-quick-questions .quick-question:hover {
+        background: #e0e0e0; /* xám hơn khi hover */
+        color: #0066FF;
+        border-color: #cfe3ff;
+        opacity: 0.7; /* mờ đi khi hover */
+    }
+</style>
+
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    async function handleUserInput() {
+        const userMessage = userInput.value.trim();
+
+        if (userMessage) {
+            addMessage(userMessage, true);
+            userInput.value = '';
+
+            sendButton.disabled = true;
+            userInput.disabled = true;
+
+            try {
+                const response = await fetch('/Chat/GetResponseCompare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get response');
+                }
+
+                const data = await response.json();
+                addMessage(data.response, false);
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.', false);
+            } finally {
+                sendButton.disabled = false;
+                userInput.disabled = false;
+                userInput.focus();
+            }
+        }
+    }
+
+    function addMessage(message, isUser) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+
+        const profileImage = document.createElement('img');
+        profileImage.classList.add('profile-image');
+        profileImage.src = isUser ? '/images/user.jpg' : '/images/6.jpg';
+        profileImage.alt = isUser ? 'User' : 'Bot';
+
+        const messageContent = document.createElement('div');
+        messageContent.classList.add(isUser ? 'user-message' : 'bot-message');
+
+        let formattedMessage = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        formattedMessage = formattedMessage.replace(/\n/g, '<br/>');
+        formattedMessage = formattedMessage.replace(/^- (.*)/gm, '<li>$1</li>');
+
+
+        messageContent.innerHTML = formattedMessage; // Sử dụng innerHTML để hiển thị HTML
+
+        messageContainer.appendChild(profileImage);
+        messageContainer.appendChild(messageContent);
+        messageElement.appendChild(messageContainer);
+
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleUserInput();
+        }
+    });
+
+    // Hiển thị/đóng cửa sổ chat (chỉ chạy nếu có các phần tử này trên trang)
+    var chatOpenBtn = document.getElementById('chat-widget-button');
+    if (chatOpenBtn) {
+        chatOpenBtn.addEventListener('click', function () {
+            document.getElementById('chat-popup').style.display = 'block';
+        });
+    }
+
+    var chatCloseBtn = document.getElementById('close-chat');
+    if (chatCloseBtn) {
+        chatCloseBtn.addEventListener('click', function () {
+            document.getElementById('chat-popup').style.display = 'none';
+        });
+    }
+
+    // Chỉ gắn sự kiện scroll nếu có jQuery (trang này Layout = null nên có thể không có)
+    if (window.jQuery) {
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop() > 100) {
+                $(".header-bottom").addClass("sticky-header");
+            } else {
+                $(".header-bottom").removeClass("sticky-header");
+            }
+        });
+    }
+
+    // Gán sự kiện cho các nút câu hỏi nhanh và ẩn sau lần bấm đầu tiên
+    // Gán sự kiện câu hỏi nhanh khi DOM đã sẵn sàng
+    (function attachQuickQuestionHandlers() {
+        var container = document.getElementById('chat-quick-questions');
+        if (!container) return;
+        var quickHidden = false;
+        container.querySelectorAll('.quick-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var q = this.getAttribute('data-question');
+                if (!q) return;
+                userInput.value = q;
+                handleUserInput();
+                if (!quickHidden) {
+                    container.style.display = 'none';
+                    quickHidden = true;
+                }
+            });
+        });
+    })();
+</script>
+
+<!-- Configurator Section - Sau phần so sánh sản phẩm -->
+<div class="configurator-section" style="margin-top: 40px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #3399FF; margin-bottom: 30px; text-align: center;">
+        <i class="fa fa-cog"></i> 🔧 Tùy chỉnh sản phẩm
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        @foreach (var product in Model.Products)
+        {
+            <div class="product-configurator" data-product-id="@product.Id" style="border: 2px solid #e0e0e0; border-radius: 10px; padding: 20px; background: #f9f9f9;">
+                <h3 style="color: #3399FF; margin-top: 0;">@product.Name</h3>
+                <img src="~/images/@product.Image" alt="@product.Name" style="width: 100%; max-height: 200px; object-fit: contain; margin: 15px 0; border-radius: 8px;" />
+                
+                <!-- Màu sắc -->
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #2277cc; margin-bottom: 10px;">Màu sắc:</h4>
+                    <div class="color-options" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <div class="color-option selected" style="width: 40px; height: 40px; border-radius: 50%; background: #3498db; cursor: pointer; border: 3px solid #3399FF; box-shadow: 0 0 10px rgba(51, 153, 255, 0.5);" 
+                             data-color="#3498db" onclick="changeProductColor(@product.Id, '#3498db', this)"></div>
+                        <div class="color-option" style="width: 40px; height: 40px; border-radius: 50%; background: #e74c3c; cursor: pointer; border: 3px solid transparent; transition: all 0.3s;" 
+                             data-color="#e74c3c" onclick="changeProductColor(@product.Id, '#e74c3c', this)"></div>
+                        <div class="color-option" style="width: 40px; height: 40px; border-radius: 50%; background: #2ecc71; cursor: pointer; border: 3px solid transparent; transition: all 0.3s;" 
+                             data-color="#2ecc71" onclick="changeProductColor(@product.Id, '#2ecc71', this)"></div>
+                        <div class="color-option" style="width: 40px; height: 40px; border-radius: 50%; background: #f39c12; cursor: pointer; border: 3px solid transparent; transition: all 0.3s;" 
+                             data-color="#f39c12" onclick="changeProductColor(@product.Id, '#f39c12', this)"></div>
+                        <div class="color-option" style="width: 40px; height: 40px; border-radius: 50%; background: #9b59b6; cursor: pointer; border: 3px solid transparent; transition: all 0.3s;" 
+                             data-color="#9b59b6" onclick="changeProductColor(@product.Id, '#9b59b6', this)"></div>
+                        <div class="color-option" style="width: 40px; height: 40px; border-radius: 50%; background: #34495e; cursor: pointer; border: 3px solid transparent; transition: all 0.3s;" 
+                             data-color="#34495e" onclick="changeProductColor(@product.Id, '#34495e', this)"></div>
+                    </div>
+                </div>
+
+                <!-- Vật liệu -->
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #2277cc; margin-bottom: 10px;">Vật liệu:</h4>
+                    <select class="material-select form-control" onchange="changeProductMaterial(@product.Id, this.value)" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
+                        <option value="standard">Tiêu chuẩn</option>
+                        <option value="metal">Kim loại</option>
+                        <option value="glass">Thủy tinh</option>
+                        <option value="plastic">Nhựa</option>
+                        <option value="wood">Gỗ</option>
+                        <option value="carbon">Carbon Fiber</option>
+                    </select>
+                </div>
+
+                <!-- Linh kiện -->
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #2277cc; margin-bottom: 10px;">Linh kiện:</h4>
+                    <div class="components-list">
+                        <label style="display: block; margin: 8px 0; cursor: pointer;">
+                            <input type="checkbox" checked onchange="toggleProductComponent(@product.Id, 'screen', this.checked)"> 
+                            <span>Màn hình</span>
+                        </label>
+                        <label style="display: block; margin: 8px 0; cursor: pointer;">
+                            <input type="checkbox" checked onchange="toggleProductComponent(@product.Id, 'keyboard', this.checked)"> 
+                            <span>Bàn phím</span>
+                        </label>
+                        <label style="display: block; margin: 8px 0; cursor: pointer;">
+                            <input type="checkbox" checked onchange="toggleProductComponent(@product.Id, 'battery', this.checked)"> 
+                            <span>Pin</span>
+                        </label>
+                        <label style="display: block; margin: 8px 0; cursor: pointer;">
+                            <input type="checkbox" checked onchange="toggleProductComponent(@product.Id, 'camera', this.checked)"> 
+                            <span>Camera</span>
+                        </label>
+                        <label style="display: block; margin: 8px 0; cursor: pointer;">
+                            <input type="checkbox" checked onchange="toggleProductComponent(@product.Id, 'speaker', this.checked)"> 
+                            <span>Loa</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Nút xem 3D và thêm vào giỏ hàng -->
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <a href="@Url.Action("View3D", "Product", new { id = product.Id })" 
+                       class="btn btn-default" 
+                       style="flex: 1; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; border: none; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none;">
+                        <i class="fa fa-cube"></i> Xem 3D
+                    </a>
+                    <button onclick="addToCartFromConfigurator(@product.Id)" 
+                            class="btn btn-default" 
+                            style="flex: 1; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .color-option:hover {
+        transform: scale(1.1);
+        border-color: #3399FF !important;
+    }
+
+    .product-configurator {
+        transition: all 0.3s ease;
+    }
+
+    .product-configurator:hover {
+        box-shadow: 0 4px 12px rgba(51, 153, 255, 0.2);
+        transform: translateY(-5px);
+    }
+</style>
+
+<script>
+    // Store configuration for each product
+    const productConfigs = {};
+
+    @foreach (var product in Model.Products)
+    {
+        <text>
+        productConfigs[@product.Id] = {
+            color: '#3498db',
+            material: 'standard',
+            components: {
+                screen: true,
+                keyboard: true,
+                battery: true,
+                camera: true,
+                speaker: true
+            }
+        };
+        </text>
+    }
+
+    function changeProductColor(productId, color, element) {
+        productConfigs[productId].color = color;
+        
+        // Update UI
+        const configurator = element.closest('.product-configurator');
+        configurator.querySelectorAll('.color-option').forEach(opt => {
+            opt.classList.remove('selected');
+            opt.style.border = '3px solid transparent';
+            opt.style.boxShadow = 'none';
+        });
+        
+        element.classList.add('selected');
+        element.style.border = '3px solid #3399FF';
+        element.style.boxShadow = '0 0 10px rgba(51, 153, 255, 0.5)';
+        
+        // Visual feedback
+        const productImg = configurator.querySelector('img');
+        productImg.style.filter = `hue-rotate(${getHueRotation(color)}deg)`;
+        
+        console.log(`Product ${productId} color changed to ${color}`);
+    }
+
+    function changeProductMaterial(productId, material) {
+        productConfigs[productId].material = material;
+        console.log(`Product ${productId} material changed to ${material}`);
+        
+        // Show notification
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Vật liệu đã thay đổi',
+                text: `Vật liệu: ${getMaterialName(material)}`,
+                timer: 2000,
+                showConfirmButton: false
+            });
+        }
+    }
+
+    function toggleProductComponent(productId, component, enabled) {
+        productConfigs[productId].components[component] = enabled;
+        console.log(`Product ${productId} component ${component} ${enabled ? 'enabled' : 'disabled'}`);
+    }
+
+    function addToCartFromConfigurator(productId) {
+        const config = productConfigs[productId];
+        
+        // Add product to cart with configuration
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Add", "Cart")",
+            data: { Id: productId },
+            success: function (result) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Đã thêm vào giỏ hàng!',
+                        text: `Sản phẩm với cấu hình: Màu ${config.color}, Vật liệu ${getMaterialName(config.material)}`,
+                        timer: 3000
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lỗi',
+                        text: 'Có lỗi xảy ra khi thêm vào giỏ hàng.'
+                    });
+                }
+            }
+        });
+    }
+
+    function getHueRotation(color) {
+        const colorMap = {
+            '#3498db': 0,    // Blue
+            '#e74c3c': 180,  // Red
+            '#2ecc71': 120,  // Green
+            '#f39c12': 30,   // Orange
+            '#9b59b6': 270,  // Purple
+            '#34495e': 210   // Dark blue-gray
+        };
+        return colorMap[color] || 0;
+    }
+
+    function getMaterialName(material) {
+        const names = {
+            'standard': 'Tiêu chuẩn',
+            'metal': 'Kim loại',
+            'glass': 'Thủy tinh',
+            'plastic': 'Nhựa',
+            'wood': 'Gỗ',
+            'carbon': 'Carbon Fiber'
+        };
+        return names[material] || material;
+    }
+</script>

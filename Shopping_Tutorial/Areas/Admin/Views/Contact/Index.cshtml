@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ContactModel>
+@{
+    ViewData["title"] = "Contact Listed";
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h3>Liên hệ</h3>
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            
+            <th scope="col">Tên </th>
+            <th scope="col">Mô tả </th>
+            <th scope="col">Bản đồ</th>
+            <th scope="col">Email</th>
+            <th scope="col">Logo</th>
+
+            <th scope="col">Phone</th>
+          
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               
+                <td>@item.Name</td>
+                <td>@Html.Raw(item.Description)</td>
+                <td>@Html.Raw(item.Map)</td>
+
+                <td>@item.Email</td>
+                <td> <img src="~/media/logo/@item.LogoImg" width="120px" height="150px" /> </td>
+                <td>@item.Phone</td>
+             
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning btn-sm" asp-controller="Contact" >Chính sửa</a>
+                    
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

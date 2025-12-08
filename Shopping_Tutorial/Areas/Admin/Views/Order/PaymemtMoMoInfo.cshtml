@@ -1,0 +1,42 @@
+﻿@model MomoInforModel
+@{
+    ViewData["title"]="thông tin giao dịch Momo";
+}
+
+
+<body>
+    <h3>Thông tin giao dịch</h3>
+
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Order">Trở lại trang đơn hàng</a>
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Thông tin khách hàng</th>
+                <th>Email</th>
+                <th>Đã chuyển</th>
+                <th>Ngày chuyển</th>
+                
+            </tr>
+        </thead>
+        <tbody>         
+                    <tr>
+                        <td>@Model.OrderId</td>
+                       
+                <td>@Model.OrderInfor</td>
+                <td>@Model.FullName</td>
+                <td>@Model.Amount.ToString("#,##0 VNĐ")</td>
+                <td>@Model.DatePaid.ToString("#,##0 VNĐ")</td>
+
+                     
+                      
+                       
+                        
+                    </tr>
+            
+        </tbody>
+    </table>
+
+
+</body>

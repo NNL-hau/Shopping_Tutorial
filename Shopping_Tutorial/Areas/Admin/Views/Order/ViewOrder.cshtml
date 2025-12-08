@@ -1,0 +1,199 @@
+﻿@using Shopping_Tutorial.Models.ViewModels
+
+@model OrderViewModel
+
+@{
+    ViewData["title"] = "Order Details";
+    decimal total = 0; // Store total amount
+    decimal subtotal = 0;
+    decimal thanhtoan= 0;
+}
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f9ff;
+        margin: 20px;
+        color: #333;
+    }
+
+    h3 {
+        color: #3399FF;
+        border-bottom: 2px solid #3399FF;
+        padding-bottom: 10px;
+    }
+
+    .table {
+        width: 100%;
+        background-color: white;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th {
+            background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* Màu bong bóng chat */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table img {
+            border-radius: 5px;
+        }
+
+    .summary-row td {
+        font-weight: bold;
+        background-color: #e8f4ff;
+    }
+
+    .note {
+        margin-top: 20px;
+        color: #666;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Chi tiết đơn mua</title>
+</head>
+<body>
+    <h3>Chi tiết đơn mua</h3>
+
+    <div class="table table-responsive">
+        @if (Model.OrderDetails == null || !Model.OrderDetails.Any())
+        {
+            <p>Không có thông tin đơn hàng nào.</p>
+        }
+        else
+        {
+            @* <table class="table" id="detail_order" > *@
+            <table class="table" id="detail_order" > 
+                <thead>
+                    <tr>
+                        <th>Hình Ảnh</th>
+                        <th>Mã mua</th>
+                        <th>Tên người mua</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        subtotal = item.Quantity * item.Price; //số lượng * giá
+                        total += subtotal;
+                        thanhtoan = total * (1 - Model.AppliedCoupon.GiaNhap) + ViewBag.ShippingCost;
+                        <tr>
+                            <input type="hidden" asp-for="@item.OrderCode" class="getId" />
+                            <td><img src="~/images/@item.Product.Image" alt="@item.Product.Name" width="50" height="50" /></td>
+                            <td>@item.OrderCode</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Price.ToString("#,##0") VND</td>
+                            <td>@item.Quantity</td>
+                            <td>@subtotal.ToString("#,##0") VND</td>
+                           
+                        </tr>
+                    }
+                    <tr>
+                        <td>Tổng kết</td>
+                    
+                   
+                    
+                        <td>Tổng giá sản phẩm : @total.ToString("#,##0") VND</td>
+                        <td>Giá vận chuyển: @ViewBag.ShippingCost.ToString("#,##0 ")</td>
+                        @if (Model.AppliedCoupon != null && Model.AppliedCoupon.GiaNhap > 0)
+                        {
+                            decimal discount = subtotal * (decimal)Model.AppliedCoupon.GiaNhap;
+
+                            <td>Áp dụng mã: @Model.AppliedCoupon.Name</td>
+
+                            <td>Giảm giá: -@discount.ToString("#,##0") VND</td>
+
+
+                        }
+                        <td>Thanh toán : @thanhtoan.ToString("#,##0") VND</td>
+                   
+                     
+                        <td>
+                            @if (@ViewBag.Status != 4)
+                            {
+                                <select class="form-control select-update-order">
+
+                                   
+                                        <option value="1">Đơn hàng mới</option>
+                                    <option value="3">Đang giao hàng</option>
+                                        <option value="2">Đã xử lý</option>
+                                      
+                                 
+
+
+
+                                </select>
+                            }
+                        </td>
+                        
+                        
+                      
+                    </tr>
+                </tbody>
+            </table>
+        }
+    </div>
+</body>
+</html>
+
+
+@section Scripts {
+    <script>
+        new DataTable('#detail_order', {
+            layout: {
+                topStart: {
+                    buttons: ['pdf','print']
+                }
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.select-update-order').change(function () {
+                var status = $(this).val(); //status = 1
+                var ordercode = $('.getId').val(); //
+                // alert(status);
+                // alert(ordercode);
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("UpdateOrder")",
+                    data: { status: status, ordercode: ordercode }, // Send data to the server
+
+                    success: function (result) {
+                        // Handle successful update
+                        if (result.success) {
+
+                            Swal.fire("Cập nhật đơn hàng thành công.");
+                        } else {
+
+                            Swal.fire("Cập nhật đơn hàng thất bại." + result.message);
+
+                        }
+                    }
+
+                });
+            });
+        });
+    </script>
+}
+
+
+

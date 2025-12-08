@@ -1,0 +1,199 @@
+﻿@{
+	ViewData["Title"] = "Admin CMS";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>@ViewData["title"]-Trang kiểm soát Amin Page</title>
+	<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css
+" rel="stylesheet">
+	<link href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css" rel="stylesheet">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+	<link href="~/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/css/prettyPhoto.css" rel="stylesheet">
+	<link href="~/css/price-range.css" rel="stylesheet">
+	<link href="~/css/animate.css" rel="stylesheet">
+	<link href="~/css/main.css" rel="stylesheet">
+	<link href="~/css/responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="shortcut icon" href="images/ico/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+	<style>
+		body {
+			background: #fff;
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+		}
+		
+		.admin-sidebar {
+			width: 220px;
+			background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+			color: #333;
+			position: fixed;
+			top: 0; left: 0; bottom: 0;
+			box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+			z-index: 100;
+			display: flex;
+			flex-direction: column;
+		}
+		.admin-sidebar .logo {
+			font-size: 1.5rem;
+			font-weight: bold;
+			padding: 24px 0 16px 0;
+			text-align: center;
+			color: #333;
+			letter-spacing: 2px;
+		}
+		.admin-sidebar nav {
+			flex: 1;
+		}
+		.admin-sidebar nav a {
+			display: block;
+			color: #333;
+			padding: 12px 32px;
+			text-decoration: none;
+			font-size: 1rem;
+			border-left: 4px solid transparent;
+			transition: background 0.2s, border-color 0.2s;
+		}
+		.admin-sidebar nav a.active,
+		.admin-sidebar nav a:hover {
+			background: #fffde7;
+			border-left: 4px solid #FFA000;
+			color: #FFA000;
+		}
+		.admin-header {
+			height: 64px;
+			background: #fffde7;
+			border-bottom: 1px solid #ffe082;
+			margin-left: 220px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			padding: 0 32px;
+		}
+		.admin-header .user-info {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+		.admin-header .user-info .fa-user-circle {
+			font-size: 1.7rem;
+			color: #FFA000;
+		}
+		.admin-content {
+			margin-left: 220px;
+			padding: 32px 32px 16px 32px;
+			min-height: calc(100vh - 64px - 40px);
+		}
+		.admin-footer {
+			margin-left: 220px;
+			background: #fffde7;
+			border-top: 1px solid #ffe082;
+			text-align: center;
+			padding: 12px 0;
+			color: #888;
+			font-size: 0.95rem;
+		}
+		
+	</style>
+	@RenderSection("Styles", required: false)
+</head>
+
+<body>
+	<div class="admin-sidebar">
+		<div class="logo">
+			<i class="fa fa-user-shield"></i> ADMIN PAGE
+		</div>
+		<nav>
+			<a asp-area="" asp-controller="Home" asp-action="Index" >Trang Chủ</a>
+			<a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><i class="fa fa-chart-bar"></i> Thống kê</a>
+			<a asp-area="Admin" asp-controller="Product" asp-action="Index"><i class="fa fa-box"></i> Quản Lý Sản phẩm</a>
+			<a asp-area="Admin" asp-controller="Shipping" asp-action="Index"><i class="fa fa-truck"></i> Quản lý vận chuyển</a>
+			<a asp-area="Admin" asp-controller="Coupon" asp-action="Index"><i class="fa fa-ticket"></i> Quản lý giảm giá</a>
+			<a asp-area="Admin" asp-controller="Slider" asp-action="Index"><i class="fa fa-images"></i> Quản Lý Slider</a>
+			<a asp-area="Admin" asp-controller="Category" asp-action="Index"><i class="fa fa-list"></i> Quản Lý Danh Mục</a>
+			<a asp-area="Admin" asp-controller="Brand" asp-action="Index"><i class="fa fa-tags"></i> Quản Lý Thương Hiệu</a>
+			<a asp-area="Admin" asp-controller="Order" asp-action="Index"><i class="fa fa-shopping-cart"></i> Quản Lý Đơn hàng</a>
+			@* <a asp-area="Admin" asp-controller="User" asp-action="Index"><i class="fa fa-users"></i> Tài khoản nhân viên</a> *@
+			<a asp-area="Admin" asp-controller="Khach" asp-action="Index"><i class="fa fa-user"></i> Tài khoản </a>
+			<a asp-area="Admin" asp-controller="Role" asp-action="Index"><i class="fa fa-user-shield"></i> Quyền</a>
+			<a asp-area="Admin" asp-controller="Contact" asp-action="Index"><i class="fa fa-envelope"></i> Quản lý liên hệ</a>
+			<a asp-area="Admin" asp-controller="ChatAdmin" asp-action="Index"><i class="fa fa-envelope"></i> Chat Admin</a>
+
+		</nav>
+		<div class="sidebar-footer">
+			&copy; @DateTime.Now.Year - FootballWeb
+		</div>
+	</div>
+	<div class="admin-content">
+		@Html.Partial("_NotificationPartial")
+		@RenderBody()
+	</div>
+	
+	<script src="~/js/jquery.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/jquery.scrollUp.min.js"></script>
+	<script src="~/js/price-range.js"></script>
+	<script src="~/js/jquery.prettyPhoto.js"></script>
+	<script src="~/js/main.js"></script>
+	<script src="~/backend/js/site.js"></script>
+	<script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+
+
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
+	<script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.dataTables.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
+
+	<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.all.min.js
+"></script>
+
+	<script>
+		$(function () {
+			var message = '@TempData["success"]';
+			if (message != '')
+				Swal.fire(message);
+
+		});
+	</script>
+	<script>
+		let table = new DataTable('#myTable', {
+			layout: {
+				topStart: {
+					buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+				}
+			}
+			});
+
+	</script>
+
+	@await RenderSectionAsync("Scripts",required:false)
+</body>
+</html>

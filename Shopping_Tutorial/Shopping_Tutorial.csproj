@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Shared\Components\NewFolder1\**" />
+    <Content Remove="Views\Shared\Components\NewFolder1\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\NewFolder1\**" />
+    <None Remove="Views\Shared\Components\NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8" />
+	  <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
+	  <PackageReference Include="RestSharp" Version="112.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Errors\" />
+    <Folder Include="wwwroot\backend\css\" />
+    <Folder Include="wwwroot\backend\image\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\media\logo\" />
+    <Folder Include="wwwroot\media\sliders\" />
+    <Folder Include="wwwroot\media\products\" />
+    <Folder Include="wwwroot\Baner\" />
+    <Folder Include="wwwroot\3d\" />
+  </ItemGroup>
+
+</Project>
