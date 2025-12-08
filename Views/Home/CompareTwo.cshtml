@@ -1,0 +1,221 @@
+@model Shopping_Tutorial.Models.ViewModels.CompareManyViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "So sánh sản phẩm";
+    var count = Model.Products?.Count ?? 0;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/viewer/styles.css" />
+    <style>
+    /* Tin nhắn người dùng */
+    .user-message {
+        background-color: #3366FF;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 70%;
+        word-wrap: break-word;
+        margin: 6px 0 6px auto;
+        display: inline-block;
+    }
+
+    /* Tin nhắn bot */
+    .bot-message {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 8px 12px;
+        border-radius: 10px;
+        max-width: 100%;
+        word-wrap: break-word;
+        margin: 6px auto 6px 0;
+        display: inline-block;
+    }
+
+    /* Card sản phẩm trong chat */
+    .product-card {
+        flex: 1 1 calc(33.33% - 12px);
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        min-width: 180px;
+        max-width: 220px;
+    }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-card .info {
+            margin-top: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .message-container {
+        display: flex;
+        align-items: flex-start;
+    }
+    </style>
+</head>
+<body>
+    <div id="chat-popup" style="display: flex; flex-direction: column;
+    width: 100%; height: 100%; background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 40px auto 0 auto;">
+
+        <!-- Header -->
+        <div id="chat-header" style="background: linear-gradient(90deg, #fbc2eb, #a6c1ee); color: white; padding: 10px; text-align: center;">
+            <h4>Hỗ trợ chọn sản phẩm </h4>
+        </div>
+
+        <!-- Tin nhắn + sản phẩm -->
+        <div id="chat-messages" style="padding: 10px; flex-grow: 1; overflow-y: auto;">
+            <div class="message">
+                <div class="message-container">
+                    <img src="/images/6.jpg" alt="Bot" class="profile-image" />
+                    <div class="bot-message">Xin chào! Dưới đây là các sản phẩm mà bạn đang muốn so sánh ? Hãy chat với tôi để được hỗ trợ lựa chọn nhé !</div>
+                </div>
+            </div>
+
+            <!-- Sản phẩm nằm trong chat -->
+            <div class="bot-message" style="display: flex; flex-wrap: wrap; gap: 12px; background: transparent; box-shadow: none;">
+                @foreach (var p in Model.Products)
+                {
+                    <div class="product-card">
+                        <img src="~/images/@p.Image" alt="@p.Name" />
+                        <div class="info">
+                            <strong>@p.Name</strong>
+                            <div>Giá: @p.Price.ToString("#,##0") VNĐ</div>
+                            <div>Thương hiệu: @p.Brand?.Name</div>
+                            <div>Danh mục: @p.Category?.Name</div>
+                            <div>Danh mục: @Html.Raw(p.Description)</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div id="chat-input" style="padding: 10px; background-color: #f8f9fa; display: flex;">
+            <input type="text" id="user-input" style="flex: 1; padding: 5px;" placeholder="Nhập tin nhắn..." />
+            <button id="send-button" style="margin-left: 5px; border-radius: 5%; padding: 5px; color: white; background: linear-gradient(90deg, #fbc2eb, #a6c1ee); border: none;">Gửi</button>
+        </div>
+    </div>
+
+    <section id="product-compare-3d"></section>
+
+    <script>
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    async function handleUserInput() {
+        const userMessage = userInput.value.trim();
+
+        if (userMessage) {
+            addMessage(userMessage, true);
+            userInput.value = '';
+
+            sendButton.disabled = true;
+            userInput.disabled = true;
+
+            try {
+                const response = await fetch('/Chat/GetResponseCompare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get response');
+                }
+
+                const data = await response.json();
+                addMessage(data.response, false);
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.', false);
+            } finally {
+                sendButton.disabled = false;
+                userInput.disabled = false;
+                userInput.focus();
+            }
+        }
+    }
+
+    function addMessage(message, isUser) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+
+        const profileImage = document.createElement('img');
+        profileImage.classList.add('profile-image');
+        profileImage.src = isUser ? '/images/user.jpg' : '/images/6.jpg';
+        profileImage.alt = isUser ? 'User' : 'Bot';
+
+        const messageContent = document.createElement('div');
+        messageContent.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageContent.textContent = message;
+
+        messageContainer.appendChild(profileImage);
+        messageContainer.appendChild(messageContent);
+        messageElement.appendChild(messageContainer);
+
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleUserInput();
+        }
+    });
+
+    // Hiển thị cửa sổ chat khi nhấn nút
+    document.getElementById('chat-widget-button').addEventListener('click', function () {
+        document.getElementById('chat-popup').style.display = 'block';
+    });
+
+    // Đóng cửa sổ chat khi nhấn nút đóng
+    document.getElementById('close-chat').addEventListener('click', function () {
+        document.getElementById('chat-popup').style.display = 'none';
+    });
+
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop() > 100) {
+            $(".header-bottom").addClass("sticky-header");
+        } else {
+            $(".header-bottom").removeClass("sticky-header");
+        }
+    });
+</script>
+    <script type="module" src="/viewer/js/productViewerModule.js"></script>
+</body>
+</html>

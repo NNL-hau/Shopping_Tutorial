@@ -1,0 +1,11 @@
+﻿@using Shopping_Tutorial.Models.MoMo
+@model MomoExecuteResponseModel
+
+@{
+    ViewData["title"]="Thanh toán thành công";
+}
+<h5>Thanh toán thành công </h5>
+<h6>OrderId : @Model.OrderId</h6>
+<h6>OrderInfor : @Model.OrderInfo</h6>
+<h6>Tổng tiền : @Model.Amount</h6>
+<h6>xem <a asp-controller="Account" asp-action="History">Lịch sử đơn đặt hàng</a></h6>

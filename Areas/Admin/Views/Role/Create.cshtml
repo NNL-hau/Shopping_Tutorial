@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityRole
+
+@{
+    ViewData["title"] = "Create Role";
+}
+<style>
+    .btn-warning {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+    }
+
+</style>
+<h4>Tạo quyền</h4>
+<div class="col-md-9">
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label>Tên quyền</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger" />
+        </div>
+
+
+
+      
+       
+
+        <div class="form-group">
+            <button class="btn btn-primary">Thêm quyền</button>
+        </div>
+    </form>
+
+    <a asp-action="Index">Trở lại trang danh mục quyền</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

@@ -1,0 +1,387 @@
+﻿@using Shopping_Tutorial.Models.ViewModels
+@model CartItemViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+       
+    }
+
+    h4, .breadcrumb h4 {
+        color: #3399FF;
+        font-weight: bold;
+    }
+
+    .cart_menu th {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+        color: white;
+    }
+
+    .btn-primary, .btn-success, .btn-danger, .btn-secondary {
+        background-color: #3399FF;
+        border-color: #3399FF;
+    }
+
+        .btn-primary, .btn-primary.btn-sm,
+        .btn-success, .btn-success.btn-sm,
+        .btn-danger, .btn-danger.btn-sm,
+        .btn-secondary, .btn-secondary.btn-sm {
+            background-color: #3399FF !important;
+            border-color: #3399FF !important;
+            color: white !important;
+            margin-top:1%;
+        }
+
+            .btn-primary:hover, .btn-success:hover, .btn-danger:hover, .btn-secondary:hover,
+            .btn-primary.btn-sm:hover, .btn-success.btn-sm:hover, .btn-danger.btn-sm:hover, .btn-secondary.btn-sm:hover {
+                background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+                border-color: #237acc !important;
+                color: white !important;
+            }
+
+    .btn:hover {
+        background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+        border-color: #237acc;
+    }
+</style>
+
+<link rel="stylesheet" href="~/Views/Cart/cart.css" />
+
+<h4>🛒 Giỏ hàng của bạn</h4>
+
+<section id="cart_items">
+    <div class="container">
+       
+
+        <div class="table-responsive cart_info">
+            <table class="table table-bordered table-striped">
+                <thead class="cart_menu">
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.CartItems.Any())
+                    {
+                        foreach (var item in Model.CartItems)
+                        {
+                            <tr>
+                                <td><a href="">@item.ProductName</a></td>
+                                <td><img src="~/images/@item.Image" height="80" /></td>
+                                <td>@item.Price.ToString("#,##0") VNĐ</td>
+                                <td>
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                                        <a class="btn btn-sm btn-danger" asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ProductId">-</a>
+                                        <input type="text" class="cart_quantity_input text-center" value="@item.Quantity" readonly style="width: 50px;" />
+                                        <a class="btn btn-sm btn-success" asp-controller="Cart" asp-action="Increase" asp-route-id="@item.ProductId">+</a>
+                                    </div>
+                                </td>
+                                <td>@(@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("#,##0")) VNĐ</td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td colspan="4" class="text-right"><strong>Tổng cộng:</strong></td>
+                            <td colspan="2">@Model.GrandTotal.ToString("#,##0") VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right"><strong>Phí vận chuyển:</strong></td>
+                            <td colspan="2">@Model.ShippingPrice.ToString("#,##0") VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right"><strong>Tổng tiền thanh toán:</strong></td>
+                            <td colspan="2">
+                                @{
+                                    // Ép kiểu GiaNhap sang decimal nếu cần
+                                    decimal discount = 1 - (decimal)Model.AppliedCoupon.GiaNhap;
+
+                                    // Tính tổng sau khi giảm giá
+                                    decimal totalAfterDiscount = (Model.GrandTotal * discount) + Model.ShippingPrice;
+                                }
+                                @totalAfterDiscount.ToString("#,##0") VNĐ
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="6">
+                                <form class="form-inline">
+                                    🎁 Mã giảm giá cung cấp vip:
+                                    <input type="text" class="form-control coupon-value" />
+                                </form>
+                               @if (Model.AvailableCoupons != null && Model.AvailableCoupons.Any())
+{
+    <div class="form-group mt-3">
+        <label for="couponSelect">🎁 Mã giảm giá thường:</label>
+                                        <select id="couponSelect" class="form-control coupon-select">
+                                            <option value="">-- Chọn mã giảm giá --</option>
+                                            @foreach (var coupon in Model.AvailableCoupons)
+                                            {
+                                                var selected = Model.CouponCode == coupon.Name ? "selected" : "";
+                                                <option value="@coupon.Name" selected="@selected">
+                                                    @coupon.Name - Giảm @((coupon.GiaNhap * 100).ToString("0.#"))% - HSD: @coupon.DateExpired.ToString("dd/MM/yyyy")
+                                                </option>
+                                            }
+                                        </select>
+
+        <button type="button" class="btn btn-sm btn-primary mt-2 btn-apply-coupon">Áp dụng</button>
+        <span class="text-success">@Model.CouponCode</span>
+    </div>
+}
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="location-section">
+                                <div class="form-group">
+                                    <label>Tỉnh thành</label>
+                                    <select class="form-control" id="tinh">
+                                        <option value="0">Tỉnh thành</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quận huyện</label>
+                                    <select class="form-control" id="quan">
+                                        <option value="0">Quận huyện</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phường xã</label>
+                                    <select class="form-control" id="phuong">
+                                        <option value="0">Phường xã</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-add-shipping">🚚 Tính phí vận chuyển</button>
+                                <a asp-action="DeleteShipping" asp-controller="Cart" class="btn btn-link">❌ Xóa vận chuyển</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <div class="checkout-wrapper">
+                                    <div class="left-actions">
+                                        <a class="btn btn-danger btn-sm" asp-controller="Cart" asp-action="Clear">🗑️ Xóa toàn bộ</a>
+                                    </div>
+
+                                    <div class="right-actions">
+                                        @if (User.Identity?.IsAuthenticated ?? false)
+                                        {
+                                            if (Model.ShippingPrice <= 0)
+                                            {
+                                                <div>
+                                                    <a class="btn btn-secondary btn-sm disabled">💸Thanh toán khi Nhận hàng</a>
+                                                    <span class="text text-danger">⚠️ Hãy tính phí vận chuyển trước khi đặt hàng.</span>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="form-group">
+                                                    <label for="PhoneNumber">📱 Số điện thoại:</label>
+                                                    <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ContactUser">📍 Địa chỉ giao hàng:</label>
+                                                    <input type="text" class="form-control" id="ContactUser" name="ContactUser" required />
+                                                </div>
+
+                                                <form method="post" asp-controller="Checkout" asp-action="Checkout">
+                                                    <input type="hidden" name="PaymentMethod" value="COD" />
+                                                    <input type="hidden" name="ContactUser" id="ContactUserHidden" />
+                                                    <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Bạn xác nhận muốn đặt hàng?')">💸Thanh toán khi Nhận hàng</button>
+                                                </form>
+
+                                                <div class="payment-buttons">
+                                                    <form method="POST" asp-action="CreatePaymentMoMo" asp-controller="Payment">
+                                                        <input type="hidden" name="Amount" value="@((Model.GrandTotal)*(1-Model.AppliedCoupon.GiaNhap) + Model.ShippingPrice)" />
+
+                                                        <input type="hidden" name="OrderInfo" value="Thanh toán MoMo cho đơn hàng!" />
+                                                        <input type="hidden" name="FullName" value="@User.Identity.Name" />
+                                                        <input type="hidden" name="ContactUser" id="ContactUserMoMo" />
+                                                        <button class="btn btn-danger" type="submit" onclick="return validateAndSetContact('ContactUserMoMo')">📱 Thanh toán qua MoMo</button>
+                                                    </form>
+
+                                                    <form asp-action="CreatePaymentUrlVnpay" asp-controller="Payment" method="post">
+                                                        <input type="hidden" name="Name" value="@User.Identity.Name" />
+                                                        <input type="hidden" name="Amount" value="@((Model.GrandTotal)*(1-Model.AppliedCoupon.GiaNhap) + Model.ShippingPrice)" />
+                                                        <input type="hidden" name="OrderDescription" value="Thanh toán đơn hàng qua Vnpay tại HungShop" />
+                                                        <input type="hidden" name="OrderType" value="other" />
+                                                        <input type="hidden" name="ContactUser" id="ContactUserVnpay" />
+                                                        <button class="btn btn-success" type="submit" onclick="return validateAndSetContact('ContactUserVnpay')">💳 Thanh toán qua VNPAY</button>
+                                                    </form>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6"><h4 class="text-center">Giỏ hàng của bạn đang trống</h4></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function applyCoupon(coupon) {
+            $.ajax({
+                url: '/Cart/GetCoupon',
+                type: 'GET',
+                data: { coupon_value: coupon },
+                success: function (res) {
+                    Swal.fire(res.message);
+                    if (res.success) {
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    Swal.fire("Có lỗi xảy ra khi áp dụng mã giảm giá.");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('.btn-apply-coupon').click(function () {
+                const couponInput = $('.coupon-value').val();
+                const couponSelect = $('.coupon-select').val();
+                const coupon = couponInput || couponSelect;
+
+                if (!coupon) {
+                    Swal.fire("Vui lòng nhập hoặc chọn mã giảm giá.");
+                    return;
+                }
+
+                applyCoupon(coupon);
+            });
+        });
+    </script>
+
+    <script>
+        // Hàm validate và set ContactUser
+        function validateAndSetContact(inputId) {
+            const phoneInput = document.getElementById('PhoneNumber');
+            const contactInput = document.getElementById('ContactUser');
+            
+            if (!phoneInput.value.trim()) {
+                alert('Vui lòng nhập số điện thoại.');
+                return false;
+            }
+            if (!contactInput.value.trim()) {
+                alert('Vui lòng nhập địa chỉ giao hàng.');
+                return false;
+            }
+
+            // Gộp số điện thoại và địa chỉ với dấu - ngăn cách
+            const combinedContact = `${phoneInput.value} - ${contactInput.value}`;
+            document.getElementById(inputId).value = combinedContact;
+            return true;
+        }
+
+        // Gán địa chỉ vào tất cả các form khi submit
+        document.addEventListener('DOMContentLoaded', function () {
+            const phoneInput = document.getElementById('PhoneNumber');
+            const contactInput = document.getElementById('ContactUser');
+            const contactHiddenInput = document.getElementById('ContactUserHidden');
+
+            // Cập nhật giá trị hidden input khi người dùng nhập
+            function updateHiddenInput() {
+                if (phoneInput.value.trim() && contactInput.value.trim()) {
+                    contactHiddenInput.value = `${phoneInput.value} - ${contactInput.value}`;
+                }
+            }
+
+            phoneInput.addEventListener('input', updateHiddenInput);
+            contactInput.addEventListener('input', updateHiddenInput);
+
+            // Tìm tất cả các form cần gửi địa chỉ
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    if (!phoneInput.value.trim()) {
+                        alert('Vui lòng nhập số điện thoại.');
+                        e.preventDefault();
+                        return;
+                    }
+                    if (!contactInput.value.trim()) {
+                        alert('Vui lòng nhập địa chỉ giao hàng.');
+                        e.preventDefault();
+                        return;
+                    }
+
+                    // Cập nhật giá trị hidden input trước khi submit
+                    contactHiddenInput.value = `${phoneInput.value} - ${contactInput.value}`;
+                });
+            });
+        });
+
+        $(".btn-apply-coupon").click(function () {
+            var coupon_value = $(".coupon-value").val();
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetCoupon", "Cart")",
+                data: { coupon_value: coupon_value },
+                success: function (result) {
+                    Swal.fire(result.message);
+                    if (result.success) location.reload();
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $(".btn-add-shipping").click(function () {
+                var tinh = $("#tinh option:selected").text();
+                var quan = $("#quan option:selected").text();
+                var phuong = $("#phuong option:selected").text();
+
+                if (!tinh || !quan || !phuong) {
+                    Swal.fire("Vui lòng chọn đầy đủ thông tin.");
+                } else {
+                    $.post("@Url.Action("GetShipping", "Cart")", { tinh, quan, phuong }, function () {
+                        location.reload();
+                    });
+                }
+            });
+
+            // Load tỉnh/quận/phường từ API esgoo
+            $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function (data_tinh) {
+                $.each(data_tinh.data, function (_, val) {
+                    $("#tinh").append('<option value="' + val.id + '">' + val.full_name + '</option>');
+                });
+                $("#tinh").change(function () {
+                    $.getJSON(`https://esgoo.net/api-tinhthanh/2/${$(this).val()}.htm`, function (data_quan) {
+                        $("#quan").html('<option>Quận huyện</option>');
+                        $.each(data_quan.data, function (_, val) {
+                            $("#quan").append('<option value="' + val.id + '">' + val.full_name + '</option>');
+                        });
+                        $("#quan").change(function () {
+                            $.getJSON(`https://esgoo.net/api-tinhthanh/3/${$(this).val()}.htm`, function (data_phuong) {
+                                $("#phuong").html('<option>Phường xã</option>');
+                                $.each(data_phuong.data, function (_, val) {
+                                    $("#phuong").append('<option value="' + val.id + '">' + val.full_name + '</option>');
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+}
+

@@ -1,0 +1,54 @@
+﻿@model ContactModel
+<div class="row">
+
+	<div class="col-sm-3">
+		<div class="companyinfo">
+			<p><img src="~/media/logo/@Model.LogoImg" width="250px" height="200px" /></p>
+			<p>@Html.Raw(@Model.Description)</p>
+		</div>
+	</div>
+
+	<div class="col-sm-5 col-md-5">
+		@Html.Raw(@Model.Map)
+	</div>
+
+	<div class="col-sm-4">
+		<div class="address">
+			<h5><b>Tên cửa hàng : @Model.Name</b></h5>
+			<h5>Email : @Model.Email</h5>
+			<h5>Liên hệ : @Model.Phone</h5>
+
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-2">
+							<div class="single-widget">
+								<h2>Dịch vụ</h2>
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Online Help</a></li>
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Order Status</a></li>
+									<li><a href="#">Change Location</a></li>
+									<li><a href="#">FAQ’s</a></li>
+								</ul>
+							</div> <!-- Đóng .single-widget -->
+						</div> <!-- Đóng .col-sm-2 -->
+						<div class="col-sm-2">
+							<div class="single-widget">
+								<h2>Chi nhánh</h2>
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">T-Shirt</a></li>
+									<li><a href="#">Mens</a></li>
+									<li><a href="#">Womens</a></li>
+									<li><a href="#">Gift Cards</a></li>
+									<li><a href="#">Shoes</a></li>
+								</ul>
+							</div>
+						</div>
+					</div> <!-- Đóng .row -->
+				</div> <!-- Đóng .container -->
+			</div> <!-- Đóng .footer-widget -->
+		</div> <!-- Đóng .address -->
+	</div> <!-- Đóng .col-sm-4 -->
+
+</div> <!-- Đóng .row -->

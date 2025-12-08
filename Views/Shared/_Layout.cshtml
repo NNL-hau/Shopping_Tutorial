@@ -1,0 +1,782 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Home | Cửa hàng thương mại điện tử</title>
+	<link href="~/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+	<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css
+" rel="stylesheet">
+	<link href="~/css/prettyPhoto.css" rel="stylesheet">
+	<link href="~/css/price-range.css" rel="stylesheet">
+	<link href="~/css/animate.css" rel="stylesheet">
+	<link href="~/css/main.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+	<link href="~/css/responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="shortcut icon" href="images/ico/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header">
+		<!--header-->
+		<div class="header_top">
+			<!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone "></i> 0334626089</a></li>
+								<li><a href="#"><i class="fa fa-envelope "></i> NghiêncứukhoahọcHBAVC@gmai.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="https://www.facebook.com/quang.hung.368260" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		@* <div class="header-middle"> *@
+		@* 	<!--header-middle--> *@
+		@* 	<div class="container"> *@
+		@* 		<div class="row"> *@
+		@* 			<div class="col-sm-4"> *@
+		@* 				<div class="logo pull-left"> *@
+		@* 					<a href="index.html"><img src="images/home/logo.png" alt="" /></a> *@
+		@* 				</div> *@
+		@* 				<div class="btn-group pull-right"> *@
+		@* 					<div class="btn-group"> *@
+		@* 						<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown"> *@
+		@* 							Việt Nam *@
+		@* 							<span class="caret"></span> *@
+		@* 						</button> *@
+		@* 						<ul class="dropdown-menu"> *@
+		@* 							<li><a href="#">VietNam</a></li> *@
+		@* 							<li><a href="#">USA</a></li> *@
+		@* 							<li><a href="#">Canada</a></li> *@
+		@* 						</ul> *@
+		@* 					</div> *@
+
+		@* 					<div class="btn-group"> *@
+		@* 						<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown"> *@
+		@* 							VNĐ *@
+		@* 							<span class="caret"></span> *@
+		@* 						</button> *@
+		@* 						<ul class="dropdown-menu"> *@
+		@* 							<li><a href="#">VNĐ</a></li> *@
+		@* 							<li><a href="#">Canadian Dollar</a></li> *@
+		@* 							<li><a href="#">Pound</a></li> *@
+		@* 						</ul> *@
+		@* 					</div> *@
+		@* 				</div> *@
+		@* 			</div> *@
+		@* 			<div class="col-sm-8"> *@
+		@* 				<div class="shop-menu pull-right"> *@
+		@* 					<ul class="nav navbar-nav"> *@
+		@* 						<li><a asp-controller="Cart" asp-action="Index"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li> *@
+
+		@* 						@if (User.Identity?.IsAuthenticated ?? false) *@
+		@* 						{ *@
+		@* 							<li><a asp-area="Admin" asp-controller="Product" asp-action="Index"><i class="fa fa-crosshairs"></i> Admin</a></li> *@
+		@* 							<li><a asp-action="Wishlist" asp-controller="Home"><i class="fa fa-heart"></i> Yêu thích</a></li> *@
+		@* 							<li><a asp-action="Compare" asp-controller="Home"><i class="fa fa-star"></i> So sánh</a></li> *@
+		@* 							<li class="dropdown"> *@
+		@* 								<a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown"> *@
+		@* 									<i class="fa fa-user"></i> Tài khoản<span class="caret"></span> *@
+		@* 								</a> *@
+		@* 								<ul class="dropdown-menu"> *@
+		@* 									<li><a asp-action="History" asp-controller="Account">Lịch sử đơn hàng</a></li> *@
+		@* 									<li><a asp-action="UpdateAccount" asp-controller="Account">Thông tin cá nhân</a></li> *@
+		@* 								</ul> *@
+		@* 							</li> *@
+
+		@* 							<li><a asp-controller="Account" asp-action="Logout"><i class="fa fa-lock"></i> Đăng xuất</a></li> *@
+		@* 							/*Chào mừng!, @User.Identity.Name*/ *@
+		@* 						} *@
+		@* 						else *@
+		@* 						{ *@
+		@* 							<li><a asp-controller="Account" asp-action="Login"><i class="fa fa-lock"></i>Đăng nhập!</a></li> *@
+		@* 						} *@
+		@* 					</ul> *@
+		@* 				</div> *@
+		@* 			</div> *@
+		@* 		</div> *@
+		@* 	</div> *@
+		@* </div><!--/header-middle--> *@
+
+
+		<div class="header-bottom">
+			<!--header-bottom-->
+			<div class="container">
+				<div class="row_bottom">
+					<div class="col-sm-4">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a asp-controller="Home" asp-action="Index" class="active">Trang Chủ</a></li>
+								@* <li class="dropdown"> *@
+								@* 	<a asp-controller="Product">Cửa Hàng<i class="fa fa-angle-down"></i></a> *@
+								@* 	<ul role="menu" class="sub-menu"> *@
+								@* 		@* <li><a asp-controller="Category" asp-action="Index">Categories</a></li> *@ 
+								@* 		@* <li><a asp-controller="Product" asp-action="Details">Product Details</a></li> *@ 
+								@* 		@* <li><a asp-controller="Cart" asp-action="Checkout">Checkout</a></li> *@ 
+								@* 		<li ><a asp-controller="Cart" asp-action="Index">Giỏ hàng</a></li> *@
+								@* 		<li><a asp-controller="Account" asp-action="Login">Đăng nhập</a></li> *@
+
+								@* 	</ul> *@
+								@* </li> *@
+								<li role="menu" class="cart_nav"><a asp-controller="Cart" asp-action="Index"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li class="dropdown">
+									<a href="#">Chia sẻ<i class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										<li><a href="blog.html">Blog List</a></li>
+										<li><a href="blog-single.html">Blog Single</a></li>
+									</ul>
+								</li>
+								@* <li><a href="404.html">404</a></li> *@
+
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<form asp-controller="Product" asp-action="Search" method="post">
+							<div class="search_box">
+								<input type="text" placeholder="Tìm kiếm sản phẩm......." name="searchTerm" />
+								<button class="btn btn-warning" type="submit"><i class="fa fa-search"></i></button>
+
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-4">
+						<ul class="login_logout nav navbar-nav">
+							@if (User.Identity?.IsAuthenticated ?? false)
+							{
+								<li class="dropdown">
+									<a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-user"></i> Tài khoản<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a asp-action="History" asp-controller="Account">Lịch sử đơn hàng</a></li>
+										<li><a asp-action="UpdateAccount" asp-controller="Account">Thông tin cá nhân</a></li>
+										<li><a asp-area="Admin" asp-controller="Product" asp-action="Index"><i class="fa fa-crosshairs"></i> Admin</a></li>
+										<li><a asp-action="Wishlist" asp-controller="Home"><i class="fa fa-heart"></i> Yêu thích</a></li>
+										<li><a asp-action="Compare" asp-controller="Home"><i class="fa fa-star"></i> So sánh</a></li>
+										<li><a asp-controller="Home" asp-action="Contact">Liên lạc</a></li>
+									</ul>
+								</li>
+								<li>
+									<a asp-controller="Account" asp-action="Logout">
+										<i class="fa fa-lock"></i> Đăng xuất
+									</a>
+								</li>
+							}
+							else
+							{
+								<li>
+									<a asp-controller="Account" asp-action="Login">
+										<i class="fa fa-lock"></i> Đăng nhập
+									</a>
+								</li>
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+
+
+
+	<section>
+		<div class="container">
+			<div class="row">
+				@Html.Partial("_NotificationPartial")
+				@RenderBody()
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer">
+		<!--Footer-->
+		@Html.Partial("_FooterPartial")
+
+		@*<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Dịch vụ</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Hỗ trỡ trực tuyến</a></li>
+								<li><a href="#">Liên hệ</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ's</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Chi nhánh</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">T-Shirt</a></li>
+								<li><a href="#">Mens</a></li>
+								<li><a href="#">Womens</a></li>
+								<li><a href="#">Gift Cards</a></li>
+								<li><a href="#">Shoes</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Chính sách</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Ticket System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Thông tin web</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>Thông tin </h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Email của bạn" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Nhận thông tin cập nhật mới nhất từ <br />trang web của chúng tôi và được cập nhật tự của bạn...</p>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>*@
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Web được tạo bởi Quang Hùng nhóm NCKH.</p>
+					<p class="pull-right">Người tạo lập <span><a target="_blank" href="https://www.facebook.com/quang.hung.368260">Quang Hùng Master Dê</a></span></p>
+				</div>
+			</div>
+		</div>
+
+	</footer><!--/Footer-->
+
+
+
+
+
+	<script src="~/js/jquery.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/jquery.scrollUp.min.js"></script>
+	<script src="~/js/price-range.js"></script>
+	<script src="~/js/jquery.prettyPhoto.js"></script>
+	<script src="~/js/main.js"></script>
+	<script src="~/backend/js/site.js"></script>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v22.0"></script>
+
+	<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.all.min.js
+"></script>
+	<script>
+		$(function () {
+			var message = '@TempData["success"]';
+			if (message != '')
+				Swal.fire(message);
+
+		});
+	</script>
+	@await RenderSectionAsync("Scripts", required: false)
+
+	<!-- Nút chat -->
+	<div id="chat-widget-button" style="position: fixed; bottom: 20px; right: 20px; color: white; padding: 15px; border-radius: 50%; cursor: pointer;">
+		<i class="fa fa-comments" style="font-size: 50px;"></i>
+	</div>
+
+	<!-- Cửa sổ chat -->
+	<div id="chat-popup" style="display: none; position: fixed; bottom: 30px; right: 20px; width: 400px; height: 500px; background-color: #FFf; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+		<div id="chat-header" style="background-color: #000099; color: white; padding: 10px; text-align: center;">
+			<h4>Chat với chúng tôi</h4>
+			<button id="close-chat" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 16px; cursor: pointer;">×</button>
+		</div>
+		<div id="chat-messages" style="padding: 10px; overflow-y: auto; flex: 1 1 auto; min-height: 160px;">
+			<!-- Tin nhắn sẽ hiển thị ở đây -->
+			<div class="message">
+				<div class="message-container">
+					<img src="/images/32.png" alt="Bot" class="profile-image" />
+					<div class="bot-message">Xin chào! Tôi có thể giúp gì cho bạn ? </div>
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-container">
+					<img src="/images/32.png" alt="Bot" class="profile-image" />
+					<div class="bot-message">Hãy nhập câu hỏi ở dưới để nhận được phản hồi nhé bạn :3 </div>
+				</div>
+			</div>
+		</div>
+		<!-- Câu hỏi nhanh -->
+		<div id="chat-quick-questions" style="padding: 6px 10px; background: transparent; border-top: none; display: block; max-height: 150px; overflow-y: auto;">
+			<button type="button" class="quick-question" data-question="Shop đang có mã giảm giá nào?">Mã giảm giá</button>
+			<button type="button" class="quick-question" data-question="Phí vận chuyển bao nhiêu?">Phí vận chuyển</button>
+			<button type="button" class="quick-question" data-question="Có hỗ trợ thanh toán Momo hoặc VNPay không?">Thanh toán</button>
+			<button type="button" class="quick-question" data-question="Sản phẩm PC rẻ mà có hiệu năng tốt nhất">	PC rẻ + tốt		</button>
+			<button type="button" class="quick-question" data-question="Sản phẩm Macbook rẻ mà có hiệu năng tốt nhất">Macbook rẻ + tốt</button>
+			<button type="button" class="quick-question" data-question="Sản phẩm bán chạy nhất là gì?">Sản phẩm nhiều người mua nhất</button>
+		
+		</div>
+		
+		<div id="chat-input" style="padding: 10px; background-color: #f8f9fa;">
+			<input type="text" id="user-input" style="width: 80%; padding: 5px;" placeholder="Nhập tin nhắn..." />
+			<button id="send-button" style="width: 20%;border-radius: 5%; padding: 5px; color: white; border: none;">Gửi</button>
+		</div>
+	</div>
+
+	<style>
+		/* Nút chat */
+		/* Nút chat */
+		#chat-widget-button {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* Màu bong bóng chat */
+			padding: 15px;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: transform 0.2s ease, background-color 0.3s ease; /* Thêm hiệu ứng chuyển động cho màu nền */
+		}
+
+			#chat-widget-button:hover {
+				animation: shake 3s ease-in-out infinite; /* Thêm hiệu ứng rung khi hover */
+				background-color: #3399FF; /* Màu nền khi hover (ví dụ: màu đỏ) */
+			}
+
+
+		/* Định nghĩa hiệu ứng rung */
+
+
+		/* Cửa sổ chat */
+		#chat-popup {
+			display: none;
+			position: fixed;
+			bottom: 70px;
+			right: 20px;
+			width: 400px;
+			height: 500px;
+			background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* Màu vàng */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			overflow: hidden;
+			display: flex; /* flex layout để cố định thanh nhập */
+			flex-direction: column;
+		}
+
+		/* Đầu cửa sổ chat */
+		#chat-header {
+			background-color: #000099; /* Màu vàng */
+			color: white;
+			padding: 10px;
+			text-align: center;
+			position: relative;
+		}
+
+			#chat-header h4 {
+				margin: 0;
+			}
+
+		/* Phần nhập liệu */
+		#chat-input {
+			padding: 10px;
+			background-color: #f8f9fa;
+			display: flex;
+		}
+
+			#chat-input input {
+				width: 80%;
+				padding: 5px;
+			}
+
+			#chat-input button {
+				width: 15%;
+				padding: 5px;
+				background: linear-gradient(90deg, #fbc2eb, #a6c1ee);
+				color: white;
+				border: none;
+			}
+
+
+		#send-button:hover {
+			background: #3399FF;
+		}
+
+
+		.message {
+			margin-bottom: 10px;
+			display: flex;
+			align-items: flex-start;
+		}
+
+
+		/* Tin nhắn người dùng */
+		.user-message {
+			background-color: #3366FF;
+			color: white;
+			padding: 5px;
+			border-radius: 5px;
+			width: 75%;
+			margin-left: auto; /* đẩy sang phải */
+			display: flex;
+			justify-content: flex-end; /* Đảm bảo tin nhắn được đẩy sang phải */
+		}
+
+
+		/* Tin nhắn của bot */
+		.bot-message {
+			text-align: left;
+			background-color: #f1f1f1;
+			color: black;
+			padding: 5px;
+			border-radius: 5px;
+			margin-left: 10px;
+			width: 75%;
+			margin-right: auto; /* Đẩy tin nhắn bot sang bên trái */
+		}
+
+		/* Nút câu hỏi nhanh */
+		#chat-quick-questions .quick-question {
+			background: #f2f2f2; /* nền xám nhạt */
+			border: 1px solid #e0e0e0;
+			border-radius: 8px;
+			padding: 8px 10px;
+			font-size: 12px;
+			cursor: pointer;
+			color: #333;
+			display: block;
+			width: 100%;
+			text-align: left;
+			margin-bottom: 6px;
+			opacity: 0.85; /* mặc định hơi mờ */
+			transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+		}
+
+		#chat-quick-questions .quick-question:hover {
+			background: #e0e0e0; /* xám hơn khi hover */
+			color: #0066FF;
+			border-color: #cfe3ff;
+			opacity: 0.7; /* mờ đi khi hover */
+		}
+
+		/* Hình ảnh người gửi */
+		.profile-image {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+
+		/* Thẻ chứa tin nhắn và ảnh */
+		.message-container {
+			display: flex;
+			align-items: flex-start;
+		}
+
+		/*Phần thanh nav 1*/
+		.container a:hover,
+		.container button:hover,
+		.container .dropdown-menu li a:hover {
+			background-color: #F0F0E9; /* Màu nền khi hover */
+			transition: all 0.3s ease;
+		}
+
+		.shop-menu a:hover,
+		.shop-menu button:hover,
+		.shop-menu .dropdown-menu li a:hover {
+			color: #0066FF !important;
+			background-color: #EAF3FF !important;
+			transition: all 0.3s ease;
+		}
+
+		/* Màu chữ mặc định trong header-bottom */
+		.header-bottom a {
+			color: black !important;
+			transition: color 0.3s ease;
+		}
+		/* Nền trắng + chữ đen cho sub-menu */
+		.header-bottom .sub-menu {
+			background-color: white;
+			border: 1px solid #ccc;
+		}
+
+			.header-bottom .sub-menu li a {
+				color: black;
+				padding: 10px 15px;
+				display: block;
+			}
+
+		.header-bottom {
+			/* background-color: white; */
+			margin-bottom: 5px;
+			height: 15px;
+			display: flex;
+			align-items: center; /*căn chỉnh giữa theo chiều dọc*/
+			justify-content: space-between;
+			position: sticky;
+			top: 0;
+			z-index: 999;
+			background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* nên có màu nền */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* đổ bóng nhẹ */
+			border-bottom: 1px solid #ccc;
+		}
+
+		.sticky-header {
+			background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+
+		.row_bottom { /*căn chỉnh các thuộc tính vào giữa thanh nav bottom*/
+			display: flex;
+			align-items: center;
+		}
+
+		.sticky-header {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 999;
+			background-color: white;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+		}
+
+		/* Khi hover đổi thành màu xanh */
+		.header-bottom a:hover {
+			color: #0066FF !important;
+			background-color: #EAF3FF !important;
+			transform: scale(1.1); /* tăng 5% kích thước */
+			transition: transform 0.3s ease-in-out;
+		}
+
+		/* thanh tìm kiếm */
+		.search_box input[type="text"] {
+			color: black; /* Màu chữ */
+			font-size: 14px;
+			padding: 10px 40px 10px 15px; /* chừa chỗ cho icon bên phải */
+			border: 1px solid #ccc;
+			padding: 5px 10px;
+			border-radius: 20px;
+			width: 100% !important;
+			background-color: white;
+			outline: none;
+		}
+
+
+		.search_box button {
+			position: absolute;
+			top: 50%;
+			right: 5px;
+			transform: translateY(-50%);
+			cursor: pointer;
+			z-index: 1; /* để đè lên input */
+			border: none;
+			background: transparent;
+			color: #999;
+			font-size: 16px;
+			cursor: pointer;
+			margin-right: 10px;
+			padding: 5px 10px;
+		}
+
+			.search_box button i:hover {
+				color: black;
+			}
+
+		/*Phần thông tin đuôi trang*/
+		.footer-bottom a {
+			color: #0066FF !important;
+		}
+
+			.footer-bottom a:hover {
+				background-color: white;
+			}
+
+		/*font chữ đăng nhập đăng xuất*/
+
+		.login_logout {
+			color: #696763;
+			font-family: 'Roboto', sans-serif;
+			font-size: 17px;
+			font-weight: 300;
+			padding: 0;
+			padding-bottom: 10px;
+			padding-top: 5px;
+			font-weight: bold !important;
+		}
+
+			.login_logout:hover {
+				text-decoration: underline;
+			}
+
+	</style>
+
+	<script>
+		const chatMessages = document.getElementById('chat-messages');
+		const userInput = document.getElementById('user-input');
+		const sendButton = document.getElementById('send-button');
+
+		async function handleUserInput() {
+			const userMessage = userInput.value.trim();
+
+			if (userMessage) {
+				addMessage(userMessage, true);
+				userInput.value = '';
+
+				sendButton.disabled = true;
+				userInput.disabled = true;
+
+				try {
+					const response = await fetch('/Chat/GetResponse', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ message: userMessage })
+					});
+
+					if (!response.ok) {
+						throw new Error('Failed to get response');
+					}
+
+					const data = await response.json();
+					addMessage(data.response, false);
+				} catch (error) {
+					console.error('Error:', error);
+					addMessage('Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau.', false);
+				} finally {
+					sendButton.disabled = false;
+					userInput.disabled = false;
+					userInput.focus();
+				}
+			}
+		}
+
+		function addMessage(message, isUser) {
+			const messageElement = document.createElement('div');
+			messageElement.classList.add('message');
+
+			const messageContainer = document.createElement('div');
+			messageContainer.classList.add('message-container');
+
+			const profileImage = document.createElement('img');
+			profileImage.classList.add('profile-image');
+			profileImage.src = isUser ? '/images/user.jpg' : '/images/32.png';
+			profileImage.alt = isUser ? 'User' : 'Bot';
+
+			const messageContent = document.createElement('div');
+			messageContent.classList.add(isUser ? 'user-message' : 'bot-message');
+
+			let formattedMessage = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+			formattedMessage = formattedMessage.replace(/\n/g, '<br/>');
+			formattedMessage = formattedMessage.replace(/^- (.*)/gm, '<li>$1</li>');
+
+
+			messageContent.innerHTML = formattedMessage; // Sử dụng innerHTML để hiển thị HTML
+
+			messageContainer.appendChild(profileImage);
+			messageContainer.appendChild(messageContent);
+			messageElement.appendChild(messageContainer);
+
+			chatMessages.appendChild(messageElement);
+			chatMessages.scrollTop = chatMessages.scrollHeight;
+		}
+
+		sendButton.addEventListener('click', handleUserInput);
+
+		userInput.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter' && !e.shiftKey) {
+				e.preventDefault();
+				handleUserInput();
+			}
+		});
+
+		// Hiển thị cửa sổ chat khi nhấn nút
+		document.getElementById('chat-widget-button').addEventListener('click', function () {
+			var popup = document.getElementById('chat-popup');
+			popup.style.display = 'flex'; // dùng flex để giữ input cố định dưới
+		});
+
+		// Đóng cửa sổ chat khi nhấn nút đóng
+		document.getElementById('close-chat').addEventListener('click', function () {
+			document.getElementById('chat-popup').style.display = 'none';
+		});
+
+		// Gán sự kiện cho các nút câu hỏi nhanh
+		var quickHidden = false;
+		document.querySelectorAll('#chat-quick-questions .quick-question').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				const q = this.getAttribute('data-question');
+				userInput.value = q;
+				// tự động gửi
+				handleUserInput();
+				// Ẩn toàn bộ câu hỏi nhanh sau lần bấm đầu tiên
+				if (!quickHidden) {
+					document.getElementById('chat-quick-questions').style.display = 'none';
+					quickHidden = true;
+				}
+			});
+		});
+
+		$(window).on("scroll", function () {
+			if ($(window).scrollTop() > 100) {
+				$(".header-bottom").addClass("sticky-header");
+			} else {
+				$(".header-bottom").removeClass("sticky-header");
+			}
+		});
+	</script>
+</body>
+</html>

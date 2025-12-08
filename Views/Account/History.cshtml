@@ -1,0 +1,175 @@
+﻿@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Trang thông tin của " + @ViewBag.UserEmail;
+}
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        /* Cải thiện kiểu giao diện cho bảng và các phần tử */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            padding: 20px;
+        }
+
+        h3 {
+            color: #3399FF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+            .table thead {
+                background: linear-gradient(90deg, #fbc2eb, #a6c1ee); /* Màu bong bóng chat */
+                color: white;
+            }
+
+            .table th, .table td {
+                padding: 12px 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+          
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3399FF;
+            border-color: #3399FF;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #267ACC;
+                border-color: #267ACC;
+            }
+
+        .btn-danger {
+            background-color: #ff4d4d;
+            border-color: #ff4d4d;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #cc0000;
+                border-color: #cc0000;
+            }
+
+        .text-success {
+            color: #28a745;
+        }
+
+        .text-primary {
+            color: #3399FF;
+        }
+
+        .text-danger {
+            color: #dc3545;
+        }
+        th{
+            color:black;
+        }
+       
+
+        /* Cải thiện bảng trạng thái đơn hàng */
+        .order-status {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h3>Danh sách đặt hàng của @ViewBag.UserEmail</h3>
+
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th>Đơn số</th>
+                <th>Mã mua hàng</th>
+                <th>Phí ship</th>
+                <th>Địa chỉ</th>
+                <th>Phương thức giao dịch</th>
+                <th>Ngày tạo</th>
+                <th>Trạng thái</th>
+                <th>Xem đơn</th>
+                <th>Hủy đơn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderCode</td>
+                    <td>@item.ShippingCost.ToString("#,##0 VNĐ")</td>
+                    <td>@item.ContactUser</td>
+                    <td>
+                        @if (item.PaymentMethod=="COD"||item.PaymentMethod ==null)
+                        {
+                            <span class="text-primary">Giao dịch trực tiếp</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Đã thanh toán qua @item.PaymentMethod</span>
+                        }
+                    </td>
+                    <td>@item.CreatedDate.ToString("dd-MM-yyyy")</td>
+                    <td class="order-status">
+                        @if (item.Status == 1)
+                        {
+                            <span class="text-success">Đơn hàng mới</span>
+                        }
+                        else if (item.Status == 2)
+                        {
+                            <span class="text-primary">Đã xử lý</span>
+                        }
+                        else if (item.Status == 3)
+                        {
+                            <span class="text text-warning">Đang giao hàng</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Đã hủy</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a asp-action="ViewOrder"
+                           class="btn btn-sm"
+                           style="background-color: #3399FF; border-color: #3399FF; color: white;"
+                           asp-controller="Account"
+                           asp-route-ordercode="@item.OrderCode">Xem chi tiết</a>
+                    </td>
+                    <td>
+                        @if (item.Status != 4 && item.Status != 3 && item.Status != 2)
+                        {
+                            <a onclick="return confirm('Bạn xác nhận muốn hủy?')" class="btn btn-danger btn-sm" asp-action="CancelOrder" asp-controller="Account" asp-route-ordercode="@item.OrderCode">Hủy đơn hàng</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
