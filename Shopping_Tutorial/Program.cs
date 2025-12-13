@@ -21,6 +21,10 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 builder.Services.Configure<MomoOptionModel>(builder.Configuration.GetSection("MomoAPI"));
 builder.Services.AddScoped<IMomoService, MomoService>();
 
+builder.Services.AddHttpClient("API_Hub", client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7092");
+});
 
 // Cấu hình DbContext với chuỗi kết nối từ appsettings.json
 builder.Services.AddDbContext<DataContext>(options =>
@@ -37,6 +41,16 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 
@@ -106,6 +120,8 @@ app.UseRouting(); // Cấu hình cho việc định tuyến
 app.UseAuthentication(); // Cấu hình xác thực
 app.UseAuthorization(); // Cấu hình phân quyền
 
+
+app.UseCors(); // Sử dụng CORS
 // Các route cho các khu vực
 app.MapAreaControllerRoute(
     name: "Admin",

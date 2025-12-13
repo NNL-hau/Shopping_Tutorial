@@ -412,5 +412,26 @@ namespace Shopping_Tutorial.Controllers
 
             return View(orderViewModel);
         }
+
+        #region API Endpoint
+        [HttpGet("/api/get/users")]
+        public async Task<IActionResult> GetAllUser()
+        {
+            var users = await _userManage.Users.ToListAsync();
+            return Ok(users);
+        }
+
+        [HttpGet("/api/get/user/{id}")]
+        public async Task<IActionResult> GetUserById(string id)
+        {
+            var user = await _userManage.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        #endregion
     }
 }

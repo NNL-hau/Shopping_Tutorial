@@ -1493,3 +1493,16 @@ C:\Users\DELL\Downloads\Shopping_Tutorial\Shopping_Tutorial\obj\Debug\net8.0\rji
 C:\Users\DELL\Downloads\Shopping_Tutorial\Shopping_Tutorial\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\DELL\Downloads\Shopping_Tutorial\Shopping_Tutorial\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 C:\Users\DELL\Downloads\Shopping_Tutorial\Shopping_Tutorial\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.csproj.AssemblyReference.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.GeneratedMSBuildEditorConfig.editorconfig
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.AssemblyInfoInputs.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.AssemblyInfo.cs
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.csproj.CoreCompileInputs.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.MvcApplicationPartsAssemblyInfo.cs
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.MvcApplicationPartsAssemblyInfo.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.RazorAssemblyInfo.cache
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.RazorAssemblyInfo.cs
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.sourcelink.json
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.dll
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\refint\Shopping_Tutorial.dll
+E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.pdb

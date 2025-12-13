@@ -5,7 +5,6 @@
     using Shopping_Tutorial.Models.ViewModels;
     using Shopping_Tutorial.Repository;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI.Services;
     namespace Shopping_Tutorial.Controllers
     {
         public class CartController : Controller

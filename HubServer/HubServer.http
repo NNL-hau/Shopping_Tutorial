@@ -1,0 +1,6 @@
+@HubServer_HostAddress = http://localhost:5068
+
+GET {{HubServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

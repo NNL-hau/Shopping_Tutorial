@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {}
+    "E:\\Workspace\\C#_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {}
   },
   "projects": {
-    "D:\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {
+    "E:\\Workspace\\C#_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
+        "projectUniqueName": "E:\\Workspace\\C#_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
         "projectName": "Shopping_Tutorial",
-        "projectPath": "D:\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
-        "packagesPath": "C:\\Users\\lamma\\.nuget\\packages\\",
-        "outputPath": "D:\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\obj\\",
+        "projectPath": "E:\\Workspace\\C#_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\Workspace\\C#_ASP.NET\\Shopping_Tutorial\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lamma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -66,6 +67,10 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -81,6 +86,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[112.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -102,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

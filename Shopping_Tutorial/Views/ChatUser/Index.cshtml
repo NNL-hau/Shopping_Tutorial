@@ -1,0 +1,694 @@
+﻿@model ChatModel
+@using System.Linq
+@using System.Security.Claims
+@{
+    var defaultConv = Model != null && Model.Conversations.Count > 0 ? Model.Conversations[0] : default;
+    var userDirectory = Model?.Users ?? new List<AppUserModel>();
+
+    var username = Context.User.Identity.Name;
+    var id = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<style>
+    .messenger-main {
+        display: flex;
+        height: 100vh;
+        min-height: 600px;
+        background: #18191a;
+        border-radius: 0;
+        box-shadow: none;
+        font-family: Segoe UI, Arial, sans-serif;
+    }
+
+    .left-col-messenger {
+        width: 340px;
+        background: #fff;
+        color: #18191a;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #ececec;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .left-header {
+        padding: 20px 16px 10px 18px;
+        font-size: 23px;
+        font-weight: 700;
+        color: #232222;
+    }
+
+    .conv-search {
+        margin: 0 12px 11px 12px;
+    }
+
+        .conv-search button {
+            width: 100%;
+            background: #f3f5f7;
+            color: #18191a;
+            border: 1px solid #ececec;
+            padding: 10px 16px;
+            border-radius: 22px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background .15s, box-shadow .15s;
+        }
+
+            .conv-search button:hover {
+                background: #e2e6eb;
+                box-shadow: 0 4px 10px -8px #0008;
+            }
+
+    .user-overlay {
+        position: absolute;
+        inset: 0;
+        color: #18191a;
+        background-color: #f5f6fa;
+        display: none;
+        flex-direction: column;
+        z-index: 5;
+    }
+
+        .user-overlay.visible {
+            display: flex;
+        }
+
+    .user-overlay-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 18px 12px 18px;
+    }
+
+    .overlay-back-btn {
+        border: none;
+        background: none;
+        color: #18191a;
+        font-size: 22px;
+        cursor: pointer;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .overlay-back-btn:hover {
+            background: #EDEDED;
+        }
+
+    .overlay-title {
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+    .overlay-section {
+        padding: 8px 18px 2px;
+    }
+
+    .overlay-section-title {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #8b8d91;
+        margin-bottom: 8px;
+    }
+
+    .overlay-user-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .overlay-user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 6px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background .15s;
+    }
+
+        .overlay-user:hover {
+            background: #EDEDED;
+        }
+
+    .overlay-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid #2f3134;
+        background: #3a3b3c;
+        flex-shrink: 0;
+    }
+
+    .overlay-avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .overlay-user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .overlay-user-name {
+        font-size: 15px;
+    }
+
+    .overlay-user-meta {
+        font-size: 13px;
+        color: #b0b3b8;
+    }
+
+    .overlay-empty {
+        padding: 10px 0 18px;
+        color: #8b8d91;
+        font-size: 14px;
+    }
+
+    .conversation-list {
+        flex: 1;
+        overflow-y: auto;
+        background: #fff;
+    }
+
+    .conv-entry {
+        display: flex;
+        align-items: center;
+        padding: 9px 14px 9px 17px;
+        cursor: pointer;
+        border-radius: 13px;
+        gap: 13px;
+        transition: background .14s, box-shadow .15s, border .15s;
+        border: 1.5px solid transparent;
+        margin: 2px 5px 2px 7px;
+    }
+
+        .conv-entry:hover {
+            background: #f1f4f7;
+        }
+
+        .conv-entry.active {
+            background: #eaf1fd;
+            border: 1.5px solid #399af7;
+            box-shadow: 0 2px 8px -7px #399af7cc;
+        }
+
+    .conv-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e4e6ea;
+    }
+
+    .conv-info {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .conv-name {
+        font-weight: 500;
+        font-size: 16px;
+        color: #161616;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .conv-lastmsg {
+        font-size: 14px;
+        color: #657082;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .conv-time {
+        font-size: 12px;
+        color: #aaa;
+        margin-left: 8px;
+    }
+
+    .chat-box-col {
+        flex: 1;
+        background: #f6f7f8;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        position: relative;
+    }
+
+    .chat-header {
+        height: 67px;
+        padding: 0 22px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-bottom: 1px solid #ececec;
+        background: #fff;
+    }
+
+        .chat-header .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e5e6ea;
+        }
+
+        .chat-header .chat-user {
+            font-size: 17.5px;
+            font-weight: 600;
+            color: #282d32;
+        }
+
+    .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 32px 26px 22px 26px;
+        background: #f6f7f8;
+        justify-content: space-between;
+    }
+
+    .msg-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 11px;
+        margin-bottom: 4px;
+    }
+
+        .msg-row.mine {
+            flex-direction: row-reverse;
+        }
+
+        .msg-row .avatar-small {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0.5px 2px 9px -4px #6663;
+            border: 1.5px solid #d8dadd;
+        }
+
+            .msg-row.mine .avatar-small {
+                display: none;
+            }
+
+    .chat-message {
+        max-width: 68%;
+        min-width: 32px;
+        padding: 10px 17px;
+        border-radius: 24px;
+        font-size: 15px;
+        line-height: 1.75;
+        white-space: pre-line;
+        word-break: break-word;
+        position: relative;
+        box-shadow: 0 0.5px 2px #0001;
+        margin-bottom: 2px;
+    }
+
+    .msg-row.mine .chat-message {
+        background: #d2e7ff;
+        color: #1c1f23;
+        border-bottom-right-radius: 7px;
+        border-bottom-left-radius: 24px;
+    }
+
+    .msg-row.other .chat-message {
+        background: #fff;
+        color: #18191a;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 24px;
+        border: 1.2px solid #ededef;
+    }
+
+    /* Tin nhắn liên tiếp của cùng người - sát nhau như Messenger/WhatsApp */
+    .msg-row.consecutive {
+        margin-bottom: 1px; /* Chỉ cách nhau 1px */
+        margin-top: -3px; /* Bù lại margin-bottom: 4px của msg-row trước đó */
+    }
+
+    .msg-row.consecutive .chat-message {
+        margin-bottom: 0;
+    }
+
+    /* Đảm bảo tin nhắn "other" consecutive vẫn align đúng khi không có avatar */
+    .msg-row.other.consecutive {
+        padding-left: 43px; /* 32px avatar width + 11px gap */
+        justify-content: flex-start; /* Đảm bảo message align bên trái */
+    }
+
+    /* Đảm bảo tin nhắn "mine" consecutive vẫn align đúng khi không có avatar */
+    /* Vì mine dùng row-reverse, nên cần padding-left để đẩy message về bên phải */
+    .msg-row.mine.consecutive {
+        padding-left: 43px; /* 32px avatar width + 11px gap - đảo ngược vì row-reverse */
+        justify-content: flex-start; /* Với row-reverse, flex-start = bên phải */
+    }
+
+    .chat-input-container {
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #ececec;
+        background: #fff;
+        padding: 14px 18px;
+    }
+
+    .chat-input {
+        flex: 1;
+        padding: 10px 17px;
+        border: 1.4px solid #dbe1ec;
+        background: #f5f6fa;
+        border-radius: 22px;
+        font-size: 15px;
+        outline: none;
+        margin-right: 10px;
+        transition: border 0.18s;
+    }
+
+        .chat-input:focus {
+            border-color: #6391ed;
+            background: #fff;
+        }
+
+    /* send button */
+    /* From Uiverse.io by eirikvold */
+    button.send-btn {
+        font-family: inherit;
+        font-size: 18px;
+        background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+        color: white;
+        padding: 0.8em 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+    }
+
+        button.send-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button.send-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button.send-btn span {
+            display: block;
+            margin-left: 0.4em;
+            transition: all 0.3s;
+        }
+
+        button.send-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+            transition: all 0.3s;
+        }
+
+        button.send-btn .svg-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-right: 0.5em;
+            transition: all 0.3s;
+        }
+
+        button.send-btn:hover .svg-wrapper {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        button.send-btn:hover svg {
+            transform: rotate(45deg);
+        }
+
+
+
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        background: #fff2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #d5d9e2;
+        border-radius: 4px;
+    }
+
+    .intro-banner-user {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 36px 0 18px 0;
+        gap: 7px;
+        width: 100%;
+        opacity: 0.97;
+    }
+
+        .intro-banner-user .intro-avatar {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid #e5e6ea;
+            margin-bottom: 2px;
+            box-shadow: 0 0 12px #0001;
+        }
+
+        .intro-banner-user .intro-name {
+            font-size: 18.5px;
+            font-weight: 600;
+            color: #242526;
+            margin-top: 2px;
+            margin-bottom: 0.5px;
+        }
+
+        .intro-banner-user .intro-desc {
+            font-size: 14.2px;
+            color: #6e6f74;
+            max-width: 93%;
+            text-align: center;
+            line-height: 1.55;
+            letter-spacing: 0.01em;
+        }
+
+    .empty-chat-state {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #f6f7f8;
+        padding: 40px 20px;
+        gap: 16px;
+    }
+
+    .empty-chat-icon {
+        font-size: 64px;
+        color: #8a9baa;
+        margin-bottom: 8px;
+    }
+
+    .empty-chat-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #242526;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    .empty-chat-subtitle {
+        font-size: 16px;
+        color: #65676b;
+        text-align: center;
+        max-width: 400px;
+        line-height: 1.5;
+    }
+</style>
+
+<div class="messenger-main">
+    <!-- Danh sách cuộc trò chuyện bên trái -->
+    <div class="left-col-messenger">
+        <div class="left-header">Đoạn chat</div>
+        <div class="conv-search">
+            <button type="button" id="open-user-panel">
+                <span style="font-size:18px;">&#x1F465;</span>
+                <span>Danh bạ người dùng</span>
+            </button>
+        </div>
+        <div class="conversation-list" id="conversation-list-js">
+            @if (defaultConv != null)
+            {
+                for (var i = 0; i < Model.Conversations.Count; i++)
+                {
+                    var conv = Model.Conversations[i];
+                    <div class="conv-entry @(i == 0 ? "active" : "")" data-convid="@conv.Id" data-name="@conv.Name" data-avatar="@conv.Avatar">
+                        <img class="conv-avatar" src="@conv.Avatar" alt="avatar" />
+                        <div class="conv-info">
+                            <div class="conv-name">@conv.Name</div>
+                            <div class="conv-lastmsg">@(conv.Messages.Last().IsMine ? "Bạn: " + conv.LastMessage : conv.LastMessage)</div>
+                        </div>
+                        <div class="conv-time">@conv.LastMessageTime</div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="conv-entry">
+                    Không có cuộc trò chuyện nào.
+                </div>
+            }
+        </div>
+        <div class="user-overlay" id="user-overlay">
+            <div class="user-overlay-header">
+                <button type="button" class="overlay-back-btn" id="close-user-panel">
+                    &#8592;
+                </button>
+                <div class="overlay-title">Danh bạ</div>
+            </div>
+            <div class="overlay-section" style="margin-top:8px;">
+                <div class="overlay-section-title">Người dùng hệ thống</div>
+                <div class="overlay-user-list">
+                    @if (userDirectory != null && userDirectory.Any())
+                    {
+                        foreach (var user in userDirectory)
+                        {
+                            var displayName = string.IsNullOrWhiteSpace(user.UserName) ? (user.Email ?? "Người dùng") : user.UserName;
+                            var matchingConv = Model.Conversations.FirstOrDefault(c => string.Equals(c.Name, displayName, StringComparison.OrdinalIgnoreCase));
+                            var hasConv = matchingConv != null;
+                            var avatarUrl = hasConv && !string.IsNullOrWhiteSpace(matchingConv.Avatar)
+                            ? matchingConv.Avatar
+                            : $"https://ui-avatars.com/api/?name={Uri.EscapeDataString(displayName ?? "User")}&background=5b6bff&color=fff";
+                            <div class="overlay-user" data-id="@user.Id" data-username="@displayName" data-avatar="@avatarUrl" @(hasConv ? $"data-convid=\"{matchingConv.Id}\"" : "")>
+                                <div class="overlay-avatar">
+                                    <img class="overlay-avatar-img" src="@avatarUrl" alt="@displayName" />
+                                </div>
+                                <div class="overlay-user-info">
+                                    <div class="overlay-user-name">@displayName</div>
+                                    <div class="overlay-user-meta">@((hasConv ? "Nhắn tin gần đây" : "Chưa có cuộc trò chuyện"))</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="overlay-empty">Chưa có người dùng nào.</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khung chat bên phải-->
+    @if (defaultConv != null)
+    {
+        <div class="chat-box-col">
+            <div class="chat-header" id="chat-header-js">
+                <img class="avatar" src="@defaultConv.Avatar" alt="Receiver" id="chat-header-avatar" />
+                <span class="chat-user" data-convid="@defaultConv.Id" userid="@defaultConv.SenderId" id="chat-header-name">@defaultConv.Name</span>
+            </div>
+            <div class="chat-messages" id="chat-messages-js">
+                <!-- Banner đầu đoạn chat: avatar + tên + mô tả (cố định đầu đoạn) -->
+                <div class="intro-banner-user" id="chat-banner-intro-js">
+                    <img class="intro-avatar" src="@defaultConv.Avatar" alt="Chat user" id="chat-banner-avatar" />
+                    <div class="intro-name" id="chat-banner-name">@defaultConv.Name</div>
+                    <div class="intro-desc">Bạn đang trò chuyện với <b>@defaultConv.Name</b>. Hãy giữ lịch sự & tích cực!</div>
+                </div>
+                <!-- Lặp tin nhắn vẫn như cũ -->
+                @for (var m = 0; m < defaultConv.Messages.Count; m++)
+                {
+                    var msg = defaultConv.Messages[m];
+                    var mine = msg.IsMine ? "mine" : "other";
+                    <div class="msg-row @mine">
+                        @if (!msg.IsMine)
+                        {
+                            <img class="avatar-small" src="@defaultConv.Avatar" alt="Ava" />
+                        }
+                        <div class="chat-message">@msg.Text</div>
+                    </div>
+                }
+
+            </div>
+            <div class="chat-input-container" method="post" action="/ChatUser/SendMessage" autocomplete="off" onsubmit="return false;">
+                <input name="message" class="chat-input" id="chat-input-js" type="text" placeholder="Nhập tin nhắn..." required />
+                <button class="send-btn" id="sendButton" type="submit">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Gửi</span>
+                </button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="chat-box-col">
+            <div class="chat-header" id="chat-header-js">
+            </div>
+            <div class="chat-messages" id="chat-messages-js">
+                <div class="empty-chat-state">
+                    <div class="empty-chat-icon">💬</div>
+                    <div class="empty-chat-title">Chào mừng đến với Tin nhắn</div>
+                    <div class="empty-chat-subtitle">Vui lòng chọn đoạn chat từ bên trái để bắt đầu cuộc trò chuyện</div>
+                </div>
+            </div>
+            <div class="chat-input-container" style="visibility:hidden">
+                <input name="message" class="chat-input" id="chat-input-js" type="text" placeholder="Nhập tin nhắn..." required />
+                <button class="send-btn" id="sendButton" type="submit">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Gửi</span>
+                </button>
+
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script>
+    const id = '@id'
+    const username = '@username'
+    console.log(id, username);
+    if (!sessionStorage.getItem('user')) {
+        sessionStorage.setItem('user', JSON.stringify({ id, username }))
+    }
+</script>
+<script src="~/js/chat.js?v=@Guid.NewGuid()"></script>
