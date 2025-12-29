@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {}
+    "D:\\Nam 4\\Phan_Mem\\Project\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {
+    "D:\\Nam 4\\Phan_Mem\\Project\\Shopping_Tutorial\\Shopping_Tutorial.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
+        "projectUniqueName": "D:\\Nam 4\\Phan_Mem\\Project\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
         "projectName": "Shopping_Tutorial",
-        "projectPath": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
-        "packagesPath": "C:\\Users\\lamma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\obj\\",
+        "projectPath": "D:\\Nam 4\\Phan_Mem\\Project\\Shopping_Tutorial\\Shopping_Tutorial.csproj",
+        "packagesPath": "C:\\Users\\OS\\.nuget\\packages\\",
+        "outputPath": "D:\\Nam 4\\Phan_Mem\\Project\\Shopping_Tutorial\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lamma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\OS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -102,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
