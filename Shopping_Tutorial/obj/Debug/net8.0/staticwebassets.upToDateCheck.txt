@@ -3,6 +3,7 @@ wwwroot\3d\5ecf0e17-b15c-471a-8f78-c931685c0d3d_Laptop.fbx
 wwwroot\3d\6d1a836c-6397-4ae2-983c-29a68b64e4ea_macbook_air_m2.glb
 wwwroot\3d\926e0df4-d879-4d81-8c21-db8164b8169b_apple_macbook_pro_16_inch_2021.glb
 wwwroot\3d\black-computer-mouse.glb
+wwwroot\3d\e750a3eb-ea3c-4a86-a141-e5b2dafc1c03_asus_rog_strix_scar_17_2023_g733_gaming_laptop.glb
 wwwroot\3d\ec6e12f7-8d78-462c-8cc1-494cf2137b17_MAC laptop.FBX
 wwwroot\3d\f32baebb-464b-4403-80a4-4d44fca8a542_asus_rog_strix_scar_17_2023_g733_gaming_laptop.glb
 wwwroot\3d\fa65eaa3-8a00-4b45-b40f-1e90bea2dd73_MAC laptop.FBX
