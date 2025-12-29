@@ -100,6 +100,12 @@
                 }
 
                 var product = await _dataContext.Products.FindAsync(Id);
+                if (product == null)
+                {
+                    TempData["error"] = "Sản phẩm không tồn tại.";
+                    return Redirect(Request.Headers["Referer"].ToString() ?? "/");
+                }
+
                 var existingItem = await _dataContext.UserCartItems
                     .FirstOrDefaultAsync(x => x.UserId == user.Id && x.ProductId == Id);
 

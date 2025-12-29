@@ -60,7 +60,7 @@
 
         <div class="form-group">
             <label>Upload 3D Model (.glb)</label>
-            <input asp-for="Model3DUpload" class="form-control" type="file" accept=".glb,.gltf" />
+            <input asp-for="Model3DUpload" class="form-control" type="file" accept=".glb,.gltf,.obj,.fbx,.3ds,.mtl" />
             <span asp-validation-for="Model3DUpload" class="text-danger"></span>
              @if (!string.IsNullOrEmpty(Model.Model3DLink))
             {
@@ -72,7 +72,7 @@
 
         <div class="form-group">
             <label>Link mô hình 3D (đường dẫn .glb/.gltf)</label>
-            <input asp-for="Model3DLink" class="form-control" placeholder="Ví dụ: /3d/mouse.glb hoặc https://..." />
+            <input asp-for="Model3DLink" class="form-control" placeholder="Ví dụ: /3d/68-laptop/mac laptop.obj hoặc https://..." />
             <small class="form-text text-muted">Nhập URL (https://) hoặc đường dẫn tính từ wwwroot, ví dụ /3d/laptop.glb. Để trống nếu chưa có.</small>
             <span asp-validation-for="Model3DLink" class="text-danger"></span>
         </div>

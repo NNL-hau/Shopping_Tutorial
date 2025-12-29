@@ -1,531 +1,1423 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Shopping_Tutorial.bundle.scp.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Shopping_Tutorial.bundle.scp.css",
       "PackagePath": "staticwebassets\\Shopping_Tutorial.zxrdetf01k.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\black-computer-mouse.glb",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\038e76c2-7513-4852-b3f5-70b1aca549cd_MAC laptop.FBX",
+      "PackagePath": "staticwebassets\\3d\\038e76c2-7513-4852-b3f5-70b1aca549cd_MAC laptop.FBX"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\5ecf0e17-b15c-471a-8f78-c931685c0d3d_Laptop.fbx",
+      "PackagePath": "staticwebassets\\3d\\5ecf0e17-b15c-471a-8f78-c931685c0d3d_Laptop.fbx"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\6d1a836c-6397-4ae2-983c-29a68b64e4ea_macbook_air_m2.glb",
+      "PackagePath": "staticwebassets\\3d\\6d1a836c-6397-4ae2-983c-29a68b64e4ea_macbook_air_m2.glb"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\926e0df4-d879-4d81-8c21-db8164b8169b_apple_macbook_pro_16_inch_2021.glb",
+      "PackagePath": "staticwebassets\\3d\\926e0df4-d879-4d81-8c21-db8164b8169b_apple_macbook_pro_16_inch_2021.glb"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\black-computer-mouse.glb",
       "PackagePath": "staticwebassets\\3d\\black-computer-mouse.glb"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\gamer-desk-setup.glb",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\ec6e12f7-8d78-462c-8cc1-494cf2137b17_MAC laptop.FBX",
+      "PackagePath": "staticwebassets\\3d\\ec6e12f7-8d78-462c-8cc1-494cf2137b17_MAC laptop.FBX"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\f32baebb-464b-4403-80a4-4d44fca8a542_asus_rog_strix_scar_17_2023_g733_gaming_laptop.glb",
+      "PackagePath": "staticwebassets\\3d\\f32baebb-464b-4403-80a4-4d44fca8a542_asus_rog_strix_scar_17_2023_g733_gaming_laptop.glb"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\fa65eaa3-8a00-4b45-b40f-1e90bea2dd73_MAC laptop.FBX",
+      "PackagePath": "staticwebassets\\3d\\fa65eaa3-8a00-4b45-b40f-1e90bea2dd73_MAC laptop.FBX"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\fad87181-9f04-45a2-9133-b5a60c347600_MAC laptop.FBX",
+      "PackagePath": "staticwebassets\\3d\\fad87181-9f04-45a2-9133-b5a60c347600_MAC laptop.FBX"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\gamer-desk-setup.glb",
       "PackagePath": "staticwebassets\\3d\\gamer-desk-setup.glb"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\laptop.glb",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\3d\\laptop.glb",
       "PackagePath": "staticwebassets\\3d\\laptop.glb"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner1.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner1.png",
       "PackagePath": "staticwebassets\\Baner\\banner1.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner2.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner2.png",
       "PackagePath": "staticwebassets\\Baner\\banner2.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner3.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner3.png",
       "PackagePath": "staticwebassets\\Baner\\banner3.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner4.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\banner4.png",
       "PackagePath": "staticwebassets\\Baner\\banner4.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\1.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\1.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\2.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\2.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\2.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\3.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\3.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\3.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\4.jfif",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\4.jfif",
       "PackagePath": "staticwebassets\\Baner\\nen\\4.jfif"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\4.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\4.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\4.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\5.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\6.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\7.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\Baner\\nen\\7.jpg",
       "PackagePath": "staticwebassets\\Baner\\nen\\7.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\backend\\js\\site.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\backend\\js\\site.js",
       "PackagePath": "staticwebassets\\backend\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\animate.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\font-awesome.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\font-awesome.min.css",
       "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\main.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\prettyPhoto.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\prettyPhoto.css",
       "PackagePath": "staticwebassets\\css\\prettyPhoto.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\price-range.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\price-range.css",
       "PackagePath": "staticwebassets\\css\\price-range.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\responsive.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\2.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\2.jpg",
       "PackagePath": "staticwebassets\\images\\2.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\267fdd4d-d442-47f8-8779-bf3ffeda6a68_Dương Quốc Bảo - 2255010016.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\267fdd4d-d442-47f8-8779-bf3ffeda6a68_Dương Quốc Bảo - 2255010016.png",
       "PackagePath": "staticwebassets\\images\\267fdd4d-d442-47f8-8779-bf3ffeda6a68_Dương Quốc Bảo - 2255010016.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\27d1b65e-a4da-437a-9185-0c65f4cba034_banner1.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\27d1b65e-a4da-437a-9185-0c65f4cba034_banner1.png",
       "PackagePath": "staticwebassets\\images\\27d1b65e-a4da-437a-9185-0c65f4cba034_banner1.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\285107c2-dcff-48af-9b1c-88f7e05b6a46_3.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\285107c2-dcff-48af-9b1c-88f7e05b6a46_3.jpg",
       "PackagePath": "staticwebassets\\images\\285107c2-dcff-48af-9b1c-88f7e05b6a46_3.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\3.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\3.jpg",
       "PackagePath": "staticwebassets\\images\\3.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\32.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\32.png",
       "PackagePath": "staticwebassets\\images\\32.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\4ff1db6d-d595-4c5f-8a99-4e50dd828a35_3.jpg",
+      "PackagePath": "staticwebassets\\images\\4ff1db6d-d595-4c5f-8a99-4e50dd828a35_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5.jpg",
       "PackagePath": "staticwebassets\\images\\5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5.png",
       "PackagePath": "staticwebassets\\images\\5.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5115f000-8ac7-4453-8565-761344a9d5ce_6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5115f000-8ac7-4453-8565-761344a9d5ce_6.jpg",
       "PackagePath": "staticwebassets\\images\\5115f000-8ac7-4453-8565-761344a9d5ce_6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\56f4c809-a7e7-41d9-833b-bc33726bb76f_5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\56f4c809-a7e7-41d9-833b-bc33726bb76f_5.jpg",
       "PackagePath": "staticwebassets\\images\\56f4c809-a7e7-41d9-833b-bc33726bb76f_5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5d36473d-0667-4fd4-b60c-72770242c99b_macbook-air-15-inch-6-16860313066961124865501-1686038279968-168603828012719897017.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\5d36473d-0667-4fd4-b60c-72770242c99b_macbook-air-15-inch-6-16860313066961124865501-1686038279968-168603828012719897017.jpg",
       "PackagePath": "staticwebassets\\images\\5d36473d-0667-4fd4-b60c-72770242c99b_macbook-air-15-inch-6-16860313066961124865501-1686038279968-168603828012719897017.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\6.jpg",
       "PackagePath": "staticwebassets\\images\\6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\7dfd5c63-033b-4cc9-ac82-cff3dcce2512_banner2.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\7dfd5c63-033b-4cc9-ac82-cff3dcce2512_banner2.png",
       "PackagePath": "staticwebassets\\images\\7dfd5c63-033b-4cc9-ac82-cff3dcce2512_banner2.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\90ae8b41-22b8-426d-8e54-18c3ccd13596_5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\90ae8b41-22b8-426d-8e54-18c3ccd13596_5.jpg",
       "PackagePath": "staticwebassets\\images\\90ae8b41-22b8-426d-8e54-18c3ccd13596_5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\ad7393f8-672b-4759-bb9d-39503adbdd6b_4.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\ad7393f8-672b-4759-bb9d-39503adbdd6b_4.jpg",
       "PackagePath": "staticwebassets\\images\\ad7393f8-672b-4759-bb9d-39503adbdd6b_4.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner1.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner1.png",
       "PackagePath": "staticwebassets\\images\\banner1.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner2.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner2.png",
       "PackagePath": "staticwebassets\\images\\banner2.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner3.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner3.png",
       "PackagePath": "staticwebassets\\images\\banner3.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner4.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\banner4.png",
       "PackagePath": "staticwebassets\\images\\banner4.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\d6a9c876-8844-445f-bfb3-665e07b85d98_5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\d6a9c876-8844-445f-bfb3-665e07b85d98_5.jpg",
       "PackagePath": "staticwebassets\\images\\d6a9c876-8844-445f-bfb3-665e07b85d98_5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\e1ac5e94-edf6-464b-823f-7d99bc6bb254_banner1.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\e1ac5e94-edf6-464b-823f-7d99bc6bb254_banner1.png",
       "PackagePath": "staticwebassets\\images\\e1ac5e94-edf6-464b-823f-7d99bc6bb254_banner1.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg",
       "PackagePath": "staticwebassets\\images\\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\user.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\images\\user.jpg",
       "PackagePath": "staticwebassets\\images\\user.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\contact.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\contact.js",
       "PackagePath": "staticwebassets\\js\\contact.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\gmaps.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\gmaps.js",
       "PackagePath": "staticwebassets\\js\\gmaps.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\html5shiv.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\html5shiv.js",
       "PackagePath": "staticwebassets\\js\\html5shiv.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.js",
       "PackagePath": "staticwebassets\\js\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.prettyPhoto.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.prettyPhoto.js",
       "PackagePath": "staticwebassets\\js\\jquery.prettyPhoto.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.scrollUp.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\jquery.scrollUp.min.js",
       "PackagePath": "staticwebassets\\js\\jquery.scrollUp.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\main.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\main.js",
       "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\price-range.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\js\\price-range.js",
       "PackagePath": "staticwebassets\\js\\price-range.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\58ad2297-7766-4081-8766-1dc195dfce56_32.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\README.md",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\AbortController.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\AbortController.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\AbortController.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\AbortController.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Errors.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Errors.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Errors.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Errors.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ILogger.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ILogger.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ILogger.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ILogger.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IStatefulReconnectOptions.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IStatefulReconnectOptions.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\IStatefulReconnectOptions.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\IStatefulReconnectOptions.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ITransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ITransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ITransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ITransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Loggers.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Loggers.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Loggers.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Loggers.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\MessageBuffer.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\MessageBuffer.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\MessageBuffer.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\MessageBuffer.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Polyfills.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Polyfills.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Polyfills.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Polyfills.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Stream.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Stream.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Stream.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Stream.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Subject.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Subject.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Subject.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Subject.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Utils.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Utils.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\Utils.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\Utils.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\browser-index.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\browser-index.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\browser-index.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\browser-index.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\index.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\index.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\index.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\pkg-version.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\pkg-version.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\cjs\\pkg-version.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\cjs\\pkg-version.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AbortController.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Errors.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Errors.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Errors.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Errors.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Errors.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Errors.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HeaderNames.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HttpConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IConnection.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ILogger.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\IStatefulReconnectOptions.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ITransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Loggers.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\MessageBuffer.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Polyfills.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Stream.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Stream.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Stream.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Stream.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Stream.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Stream.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Subject.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Subject.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Subject.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Subject.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Subject.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Subject.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Utils.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Utils.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Utils.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Utils.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\Utils.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\Utils.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\browser-index.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\index.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\index.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\index.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\index.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\index.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.d.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.d.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\esm\\pkg-version.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.min.js"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\dist\\webworker\\signalr.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\package.json",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\package.json"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\AbortController.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\AbortController.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\AccessTokenHttpClient.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\AccessTokenHttpClient.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\DefaultHttpClient.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\DefaultHttpClient.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\DefaultReconnectPolicy.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\DefaultReconnectPolicy.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Errors.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Errors.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\FetchHttpClient.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\FetchHttpClient.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HandshakeProtocol.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HandshakeProtocol.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HeaderNames.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HeaderNames.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HttpClient.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HttpClient.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HttpConnection.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HttpConnection.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HubConnection.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HubConnection.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\HubConnectionBuilder.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\HubConnectionBuilder.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\IConnection.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\IConnection.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\IHttpConnectionOptions.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\IHttpConnectionOptions.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\IHubProtocol.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\IHubProtocol.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\ILogger.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\ILogger.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\IRetryPolicy.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\IRetryPolicy.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\IStatefulReconnectOptions.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\IStatefulReconnectOptions.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\ITransport.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\ITransport.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\JsonHubProtocol.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\JsonHubProtocol.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Loggers.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Loggers.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\LongPollingTransport.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\LongPollingTransport.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\MessageBuffer.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\MessageBuffer.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Polyfills.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Polyfills.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\ServerSentEventsTransport.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\ServerSentEventsTransport.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Stream.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Stream.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Subject.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Subject.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\TextMessageFormat.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\TextMessageFormat.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\Utils.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\Utils.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\WebSocketTransport.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\WebSocketTransport.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\XhrHttpClient.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\XhrHttpClient.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\browser-index.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\browser-index.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\index.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\index.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\pkg-version.ts",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\pkg-version.ts"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\lib\\microsoft\\signalr\\src\\third-party-notices.txt",
+      "PackagePath": "staticwebassets\\lib\\microsoft\\signalr\\src\\third-party-notices.txt"
+    },
+    {
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\58ad2297-7766-4081-8766-1dc195dfce56_32.png",
       "PackagePath": "staticwebassets\\media\\logo\\58ad2297-7766-4081-8766-1dc195dfce56_32.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\c0189f7a-2dd9-4524-86ec-f913795ce374_6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\c0189f7a-2dd9-4524-86ec-f913795ce374_6.jpg",
       "PackagePath": "staticwebassets\\media\\logo\\c0189f7a-2dd9-4524-86ec-f913795ce374_6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\c822ac30-e2a0-45cc-90ff-80e20d4212a3_ChatGPT Image 10_57_43 14 thg 5, 2025-Photoroom.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\c822ac30-e2a0-45cc-90ff-80e20d4212a3_ChatGPT Image 10_57_43 14 thg 5, 2025-Photoroom.png",
       "PackagePath": "staticwebassets\\media\\logo\\c822ac30-e2a0-45cc-90ff-80e20d4212a3_ChatGPT Image 10_57_43 14 thg 5, 2025-Photoroom.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\d83d597c-7e5f-4eac-9fae-8282879bf156_6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\logo\\d83d597c-7e5f-4eac-9fae-8282879bf156_6.jpg",
       "PackagePath": "staticwebassets\\media\\logo\\d83d597c-7e5f-4eac-9fae-8282879bf156_6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\models\\5a72666b-7367-4174-a7d8-3e50d52eca20_laptop.glb",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\models\\5a72666b-7367-4174-a7d8-3e50d52eca20_laptop.glb",
       "PackagePath": "staticwebassets\\media\\models\\5a72666b-7367-4174-a7d8-3e50d52eca20_laptop.glb"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\1.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\1.jpg",
       "PackagePath": "staticwebassets\\media\\products\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\2.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\2.jpg",
       "PackagePath": "staticwebassets\\media\\products\\2.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\3.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\3.jpg",
       "PackagePath": "staticwebassets\\media\\products\\3.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\4.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\4.jpg",
       "PackagePath": "staticwebassets\\media\\products\\4.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\5.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\5.jpg",
       "PackagePath": "staticwebassets\\media\\products\\5.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\5.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\5.png",
       "PackagePath": "staticwebassets\\media\\products\\5.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\6.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\products\\6.jpg",
       "PackagePath": "staticwebassets\\media\\products\\6.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\01df621c-188e-45d7-a05d-1b3068ba67f1_1.jpg.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\01df621c-188e-45d7-a05d-1b3068ba67f1_1.jpg.png",
       "PackagePath": "staticwebassets\\media\\sliders\\01df621c-188e-45d7-a05d-1b3068ba67f1_1.jpg.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\25ca1c93-27aa-4ea9-ad20-ef33a06fd87c_400540422_908850477268350_7330551355011772138_n.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\25ca1c93-27aa-4ea9-ad20-ef33a06fd87c_400540422_908850477268350_7330551355011772138_n.jpg",
       "PackagePath": "staticwebassets\\media\\sliders\\25ca1c93-27aa-4ea9-ad20-ef33a06fd87c_400540422_908850477268350_7330551355011772138_n.jpg"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\5cbeaba9-35ca-49f9-8d03-e0519e7f7575_3.jpg.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\5cbeaba9-35ca-49f9-8d03-e0519e7f7575_3.jpg.png",
       "PackagePath": "staticwebassets\\media\\sliders\\5cbeaba9-35ca-49f9-8d03-e0519e7f7575_3.jpg.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\87b0e2c9-b613-43a1-9d7d-50d4c83b7d36_2.jpg.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\87b0e2c9-b613-43a1-9d7d-50d4c83b7d36_2.jpg.png",
       "PackagePath": "staticwebassets\\media\\sliders\\87b0e2c9-b613-43a1-9d7d-50d4c83b7d36_2.jpg.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\87ca9c98-584c-446f-a67f-bb2e73d39ead_4.jpg.png",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\87ca9c98-584c-446f-a67f-bb2e73d39ead_4.jpg.png",
       "PackagePath": "staticwebassets\\media\\sliders\\87ca9c98-584c-446f-a67f-bb2e73d39ead_4.jpg.png"
     },
     {
-      "Id": "C:\\Users\\lamma\\Downloads\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\d277a358-8f5e-4936-852a-2578c4a6e780_935c7afb-6766-47ad-8c43-f1fed94cecfd.jpg",
+      "Id": "C:\\Users\\lamma\\Shopping_Tutorial\\Shopping_Tutorial\\wwwroot\\media\\sliders\\d277a358-8f5e-4936-852a-2578c4a6e780_935c7afb-6766-47ad-8c43-f1fed94cecfd.jpg",
       "PackagePath": "staticwebassets\\media\\sliders\\d277a358-8f5e-4936-852a-2578c4a6e780_935c7afb-6766-47ad-8c43-f1fed94cecfd.jpg"
     },
     {

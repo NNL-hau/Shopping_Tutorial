@@ -1506,3 +1506,16 @@ E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.sou
 E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.dll
 E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\refint\Shopping_Tutorial.dll
 E:\Workspace\C#_ASP.NET\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.pdb
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.csproj.AssemblyReference.cache
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.AssemblyInfoInputs.cache
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.AssemblyInfo.cs
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.csproj.CoreCompileInputs.cache
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.RazorAssemblyInfo.cache
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.RazorAssemblyInfo.cs
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.sourcelink.json
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.dll
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\refint\Shopping_Tutorial.dll
+C:\Users\lamma\Shopping_Tutorial\obj\Debug\net8.0\Shopping_Tutorial.pdb

@@ -1,4 +1,12 @@
+wwwroot\3d\038e76c2-7513-4852-b3f5-70b1aca549cd_MAC laptop.FBX
+wwwroot\3d\5ecf0e17-b15c-471a-8f78-c931685c0d3d_Laptop.fbx
+wwwroot\3d\6d1a836c-6397-4ae2-983c-29a68b64e4ea_macbook_air_m2.glb
+wwwroot\3d\926e0df4-d879-4d81-8c21-db8164b8169b_apple_macbook_pro_16_inch_2021.glb
 wwwroot\3d\black-computer-mouse.glb
+wwwroot\3d\ec6e12f7-8d78-462c-8cc1-494cf2137b17_MAC laptop.FBX
+wwwroot\3d\f32baebb-464b-4403-80a4-4d44fca8a542_asus_rog_strix_scar_17_2023_g733_gaming_laptop.glb
+wwwroot\3d\fa65eaa3-8a00-4b45-b40f-1e90bea2dd73_MAC laptop.FBX
+wwwroot\3d\fad87181-9f04-45a2-9133-b5a60c347600_MAC laptop.FBX
 wwwroot\3d\gamer-desk-setup.glb
 wwwroot\3d\laptop.glb
 wwwroot\backend\js\site.js
@@ -48,6 +56,7 @@ wwwroot\images\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg
 wwwroot\images\user.jpg
 wwwroot\js\bootstrap.min.js
 wwwroot\js\contact.js
+wwwroot\js\chat.js
 wwwroot\js\gmaps.js
 wwwroot\js\html5shiv.js
 wwwroot\js\jquery.js
@@ -55,6 +64,14 @@ wwwroot\js\jquery.prettyPhoto.js
 wwwroot\js\jquery.scrollUp.min.js
 wwwroot\js\main.js
 wwwroot\js\price-range.js
+wwwroot\lib\bootstrap\dist\css\bootstrap.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -79,14 +96,6 @@ wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-wwwroot\lib\bootstrap\dist\css\bootstrap.css
-wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
@@ -100,18 +109,18 @@ wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 wwwroot\lib\bootstrap\LICENSE
-wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
-wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
-wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\lib\jquery\dist\jquery.js
+wwwroot\lib\jquery\dist\jquery.min.js
+wwwroot\lib\jquery\dist\jquery.min.map
+wwwroot\lib\jquery\LICENSE.txt
 wwwroot\lib\jquery-validation\dist\additional-methods.js
 wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 wwwroot\lib\jquery-validation\dist\jquery.validate.js
 wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 wwwroot\lib\jquery-validation\LICENSE.md
-wwwroot\lib\jquery\dist\jquery.js
-wwwroot\lib\jquery\dist\jquery.min.js
-wwwroot\lib\jquery\dist\jquery.min.map
-wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\lib\microsoft\signalr\dist\browser\signalr.js
 wwwroot\lib\microsoft\signalr\dist\browser\signalr.min.js
 wwwroot\lib\microsoft\signalr\dist\cjs\AbortController.js
@@ -343,4 +352,3 @@ wwwroot\media\sliders\5cbeaba9-35ca-49f9-8d03-e0519e7f7575_3.jpg.png
 wwwroot\media\sliders\87b0e2c9-b613-43a1-9d7d-50d4c83b7d36_2.jpg.png
 wwwroot\media\sliders\87ca9c98-584c-446f-a67f-bb2e73d39ead_4.jpg.png
 wwwroot\media\sliders\d277a358-8f5e-4936-852a-2578c4a6e780_935c7afb-6766-47ad-8c43-f1fed94cecfd.jpg
-wwwroot\js\chat.js

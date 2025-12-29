@@ -109,6 +109,10 @@ if (!app.Environment.IsDevelopment())
     var provider = new FileExtensionContentTypeProvider();
     provider.Mappings[".glb"] = "model/gltf-binary";
     provider.Mappings[".gltf"] = "model/gltf+json";
+    provider.Mappings[".fbx"] = "application/octet-stream";
+    provider.Mappings[".obj"] = "text/plain";
+    provider.Mappings[".mtl"] = "text/plain";
+    provider.Mappings[".3ds"] = "application/x-3ds";
 
     app.UseStaticFiles(new StaticFileOptions
     {

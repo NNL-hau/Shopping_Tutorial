@@ -337,12 +337,14 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
             if (file == null || file.Length == 0) return null;
 
             var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
-            if (extension != ".glb" && extension != ".gltf")
+            var validExtensions = new[] { ".glb", ".gltf", ".obj", ".fbx", ".3ds", ".mtl" };
+            
+            if (!validExtensions.Contains(extension))
             {
                 return null;
             }
 
-            string uploadsDir = Path.Combine(_webHostEnvironment.WebRootPath, "media", "models");
+            string uploadsDir = Path.Combine(_webHostEnvironment.WebRootPath, "3d");
             if (!Directory.Exists(uploadsDir))
                 Directory.CreateDirectory(uploadsDir);
 
@@ -354,7 +356,7 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
                 await file.CopyToAsync(fs);
             }
 
-            return "/media/models/" + fileName;
+            return "/3d/" + fileName;
         }
     }
     
