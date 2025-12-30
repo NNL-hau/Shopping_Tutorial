@@ -37,14 +37,20 @@
                 <input asp-for="GiaNhap" class="form-control" />
                 <span asp-validation-for="GiaNhap" class="text-danger"></span>
             </div>
-        <div class="form-group">
-            <label>Kích hoạt nhấn 1</label>
-            <input asp-for="Quantity" class="form-control" />
-            <span asp-validation-for="Quantity" class="text-danger"></span>
-        </div>
-        
-        
             <div class="form-group">
+                <label>Kích hoạt nhấn 1</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>ID Người dùng</label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+
+        <div class="form-group">
                 <label>Ngày bắt đầu</label>
                 <!-- Đảm bảo rằng textarea có id là editor -->
                 <input asp-for="DateStart" class="form-control" />
@@ -57,7 +63,6 @@
                 <input asp-for="DateExpired" class="form-control" />
                 <span asp-validation-for="DateExpired" class="text-danger" />
             </div>
-
 
 
 

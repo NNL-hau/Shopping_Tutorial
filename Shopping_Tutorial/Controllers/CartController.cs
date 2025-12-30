@@ -11,13 +11,15 @@
         {
             private readonly DataContext _dataContext;
             private UserManager<AppUserModel> _userManager;
+            private readonly ILogger<CartController> _logger;
 
 
-            public CartController(DataContext context, UserManager<AppUserModel> userManager)
+            public CartController(DataContext context, UserManager<AppUserModel> userManager, ILogger<CartController> logger)
             {
                 _dataContext = context;
                 _userManager = userManager;
-            }
+                _logger = logger;
+        }
 
             public async Task<IActionResult> Index(ShippingModel shippingModel)
             {
@@ -278,6 +280,7 @@
 
         public async Task<IActionResult> GetCoupon(CouponModel couponModel, string coupon_value)
         {
+            var userId = _userManager.GetUserId(User);
             var validCoupon = await _dataContext.Coupons
                 .FirstOrDefaultAsync(x => x.Name == coupon_value);
 
@@ -285,6 +288,12 @@
             {
                 return Ok(new { success = false, message = "Mã giảm giá không tồn tại" });
             }
+
+            if (!string.IsNullOrEmpty(validCoupon.UserId) && validCoupon.UserId != userId)
+            {
+                return Ok(new { success = false, message = "Bạn không thể dùng mã giảm giá của người khác" });
+            }
+
 
             // ❗ THÊM: Kiểm tra nếu chưa đến ngày bắt đầu
             if (validCoupon.DateStart > DateTime.Now)

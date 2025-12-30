@@ -30,6 +30,6 @@ namespace Shopping_Tutorial.Models
         public int Quantity { get; set; }
 
         public int Status { get; set; }
-
+        public string UserId { get; set; }
     }
 }

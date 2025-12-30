@@ -29,7 +29,7 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CouponModel coupon)
         {
-
+            coupon.GiaNhap /= 100; // Chuyển đổi phần trăm thành số thập phân
 
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
                 string errorMessage = string.Join("\n", errors);
                 return BadRequest(errorMessage);
             }
-            return View();
+            //return View();
         }
         [HttpPost]
         [Route("UpdateStatus")]

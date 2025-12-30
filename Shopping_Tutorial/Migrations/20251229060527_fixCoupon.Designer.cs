@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shopping_Tutorial.Repository;
 
@@ -11,9 +12,11 @@ using Shopping_Tutorial.Repository;
 namespace Shopping_Tutorial.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20251229060527_fixCoupon")]
+    partial class fixCoupon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -396,9 +399,11 @@ namespace Shopping_Tutorial.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Coupons");
                 });
@@ -1008,6 +1013,15 @@ namespace Shopping_Tutorial.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Shopping_Tutorial.Models.CouponModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "User")
+                        .WithMany("Coupons")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Shopping_Tutorial.Models.OrderDetails", b =>
                 {
                     b.HasOne("Shopping_Tutorial.Models.ProductModel", "Product")
@@ -1100,6 +1114,11 @@ namespace Shopping_Tutorial.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.AppUserModel", b =>
+                {
+                    b.Navigation("Coupons");
                 });
 
             modelBuilder.Entity("Shopping_Tutorial.Models.ProductModel", b =>

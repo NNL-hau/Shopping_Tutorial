@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shopping_Tutorial.Models;
 using Shopping_Tutorial.Models.Vnpay;
+using Shopping_Tutorial.Repository;
 using Shopping_Tutorial.Services.Momo;
 using Shopping_Tutorial.Services.Vnpay;
+using System.Threading.Tasks;
 
 namespace Shopping_Tutorial.Controllers
 {
@@ -11,11 +13,12 @@ namespace Shopping_Tutorial.Controllers
         
         private IMomoService _momoService;
         private  IVnPayService _vnPayService;
-        public PaymentController(IMomoService momoService, IVnPayService vnPayService)
+        private readonly DataContext _dataContext;
+        public PaymentController(IMomoService momoService, IVnPayService vnPayService, DataContext dataContext)
         {
             _vnPayService = vnPayService;
             _momoService = momoService;
-            
+            _dataContext = dataContext;
         }
         [HttpPost]
         public async Task<IActionResult> CreatePaymentMomo(OrderInfo model)
@@ -35,9 +38,16 @@ namespace Shopping_Tutorial.Controllers
         }
 
         [HttpGet]
-        public IActionResult PaymentCallBack()
+        public async Task<IActionResult> PaymentCallBack()
         {
             var response = _momoService.PaymentExecuteAsync(HttpContext.Request.Query);
+            var couponCode = Request.Cookies["CouponTitle"];
+            var coupon = _dataContext.Coupons.Where(c => couponCode.Contains(c.Name)).FirstOrDefault();
+            if (coupon != null && coupon.Quantity > 0)
+            {
+                coupon.Quantity -= 1;
+            }
+            await _dataContext.SaveChangesAsync();
             return View(response);
         }
        

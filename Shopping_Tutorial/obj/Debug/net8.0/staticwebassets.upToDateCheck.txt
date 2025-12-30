@@ -47,6 +47,7 @@ wwwroot\images\e1ac5e94-edf6-464b-823f-7d99bc6bb254_banner1.png
 wwwroot\images\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg
 wwwroot\images\user.jpg
 wwwroot\js\bootstrap.min.js
+wwwroot\js\chat.js
 wwwroot\js\contact.js
 wwwroot\js\gmaps.js
 wwwroot\js\html5shiv.js
@@ -343,4 +344,3 @@ wwwroot\media\sliders\5cbeaba9-35ca-49f9-8d03-e0519e7f7575_3.jpg.png
 wwwroot\media\sliders\87b0e2c9-b613-43a1-9d7d-50d4c83b7d36_2.jpg.png
 wwwroot\media\sliders\87ca9c98-584c-446f-a67f-bb2e73d39ead_4.jpg.png
 wwwroot\media\sliders\d277a358-8f5e-4936-852a-2578c4a6e780_935c7afb-6766-47ad-8c43-f1fed94cecfd.jpg
-wwwroot\js\chat.js
