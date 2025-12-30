@@ -7,6 +7,13 @@
 
 <div class="col-sm-9 padding-right">
     <partial name="_FilterProductsPartial" />
+
+        @* Hiển thị sản phẩm gợi ý (chỉ khi đã đăng nhập) *@
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            @await Component.InvokeAsync("RecommendedProducts", new { take = 3 })
+        }
+
     <div class="features_items">
         <!--features_items-->
         <h2 class="title text-center">Sản phẩm nổi bật</h2>

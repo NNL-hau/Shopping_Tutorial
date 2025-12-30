@@ -3,18 +3,22 @@ using Microsoft.EntityFrameworkCore;
 using Shopping_Tutorial.Models;
 using Shopping_Tutorial.Models.ViewModels;
 using Shopping_Tutorial.Repository;
+using Shopping_Tutorial.Services;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Shopping_Tutorial.Controllers
 {
     public class ProductController : Controller
     {
         private readonly DataContext _dataContext;
+        private readonly IProductRecommendationService _recommendationService;
 
         // Constructor để inject DataContext vào controller
-        public ProductController(DataContext context)
+        public ProductController(DataContext context, IProductRecommendationService recommendationService)
         {
             _dataContext = context;
+            _recommendationService = recommendationService;
         }
 
         // Phương thức trả về trang chính của controller
@@ -26,11 +30,20 @@ namespace Shopping_Tutorial.Controllers
 
         public async Task<IActionResult> Search(string searchTerm)
         {
+            // Lưu lịch sử tìm kiếm nếu người dùng đã đăng nhập
+            if (User.Identity?.IsAuthenticated ?? false)
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    await _recommendationService.SaveSearchHistoryAsync(userId, searchTerm);
+                }
+            }
+
             var products = await _dataContext.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Category)
                 .Where(p => p.Name.Contains(searchTerm) ||
-                            //p.Description.Contains(searchTerm) || // tìm kiếm theo mô tả
                             p.Brand.Name.Contains(searchTerm) ||
                             p.Category.Name.Contains(searchTerm))
                 .ToListAsync();

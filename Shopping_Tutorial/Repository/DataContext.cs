@@ -35,6 +35,8 @@ namespace Shopping_Tutorial.Repository
         public DbSet<Product3DModel> Product3DModels { get; set; }
         public DbSet<ProductAnnotationModel> ProductAnnotations { get; set; }
         public DbSet<ProductConfigurationModel> ProductConfigurations { get; set; }
+        // gợi ý sản phẩm theo tìm kiếm
+        public DbSet<SearchHistoryModel> SearchHistories { get; set; }
 
     }
 }

@@ -2,15 +2,17 @@
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Shopping_Tutorial.Areas.Admin.Repository;
 using Shopping_Tutorial.Models;
 using Shopping_Tutorial.Models.MoMo;
 using Shopping_Tutorial.Repository;
+using Shopping_Tutorial.Services;
 using Shopping_Tutorial.Services.Momo;
 using Shopping_Tutorial.Services.Vnpay;
-using Microsoft.AspNetCore.StaticFiles;
+using Shopping_Tutorial.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,8 +94,8 @@ builder.Services.AddAuthentication(options =>
     options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
 });
 
-
-
+// Đăng ký Product Recommendation Service
+builder.Services.AddScoped<IProductRecommendationService, ProductRecommendationService>();
 
 var app = builder.Build();
 

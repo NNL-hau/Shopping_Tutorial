@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "ContainingType": "Shopping_Tutorial.Controllers.Api.RecommendationController",
+    "Method": "GetRecommendedProducts",
+    "RelativePath": "api/Recommendation/products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "count",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Shopping_Tutorial.Controllers.Api.RecommendationController",
+    "Method": "SaveSearchHistory",
+    "RelativePath": "api/Recommendation/search-history",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Shopping_Tutorial.Controllers.Api.SearchHistoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
