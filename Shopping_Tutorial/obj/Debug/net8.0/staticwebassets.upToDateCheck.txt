@@ -54,6 +54,7 @@ wwwroot\images\banner3.png
 wwwroot\images\banner4.png
 wwwroot\images\d6a9c876-8844-445f-bfb3-665e07b85d98_5.jpg
 wwwroot\images\e1ac5e94-edf6-464b-823f-7d99bc6bb254_banner1.png
+wwwroot\images\ee.mp4
 wwwroot\images\f6f309dd-bad9-46f7-b1fd-7c4ba5dfb789_5.jpg
 wwwroot\images\user.jpg
 wwwroot\js\bootstrap.min.js
