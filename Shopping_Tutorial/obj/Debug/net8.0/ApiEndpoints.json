@@ -1,5 +1,45 @@
 [
   {
+    "ContainingType": "Shopping_Tutorial.Controllers.GameController",
+    "Method": "DailyCheckin",
+    "RelativePath": "api/game/checkin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Shopping_Tutorial.Controllers.GameController",
+    "Method": "CheckinStatus",
+    "RelativePath": "api/game/checkin-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Shopping_Tutorial.Controllers.GameController",
+    "Method": "GetPlaysLeft",
+    "RelativePath": "api/game/plays-left",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Shopping_Tutorial.Controllers.GameController",
+    "Method": "SpinWheel",
+    "RelativePath": "api/game/spin-wheel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Shopping_Tutorial.Controllers.Api.RecommendationController",
     "Method": "GetRecommendedProducts",
     "RelativePath": "api/Recommendation/products",

@@ -1,10 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Shopping_Tutorial.Models;
 using Shopping_Tutorial.Repository;
 using System.Text.Json;
-using Microsoft.AspNetCore.Identity;
-using Shopping_Tutorial.Models;
-using System.Numerics;
 
 namespace Shopping_Tutorial.Controllers
 {
@@ -238,19 +237,21 @@ Khi khách hỏi về khuyến mãi/mã giảm giá, hãy sử dụng trường 
                 // Gọi Gemini API
                 var apiKey = _configuration["Gemini:ApiKey"];
                 var response = await _httpClient.PostAsync(
-                    $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={apiKey}",
+                    $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={apiKey}",
                     new StringContent(JsonSerializer.Serialize(new
                     {
                         contents = new[]
                         {
-                            new { parts = new[] { new { text = prompt } } }
+                            new { role = "user", parts = new[] { new { text = prompt } } }
                         }
                     }), System.Text.Encoding.UTF8, "application/json")
                 );
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return BadRequest("Không thể kết nối với Gemini API");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Gemini API Error: {response.StatusCode} - {errorContent}");
+                    return BadRequest($"Không thể kết nối với Gemini API: {response.StatusCode}");
                 }
 
                 var result = await response.Content.ReadFromJsonAsync<GeminiResponse>();
@@ -258,6 +259,7 @@ Khi khách hỏi về khuyến mãi/mã giảm giá, hãy sử dụng trường 
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception in GetResponseCompare: {ex.Message}\n{ex.StackTrace}");
                 return BadRequest($"Có lỗi xảy ra: {ex.Message}");
             }
         }
@@ -490,19 +492,21 @@ DỮ LIỆU CHI TIẾT:
                 // Gọi Gemini API
                 var apiKey = _configuration["Gemini:ApiKey"];
                 var response = await _httpClient.PostAsync(
-                    $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={apiKey}",
+                    $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={apiKey}",
                     new StringContent(JsonSerializer.Serialize(new
                     {
                         contents = new[]
                         {
-                            new { parts = new[] { new { text = prompt } } }
+                            new { role = "user", parts = new[] { new { text = prompt } } }
                         }
                     }), System.Text.Encoding.UTF8, "application/json")
                 );
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return BadRequest("Không thể kết nối với Gemini API");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Gemini API Error: {response.StatusCode} - {errorContent}");
+                    return BadRequest($"Không thể kết nối với Gemini API: {response.StatusCode}");
                 }
 
                 var result = await response.Content.ReadFromJsonAsync<GeminiResponse>();
@@ -510,6 +514,7 @@ DỮ LIỆU CHI TIẾT:
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception in GetResponseAdmin: {ex.Message}\n{ex.StackTrace}");
                 return BadRequest($"Có lỗi xảy ra: {ex.Message}");
             }
         }
@@ -603,19 +608,21 @@ KHi khách hàng phân vân so sánh các sản phẩm thì chuyển hướng kh
                 // Gọi Gemini API
                 var apiKey = _configuration["Gemini:ApiKey"];
                 var response = await _httpClient.PostAsync(
-                    $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={apiKey}",
-                    new StringContent(JsonSerializer.Serialize(new
-                    {
-                        contents = new[]
-                        {
-                            new { parts = new[] { new { text = prompt } } }
-                        }
-                    }), System.Text.Encoding.UTF8, "application/json")
-                );
+                     $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={apiKey}",
+                     new StringContent(JsonSerializer.Serialize(new
+                     {
+                         contents = new[]
+                         {
+                            new { role = "user", parts = new[] { new { text = prompt } } }
+                         }
+                     }), System.Text.Encoding.UTF8, "application/json")
+                 );
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return BadRequest("Không thể kết nối với Gemini API");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Gemini API Error: {response.StatusCode} - {errorContent}");
+                    return BadRequest($"Không thể kết nối với Gemini API: {response.StatusCode}");
                 }
 
                 var result = await response.Content.ReadFromJsonAsync<GeminiResponse>();
@@ -623,6 +630,7 @@ KHi khách hàng phân vân so sánh các sản phẩm thì chuyển hướng kh
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Exception in GetResponse: {ex.Message}\n{ex.StackTrace}");
                 return BadRequest($"Có lỗi xảy ra: {ex.Message}");
             }
         }

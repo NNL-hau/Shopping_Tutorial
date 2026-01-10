@@ -1,0 +1,204 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .wheel-wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .wheel {
+        position: relative;
+        width: 340px;
+        height: 340px;
+        margin: 16px auto;
+        border-radius: 50%;
+        border: 8px solid #3399FF;
+        box-sizing: border-box;
+    }
+
+    .pointer {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 22px solid #e74c3c;
+        z-index: 3;
+    }
+
+    #wheelCanvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 324px;
+        height: 324px;
+        transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
+        display: block;
+    }
+
+    .spin-btn {
+        margin-top: 10px;
+    }
+
+    .plays-left {
+        color: #3399FF;
+        font-weight: 600;
+    }
+</style>
+
+<div class="container wheel-wrap">
+    <h3>Vòng quay may mắn</h3>
+    <p class="text-muted">Phần thưởng gồm xu và mã giảm 5%, 10%, 15%, 20%, 25%.</p>
+
+    <div class="wheel">
+        <div class="pointer"></div>
+        <canvas id="wheelCanvas" width="324" height="324"></canvas>
+    </div>
+
+    <p class="plays-left" id="playsLeftInfo"></p>
+
+    <button type="button" class="btn btn-primary spin-btn" id="spinButton">
+        Quay ngay
+    </button>
+
+    <p class="text-muted mt-2">
+        Đăng nhập để quay. Mã giảm giá sẽ cấp riêng để áp tại thanh toán.
+    </p>
+
+    <div id="resultBox" class="mt-3"></div>
+
+    <hr />
+
+    <div>
+        <h5>Điểm danh hằng ngày</h5>
+        <p class="text-muted">Bấm điểm danh để nhận 25 xu mỗi ngày.</p>
+        <button type="button" class="btn btn-success" id="checkinButton">
+            Điểm danh nhận 25 xu
+        </button>
+        <p id="checkinStatus" class="mt-2"></p>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+
+            const canvas = document.getElementById('wheelCanvas');
+            const ctx = canvas.getContext('2d');
+            const spinBtn = document.getElementById('spinButton');
+            const playsInfo = document.getElementById('playsLeftInfo');
+
+            const segments = [
+                { type:'coin', value:20, label:'20 xu', color:'#f9e79f' },
+                { type:'voucher', value:0.05, label:'Giảm 5%', color:'#2ecc71' },
+                { type:'coin', value:30, label:'30 xu', color:'#f7dc6f' },
+                { type:'voucher', value:0.10, label:'Giảm 10%', color:'#27ae60' },
+                { type:'coin', value:50, label:'50 xu', color:'#f1c40f' },
+                { type:'voucher', value:0.15, label:'Giảm 15%', color:'#3498db' },
+                { type:'miss', value:0, label:'May mắn lần sau', color:'#bdc3c7' },
+                { type:'coin', value:80, label:'80 xu', color:'#e67e22' },
+                { type:'voucher', value:0.20, label:'Giảm 20%', color:'#9b59b6' },
+                { type:'coin', value:100, label:'100 xu', color:'#f39c12' },
+                { type:'voucher', value:0.25, label:'Giảm 25%', color:'#e74c3c' },
+                { type:'coin', value:150, label:'150 xu', color:'#ffa726' }
+            ];
+
+            const radius = canvas.width / 2;
+            let angles = [];
+
+            function drawWheel() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let startAngle = -Math.PI / 2;
+                const slice = Math.PI * 2 / segments.length;
+                angles = [];
+
+                segments.forEach(seg => {
+                    ctx.beginPath();
+                    ctx.moveTo(radius, radius);
+                    ctx.arc(radius, radius, radius - 12, startAngle, startAngle + slice);
+                    ctx.fillStyle = seg.color;
+                    ctx.fill();
+
+                    const mid = startAngle + slice / 2;
+                    angles.push({
+                        midDeg: (mid * 180 / Math.PI + 360) % 360,
+                        spanDeg: slice * 180 / Math.PI
+                    });
+
+                    ctx.save();
+                    ctx.translate(radius, radius);
+                    ctx.rotate(mid);
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 14px sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(seg.label, radius - 24, 6);
+                    ctx.restore();
+
+                    startAngle += slice;
+                });
+            }
+
+            drawWheel();
+
+            function rotateTo(index) {
+                const info = angles[index];
+                const target = info.midDeg;
+                const spins = 5 + Math.floor(Math.random() * 3);
+                const deg = spins * 360 + (270 - target);
+
+                canvas.style.transition = 'transform 2.4s cubic-bezier(0.33,1,0.68,1)';
+                canvas.style.transform = 'translate(-50%, -50%) rotate(' + deg + 'deg)';
+            }
+
+            let spinning = false;
+            spinBtn.addEventListener('click', function () {
+                if (spinning) return;
+                spinning = true;
+                $.post('/api/game/spin-wheel', function (res) {
+                    if (!res || !res.success) { spinning = false; return alert('Có lỗi xảy ra'); }
+
+                    playsInfo.textContent = 'Còn ' + res.playsLeft + ' lượt hôm nay';
+
+                    const idx = segments.findIndex(s =>
+                        s.type === res.prizeType && Math.abs(s.value - res.prizeValue) < 0.00001
+                    );
+
+                    if (idx >= 0) rotateTo(idx);
+                    const text = (function(){
+                        if (res.prizeType === 'coin') return 'Bạn nhận ' + res.prizeValue + ' xu';
+                        if (res.prizeType === 'voucher') return 'Bạn nhận mã giảm ' + Math.round(res.prizeValue*100) + '%: ' + res.couponCode;
+                        return 'Chúc bạn may mắn lần sau';
+                    })();
+                    setTimeout(function(){
+                        document.getElementById('resultBox').textContent = text;
+                        if (window.Swal) Swal.fire(text); else alert(text);
+                        if (res.prizeType === 'voucher' && res.couponCode) {
+                            $.ajax({
+                                url: '/Cart/GetCoupon',
+                                type: 'POST',
+                                data: { coupon_value: res.couponCode },
+                                success: function(r){
+                                    try {
+                                        if (r && r.success) {
+                                            if (window.Swal) Swal.fire('Đã lưu mã giảm giá vào giỏ hàng'); else alert('Đã lưu mã giảm giá vào giỏ hàng');
+                                        }
+                                    } catch(e){}
+                                }
+                            });
+                        }
+                        spinning = false;
+                    }, 2400);
+                });
+            });
+
+        })();
+    </script>
+}
+

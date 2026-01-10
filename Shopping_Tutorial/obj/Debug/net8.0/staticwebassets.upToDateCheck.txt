@@ -300,6 +300,7 @@ wwwroot\lib\microsoft\signalr\dist\webworker\signalr.js
 wwwroot\lib\microsoft\signalr\dist\webworker\signalr.js.map
 wwwroot\lib\microsoft\signalr\dist\webworker\signalr.min.js
 wwwroot\lib\microsoft\signalr\dist\webworker\signalr.min.js.map
+wwwroot\lib\microsoft\signalr\package-lock.json
 wwwroot\lib\microsoft\signalr\package.json
 wwwroot\lib\microsoft\signalr\README.md
 wwwroot\lib\microsoft\signalr\src\AbortController.ts
