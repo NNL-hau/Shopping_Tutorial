@@ -77,6 +77,8 @@ nunit-*.xml
 *.pidb
 *.svclog
 *.scc
+bin/
+obj/
 
 # Visual C++ cache files
 ipch/
