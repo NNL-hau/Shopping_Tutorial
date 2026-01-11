@@ -390,7 +390,10 @@ namespace Shopping_Tutorial.Controllers
                 if (discountValueCookie != null)
                 {
                     discountValue = JsonConvert.DeserializeObject<decimal>(discountValueCookie);
-                    _dataContext.Coupons.Where(c => couponCode.Contains(c.Name)).FirstOrDefault().Quantity -= 1;
+                    var coupon = _dataContext.Coupons.Where(c => couponCode.Contains(c.Name)).FirstOrDefault();
+                    if (coupon != null && coupon.Quantity > 0) {
+                        coupon.Quantity -= 1;
+                    }
                     await _dataContext.SaveChangesAsync();
                 }
             }
