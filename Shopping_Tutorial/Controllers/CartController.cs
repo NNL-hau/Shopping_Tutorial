@@ -61,7 +61,7 @@ namespace Shopping_Tutorial.Controllers
             }
 
             var availableCoupons = await _dataContext.Coupons
-.Where(c => c.DateStart <= DateTime.Now && c.DateExpired >= DateTime.Now && c.Quantity > 0 && c.Status == 1 && !EF.Functions.Like(c.Name, "WHEEL-%"))
+.Where(c => c.DateStart <= DateTime.Now && c.UserId == user.Id && c.DateExpired >= DateTime.Now && c.Quantity > 0 && c.Status == 1 && !EF.Functions.Like(c.Name, "WHEEL-%"))
 .ToListAsync();
 
             var wheelCoupons = await _dataContext.Coupons
@@ -72,6 +72,11 @@ namespace Shopping_Tutorial.Controllers
 .Where(c => c.DateStart <= DateTime.Now && c.DateExpired >= DateTime.Now && c.Quantity > 0 && c.Status == 1 && EF.Functions.Like(c.Name, "WHEEL-%"))
 .ToListAsync();
 
+
+            if (availableCoupons.Count == 0)
+            {
+                discountValue = 0m;
+            }
 
             var userCoin = await _dataContext.UserCoins.FirstOrDefaultAsync(x => x.UserId == user.Id);
 
@@ -305,6 +310,11 @@ namespace Shopping_Tutorial.Controllers
             if (validCoupon == null)
             {
                 return Ok(new { success = false, message = "Mã giảm giá không tồn tại" });
+            }
+
+            if (validCoupon.UserId != userId) {
+
+                return Ok(new { success = false, message = "Mã giảm giá không thuộc về bạn" });
             }
 
             if (validCoupon.Status != 1 || validCoupon.Quantity <= 0)
