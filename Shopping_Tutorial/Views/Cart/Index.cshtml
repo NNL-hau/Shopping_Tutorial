@@ -5,7 +5,6 @@
 }
 <style>
     body {
-       
     }
 
     h4, .breadcrumb h4 {
@@ -30,7 +29,7 @@
             background-color: #3399FF !important;
             border-color: #3399FF !important;
             color: white !important;
-            margin-top:1%;
+            margin-top: 1%;
         }
 
             .btn-primary:hover, .btn-success:hover, .btn-danger:hover, .btn-secondary:hover,
@@ -44,6 +43,54 @@
         background: linear-gradient(90deg, #fbc2eb, #a6c1ee) !important;
         border-color: #237acc;
     }
+
+    .piggy-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .piggy-emoji {
+        font-size: 32px;
+        display: inline-block;
+    }
+
+    .piggy-coins {
+        margin-left: 6px;
+        font-weight: bold;
+        color: #ff9800;
+    }
+
+    .piggy-emoji.shake {
+        animation: shake 0.6s ease-in-out;
+    }
+
+    @@keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        20% {
+            transform: translateX(-5px);
+        }
+
+        40% {
+            transform: translateX(5px);
+        }
+
+        60% {
+            transform: translateX(-5px);
+        }
+
+        80% {
+            transform: translateX(5px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
 </style>
 
 <link rel="stylesheet" href="~/Views/Cart/cart.css" />
@@ -52,7 +99,7 @@
 
 <section id="cart_items">
     <div class="container">
-       
+
 
         <div class="table-responsive cart_info">
             <table class="table table-bordered table-striped">
@@ -98,14 +145,19 @@
                             <td colspan="2">@Model.ShippingPrice.ToString("#,##0") VNĐ</td>
                         </tr>
                         <tr>
+                            <td colspan="4" class="text-right"><strong>Giảm bằng xu:</strong></td>
+                            <td colspan="2">@Model.CoinDiscountAmount.ToString("#,##0") VNĐ</td>
+                        </tr>
+                        <tr>
                             <td colspan="4" class="text-right"><strong>Tổng tiền thanh toán:</strong></td>
                             <td colspan="2">
                                 @{
                                     // Ép kiểu GiaNhap sang decimal nếu cần
-                                    decimal discount = 1 - (decimal)Model.AppliedCoupon.GiaNhap;
-
-                                    // Tính tổng sau khi giảm giá
-                                    decimal totalAfterDiscount = (Model.GrandTotal * discount) + Model.ShippingPrice;
+                                    decimal percentDiscountFactor = 1 - (decimal)Model.AppliedCoupon.GiaNhap;
+                                    decimal afterPercent = (Model.GrandTotal * percentDiscountFactor);
+                                    decimal afterCoin = afterPercent - Model.CoinDiscountAmount;
+                                    if (afterCoin < 0) { afterCoin = 0; }
+                                    decimal totalAfterDiscount = afterCoin + Model.ShippingPrice;
                                 }
                                 @totalAfterDiscount.ToString("#,##0") VNĐ
                             </td>
@@ -119,10 +171,10 @@
                                     🎁 Mã giảm giá cung cấp vip:
                                     <input type="text" class="form-control coupon-value" />
                                 </form>
-                               @if (Model.AvailableCoupons != null && Model.AvailableCoupons.Any())
-{
-    <div class="form-group mt-3">
-        <label for="couponSelect">🎁 Mã giảm giá thường:</label>
+                                @if (Model.AvailableCoupons != null && Model.AvailableCoupons.Any())
+                                {
+                                    <div class="form-group mt-3">
+                                        <label for="couponSelect">🎁 Mã giảm giá thường:</label>
                                         <select id="couponSelect" class="form-control coupon-select">
                                             <option value="">-- Chọn mã giảm giá --</option>
                                             @foreach (var coupon in Model.AvailableCoupons)
@@ -134,10 +186,39 @@
                                             }
                                         </select>
 
-        <button type="button" class="btn btn-sm btn-primary mt-2 btn-apply-coupon">Áp dụng</button>
-        <span class="text-success">@Model.CouponCode</span>
-    </div>
-}
+                                        <button type="button" class="btn btn-sm btn-primary mt-2 btn-apply-coupon">Áp dụng</button>
+                                        <span class="text-success">@Model.CouponCode</span>
+                                    </div>
+                                }
+
+                                @if (Model.WheelCoupons != null && Model.WheelCoupons.Any())
+                                {
+                                    <div class="form-group mt-3">
+                                        <label for="wheelCouponSelect">🎡 Mã giảm giá từ vòng quay:</label>
+                                        <select id="wheelCouponSelect" class="form-control wheel-coupon-select">
+                                            <option value="">-- Chọn mã vòng quay --</option>
+                                            @foreach (var coupon in Model.WheelCoupons)
+                                            {
+                                                var selected = Model.CouponCode == coupon.Name ? "selected" : "";
+                                                <option value="@coupon.Name" selected="@selected">
+                                                    @coupon.Name - Giảm @((coupon.GiaNhap * 100).ToString("0.#"))% - HSD: @coupon.DateExpired.ToString("dd/MM/yyyy")
+                                                </option>
+                                            }
+                                        </select>
+                                        <button type="button" class="btn btn-sm btn-primary mt-2 btn-apply-coupon">Áp dụng</button>
+                                    </div>
+                                }
+
+                                <div class="piggy-area">
+                                    <span class="piggy-emoji">🐷</span>
+                                    <span class="piggy-coins">Xu: @Model.UserCoins</span>
+                                    <input type="number" min="0" step="100" class="form-control" id="redeemCoinsInput" placeholder="Nhập xu muốn đổi" style="max-width:160px;" />
+                                    <button type="button" class="btn btn-warning btn-sm" id="btnRedeemCoins">Đổi xu giảm giá</button>
+                                    <div id="redeemAlert" class="alert alert-success" style="display:none;margin:0;">
+                                        <span id="redeemAlertText">Đã đổi xu</span>
+                                        <button type="button" id="redeemReloadNow" class="btn btn-link btn-sm" style="padding:0 6px;">Tải lại ngay</button>
+                                    </div>
+                                </div>
 
 
                             </td>
@@ -202,7 +283,7 @@
 
                                                 <div class="payment-buttons">
                                                     <form method="POST" asp-action="CreatePaymentMoMo" asp-controller="Payment">
-                                                        <input type="hidden" name="Amount" value="@((Model.GrandTotal)*(1-Model.AppliedCoupon.GiaNhap) + Model.ShippingPrice)" />
+                                                        <input type="hidden" name="Amount" value="@((Math.Max(0, (Model.GrandTotal * (1 - Model.AppliedCoupon.GiaNhap) - Model.CoinDiscountAmount)) + Model.ShippingPrice))" />
 
                                                         <input type="hidden" name="OrderInfo" value="Thanh toán MoMo cho đơn hàng!" />
                                                         <input type="hidden" name="FullName" value="@User.Identity.Name" />
@@ -212,7 +293,7 @@
 
                                                     <form asp-action="CreatePaymentUrlVnpay" asp-controller="Payment" method="post">
                                                         <input type="hidden" name="Name" value="@User.Identity.Name" />
-                                                        <input type="hidden" name="Amount" value="@((Model.GrandTotal)*(1-Model.AppliedCoupon.GiaNhap) + Model.ShippingPrice)" />
+                                                        <input type="hidden" name="Amount" value="@((Math.Max(0, (Model.GrandTotal * (1 - Model.AppliedCoupon.GiaNhap) - Model.CoinDiscountAmount)) + Model.ShippingPrice))" />
                                                         <input type="hidden" name="OrderDescription" value="Thanh toán đơn hàng qua Vnpay tại HungShop" />
                                                         <input type="hidden" name="OrderType" value="other" />
                                                         <input type="hidden" name="ContactUser" id="ContactUserVnpay" />
@@ -261,7 +342,8 @@
             $('.btn-apply-coupon').click(function () {
                 const couponInput = $('.coupon-value').val();
                 const couponSelect = $('.coupon-select').val();
-                const coupon = couponInput || couponSelect;
+                const wheelSelect = $('.wheel-coupon-select').val();
+                const coupon = couponInput || couponSelect || wheelSelect;
 
                 if (!coupon) {
                     Swal.fire("Vui lòng nhập hoặc chọn mã giảm giá.");
@@ -269,6 +351,31 @@
                 }
 
                 applyCoupon(coupon);
+            });
+            $('#btnRedeemCoins').click(function(){
+                const val = parseInt($('#redeemCoinsInput').val(), 10);
+                if (!val || val <= 0) { Swal.fire('Vui lòng nhập số xu hợp lệ'); return; }
+                $.ajax({
+                    url: '/Cart/RedeemCoins',
+                    type: 'POST',
+                    data: { coins: val },
+                    success: function(res){
+                        const alertBox = document.getElementById('redeemAlert');
+                        const alertText = document.getElementById('redeemAlertText');
+                        const reloadBtn = document.getElementById('redeemReloadNow');
+                        alertBox.className = 'alert ' + (res.success ? 'alert-success' : 'alert-warning');
+                        alertText.textContent = res.message || (res.success ? 'Bạn đã đổi xu thành công' : 'Không thể đổi xu');
+                        alertBox.style.display = 'block';
+                        if (window.Swal) Swal.fire(res.message || (res.success ? 'Bạn đã đổi xu thành công' : 'Không thể đổi xu'));
+                        if (res.success) {
+                            reloadBtn.onclick = function(){ location.reload(); };
+                            setTimeout(function(){ location.reload(); }, 5000);
+                        }
+                    },
+                    error: function(){
+                        Swal.fire('Có lỗi xảy ra khi đổi xu');
+                    }
+                });
             });
         });
     </script>
@@ -278,7 +385,7 @@
         function validateAndSetContact(inputId) {
             const phoneInput = document.getElementById('PhoneNumber');
             const contactInput = document.getElementById('ContactUser');
-            
+
             if (!phoneInput.value.trim()) {
                 alert('Vui lòng nhập số điện thoại.');
                 return false;
@@ -384,4 +491,3 @@
         });
     </script>
 }
-

@@ -41,7 +41,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone "></i> 0334626089</a></li>
-								<li><a href="#"><i class="fa fa-envelope "></i> NghiêncứukhoahọcHBAVC@gmai.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope "></i> anhhung9hot@gmai.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -142,8 +142,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css
 							</button>
 						</div>
 						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a asp-controller="Home" asp-action="Index" class="active">Trang Chủ</a></li>
+							<ul class="nav navbar-nav navbar-collapse in" style="display: flex !important; flex-direction: row;">
+								<li style="display: inline-block;"><a asp-controller="Home" asp-action="Index" class="active" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">Trang Chủ</a></li>
 								@* <li class="dropdown"> *@
 								@* 	<a asp-controller="Product">Cửa Hàng<i class="fa fa-angle-down"></i></a> *@
 								@* 	<ul role="menu" class="sub-menu"> *@
@@ -155,9 +155,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.16.0/dist/sweetalert2.min.css
 
 								@* 	</ul> *@
 								@* </li> *@
-								<li role="menu" class="cart_nav"><a asp-controller="Cart" asp-action="Index"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li class="dropdown">
-									<a href="#">Chia sẻ<i class="fa fa-angle-down"></i></a>
+								<li role="menu" class="cart_nav" style="display: inline-block;"><a asp-controller="Cart" asp-action="Index" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li role="menu" style="display: inline-block;"><a asp-controller="MiniGame" asp-action="Play" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;"><i class="fa fa-gamepad"></i> Mini game</a></li>
+								<li class="dropdown" style="display: inline-block;">
+									<a href="#" style="white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;">Chia sẻ<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="blog.html">Blog List</a></li>
 										<li><a href="blog-single.html">Blog Single</a></li>

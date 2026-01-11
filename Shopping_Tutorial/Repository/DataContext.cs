@@ -4,7 +4,7 @@ using Shopping_Tutorial.Models;
 
 namespace Shopping_Tutorial.Repository
 {
-    public class DataContext:IdentityDbContext<AppUserModel>
+    public class DataContext : IdentityDbContext<AppUserModel>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -36,5 +36,13 @@ namespace Shopping_Tutorial.Repository
         public DbSet<ProductAnnotationModel> ProductAnnotations { get; set; }
         public DbSet<ProductConfigurationModel> ProductConfigurations { get; set; }
 
+        public DbSet<UserCoinModel> UserCoins { get; set; }
+        public DbSet<GuessPriceHistoryModel> GuessPriceHistories { get; set; }
+        public DbSet<LuckySpinHistoryModel> LuckySpinHistories { get; set; }
+        public DbSet<DailyCheckinHistoryModel> DailyCheckinHistories { get; set; }
+        // lịch sử tìm kiếm
+        public DbSet<SearchHistoryModel> SearchHistories { get; set; }
+
     }
+    
 }

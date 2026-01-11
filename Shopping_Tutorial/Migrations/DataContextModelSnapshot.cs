@@ -403,6 +403,93 @@ namespace Shopping_Tutorial.Migrations
                     b.ToTable("Coupons");
                 });
 
+            modelBuilder.Entity("Shopping_Tutorial.Models.DailyCheckinHistoryModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DailyCheckinHistories");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.GuessPriceHistoryModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("ActualPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("AwardedCoins")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ErrorPercent")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GuessedPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GuessPriceHistories");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.LuckySpinHistoryModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CouponCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PrizeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PrizeValue")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("LuckySpinHistories");
+                });
+
             modelBuilder.Entity("Shopping_Tutorial.Models.MomoInforModel", b =>
                 {
                     b.Property<int>("Id")
@@ -763,6 +850,33 @@ namespace Shopping_Tutorial.Migrations
                     b.ToTable("Ratings");
                 });
 
+            modelBuilder.Entity("Shopping_Tutorial.Models.SearchHistoryModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("SearchDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SearchTerm")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SearchHistories");
+                });
+
             modelBuilder.Entity("Shopping_Tutorial.Models.ShippingModel", b =>
                 {
                     b.Property<int>("Id")
@@ -883,6 +997,30 @@ namespace Shopping_Tutorial.Migrations
                     b.HasIndex("ConfigurationId");
 
                     b.ToTable("UserCartItems");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.UserCoinModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCoins");
                 });
 
             modelBuilder.Entity("Shopping_Tutorial.Models.VnpayModel", b =>
@@ -1008,6 +1146,33 @@ namespace Shopping_Tutorial.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Shopping_Tutorial.Models.DailyCheckinHistoryModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.GuessPriceHistoryModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.LuckySpinHistoryModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Shopping_Tutorial.Models.OrderDetails", b =>
                 {
                     b.HasOne("Shopping_Tutorial.Models.ProductModel", "Product")
@@ -1082,6 +1247,17 @@ namespace Shopping_Tutorial.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Shopping_Tutorial.Models.SearchHistoryModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Shopping_Tutorial.Models.UserCartItem", b =>
                 {
                     b.HasOne("Shopping_Tutorial.Models.ProductConfigurationModel", "Configuration")
@@ -1089,6 +1265,15 @@ namespace Shopping_Tutorial.Migrations
                         .HasForeignKey("ConfigurationId");
 
                     b.Navigation("Configuration");
+                });
+
+            modelBuilder.Entity("Shopping_Tutorial.Models.UserCoinModel", b =>
+                {
+                    b.HasOne("Shopping_Tutorial.Models.AppUserModel", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Shopping_Tutorial.Models.WishlistModel", b =>

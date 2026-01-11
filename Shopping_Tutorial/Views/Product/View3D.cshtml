@@ -63,14 +63,40 @@
 
     .controls-panel {
         position: absolute;
-        top: 20px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         z-index: 100;
-        min-width: 250px;
+        display: flex;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-3d {
+        background: rgba(255, 255, 255, 0.9);
+        color: #3399FF;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .btn-3d:hover {
+        transform: translateY(-5px);
+        background: white;
+        box-shadow: 0 5px 15px rgba(51, 153, 255, 0.4);
     }
 
     .product-info {
@@ -102,67 +128,67 @@
         font-size: 14px;
     }
 
-    .btn-3d {
-        background: linear-gradient(90deg, #fbc2eb, #a6c1ee);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 5px;
-        transition: all 0.3s;
-    }
-
-    .btn-3d:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
 
     .annotation-marker {
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background: #ff4444;
-        border: 3px solid white;
+        width: 30px;
+        height: 30px;
+        background: rgba(51, 153, 255, 0.4);
+        border: 2px solid white;
         border-radius: 50%;
         cursor: pointer;
         z-index: 150;
-        animation: pulse 2s infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        pointer-events: auto;
     }
 
-    @@keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.2); opacity: 0.8; }
+    .annotation-marker::after {
+        content: '+';
+        font-size: 18px;
     }
 
-    .configurator-panel {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .annotation-marker:hover {
+        transform: scale(1.2);
+        background: rgba(51, 153, 255, 0.8);
+        box-shadow: 0 0 15px rgba(51, 153, 255, 0.5);
     }
 
-    .color-option {
-        width: 40px;
-        height: 40px;
+    .annotation-marker.pulsing::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
-        display: inline-block;
-        margin: 5px;
-        cursor: pointer;
-        border: 3px solid transparent;
-        transition: all 0.3s;
+        border: 2px solid rgba(51, 153, 255, 0.6);
+        animation: pulse-ring 2s infinite;
     }
 
-    .color-option:hover {
-        transform: scale(1.1);
-        border-color: #3399FF;
+    @@keyframes pulse-ring {
+        0% { transform: scale(1); opacity: 0.8; }
+        100% { transform: scale(2.5); opacity: 0; }
     }
 
-    .color-option.selected {
-        border-color: #3399FF;
-        box-shadow: 0 0 10px rgba(51, 153, 255, 0.5);
+    .annotation-popup {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 280px;
+        z-index: 200;
+        display: none;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -120%);
+        transition: opacity 0.3s;
     }
+
 </style>
 
 <div class="container" style="margin-top: 20px;">
@@ -184,13 +210,10 @@
         <canvas id="threejs-canvas"></canvas>
         
         <div class="controls-panel">
-            <h4 style="margin-top: 0; color: #3399FF;">Điều khiển</h4>
-            <button class="btn-3d" onclick="resetCamera()">🔍 Reset Camera</button>
-            <button class="btn-3d" onclick="toggleWireframe()">📐 Wireframe</button>
-            <button class="btn-3d" onclick="enterAR()">🥽 AR Mode</button>
-            <button class="btn-3d" onclick="enterVR()">🥽 VR Mode</button>
-            <button class="btn-3d" onclick="addAnnotation()">➕ Thêm chú thích</button>
-            <button class="btn-3d" onclick="addToCart3D()">🛒 Thêm vào giỏ hàng</button>
+            <button class="btn-3d" onclick="resetCamera()">🔍 Reset</button>
+            <button class="btn-3d" onclick="toggleWireframe()">📐 Khung dây</button>
+            <button class="btn-3d" onclick="addAnnotation()">➕ Chú thích</button>
+            <button class="btn-3d" onclick="addToCart3D()" style="background: #3399FF; color: white;">🛒 Mua ngay</button>
         </div>
 
         <div id="annotation-popup" class="annotation-popup">
@@ -200,54 +223,17 @@
         </div>
     </div>
 
-    <!-- Configurator Panel -->
-    <div class="configurator-panel">
-        <h3 style="color: #3399FF; margin-top: 0;">🔧 Tùy chỉnh sản phẩm</h3>
-        
-        <div style="margin-bottom: 20px;">
-            <h4>Màu sắc:</h4>
-            <div id="color-options">
-                <div class="color-option selected" style="background: #3498db;" data-color="#3498db" onclick="changeColor('#3498db')"></div>
-                <div class="color-option" style="background: #e74c3c;" data-color="#e74c3c" onclick="changeColor('#e74c3c')"></div>
-                <div class="color-option" style="background: #2ecc71;" data-color="#2ecc71" onclick="changeColor('#2ecc71')"></div>
-                <div class="color-option" style="background: #f39c12;" data-color="#f39c12" onclick="changeColor('#f39c12')"></div>
-                <div class="color-option" style="background: #9b59b6;" data-color="#9b59b6" onclick="changeColor('#9b59b6')"></div>
-                <div class="color-option" style="background: #34495e;" data-color="#34495e" onclick="changeColor('#34495e')"></div>
-            </div>
-        </div>
-
-        <div style="margin-bottom: 20px;">
-            <h4>Vật liệu:</h4>
-            <select id="material-select" class="form-control" onchange="changeMaterial(this.value)" style="max-width: 300px;">
-                <option value="standard">Tiêu chuẩn</option>
-                <option value="metal">Kim loại</option>
-                <option value="glass">Thủy tinh</option>
-                <option value="plastic">Nhựa</option>
-                <option value="wood">Gỗ</option>
-            </select>
-        </div>
-
-        <div>
-            <h4>Linh kiện:</h4>
-            <div id="components-list">
-                <label style="display: block; margin: 10px 0;">
-                    <input type="checkbox" checked onchange="toggleComponent('screen', this.checked)"> Màn hình
-                </label>
-                <label style="display: block; margin: 10px 0;">
-                    <input type="checkbox" checked onchange="toggleComponent('keyboard', this.checked)"> Bàn phím
-                </label>
-                <label style="display: block; margin: 10px 0;">
-                    <input type="checkbox" checked onchange="toggleComponent('battery', this.checked)"> Pin
-                </label>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- Three.js and WebXR libraries -->
 <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+<script src="https://unpkg.com/fflate@0.6.9/umd/index.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/TDSLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/webxr/VRButton.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/webxr/ARButton.js"></script>
 
@@ -255,8 +241,6 @@
     let scene, camera, renderer, controls;
     let productMesh = null;
     let annotations = [];
-    let currentColor = '#3498db';
-    let currentMaterial = 'standard';
     let wireframeMode = false;
     let arSession = null;
     let vrSession = null;
@@ -323,36 +307,97 @@
 
     function loadProductModel() {
         if (HAS_MODEL && MODEL_PATH) {
-            const loader = new THREE.GLTFLoader();
-            loader.load(
-                MODEL_PATH,
-                (gltf) => {
-                    productMesh = gltf.scene;
-                    productMesh.scale.set(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE);
-                    productMesh.traverse(child => {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                        }
-                    });
-                    scene.add(productMesh);
-                },
-                undefined,
-                (error) => {
-                    console.error('Không thể tải mô hình 3D', error);
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'alert alert-danger';
-                    errorDiv.style.position = 'absolute';
-                    errorDiv.style.top = '10px';
-                    errorDiv.style.left = '10px';
-                    errorDiv.style.zIndex = '1000';
-                    errorDiv.style.maxWidth = '80%';
-                    errorDiv.innerHTML = `<strong>Lỗi tải mô hình:</strong> Không thể tải file từ <code>${MODEL_PATH}</code>.<br>Chi tiết: ${error.message || 'File không tồn tại hoặc lỗi định dạng.'}`;
-                    document.getElementById('canvas-container').appendChild(errorDiv);
+            // Detect file format from extension
+            const extension = MODEL_PATH.toLowerCase().split('.').pop();
+            
+            // Get base path for material files
+            const basePath = MODEL_PATH.substring(0, MODEL_PATH.lastIndexOf('/') + 1);
+            const fileName = MODEL_PATH.substring(MODEL_PATH.lastIndexOf('/') + 1);
+            const fileNameWithoutExt = fileName.substring(0, fileName.lastIndexOf('.'));
+            
+            function onModelLoaded(object) {
+                productMesh = object.scene || object;
+                productMesh.scale.set(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE);
+                productMesh.traverse(child => {
+                    if (child.isMesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+                scene.add(productMesh);
+            }
+            
+            function onError(error) {
+                console.error('Không thể tải mô hình 3D', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'alert alert-danger';
+                errorDiv.style.position = 'absolute';
+                errorDiv.style.top = '10px';
+                errorDiv.style.left = '10px';
+                errorDiv.style.zIndex = '1000';
+                errorDiv.style.maxWidth = '80%';
+                errorDiv.innerHTML = `<strong>Lỗi tải mô hình:</strong> Không thể tải file từ <code>${MODEL_PATH}</code>.<br>Chi tiết: ${error.message || 'File không tồn tại hoặc lỗi định dạng.'}`;
+                document.getElementById('canvas-container').appendChild(errorDiv);
+                
+                createFallbackModel();
+            }
+            
+            switch(extension) {
+                case 'glb':
+                case 'gltf':
+                    const gltfLoader = new THREE.GLTFLoader();
+                    gltfLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                    break;
                     
+                case 'obj':
+                    // Try to load MTL file first
+                    const mtlPath = basePath + fileNameWithoutExt + '.mtl';
+                    const objLoader = new THREE.OBJLoader();
+                    
+                    // Check if MTL file exists
+                    fetch(mtlPath, { method: 'HEAD' })
+                        .then(response => {
+                            if (response.ok) {
+                                // MTL exists, load it first
+                                const mtlLoader = new THREE.MTLLoader();
+                                mtlLoader.setPath(basePath);
+                                mtlLoader.load(fileNameWithoutExt + '.mtl', 
+                                    (materials) => {
+                                        materials.preload();
+                                        objLoader.setMaterials(materials);
+                                        objLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                                    },
+                                    undefined,
+                                    () => {
+                                        // MTL failed, load OBJ without materials
+                                        objLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                                    }
+                                );
+                            } else {
+                                // No MTL file, load OBJ directly
+                                objLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                            }
+                        })
+                        .catch(() => {
+                            // Error checking MTL, load OBJ directly
+                            objLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                        });
+                    break;
+                    
+                case 'fbx':
+                    const fbxLoader = new THREE.FBXLoader();
+                    fbxLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                    break;
+                    
+                case '3ds':
+                    const tdsLoader = new THREE.TDSLoader();
+                    tdsLoader.load(MODEL_PATH, onModelLoaded, undefined, onError);
+                    break;
+                    
+                default:
+                    console.warn(`Unsupported 3D file format: ${extension}. Using fallback model.`);
                     createFallbackModel();
-                }
-            );
+            }
         } else {
             createFallbackModel();
         }
@@ -361,7 +406,7 @@
     function createFallbackModel() {
         const geometry = new THREE.BoxGeometry(2, 2, 1);
         const material = new THREE.MeshStandardMaterial({
-            color: currentColor,
+            color: '#3498db',
             metalness: 0.3,
             roughness: 0.4
         });
@@ -384,30 +429,29 @@
         }
     }
 
-    function addAnnotationAtPosition(x, y, z, title, content, markerColor = '#ff4444') {
+    function addAnnotationAtPosition(x, y, z, title, content, markerColor = '#3399FF') {
         const annotation = {
             position: new THREE.Vector3(x, y, z),
             title: title,
             content: content,
             color: markerColor,
-            marker: null
+            element: null
         };
 
-        // Create 3D marker
-        const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-        const markerMaterial = new THREE.MeshBasicMaterial({ color: new THREE.Color(markerColor) });
-        const marker = new THREE.Mesh(markerGeometry, markerMaterial);
-        marker.position.copy(annotation.position);
-        marker.userData = { annotation: annotation };
-        scene.add(marker);
+        // Create HTML element for the marker
+        const el = document.createElement('div');
+        el.className = 'annotation-marker pulsing';
+        el.style.borderColor = markerColor;
+        el.dataset.title = title;
+        
+        el.onclick = (e) => {
+            e.stopPropagation();
+            showAnnotationPopup(annotation);
+        };
 
-        annotation.marker = marker;
+        document.getElementById('canvas-container').appendChild(el);
+        annotation.element = el;
         annotations.push(annotation);
-
-        // Add click handler
-        marker.onClick = function() {
-            showAnnotationPopup(annotation, x, y, z);
-        };
     }
 
     function forEachMeshMaterial(callback) {
@@ -426,24 +470,61 @@
         }
     }
 
-    function showAnnotationPopup(annotation, x, y, z) {
+    function updateAnnotations() {
+        const container = document.getElementById('canvas-container');
+        const widthHalf = container.clientWidth / 2;
+        const heightHalf = container.clientHeight / 2;
+
+        annotations.forEach(a => {
+            const vector = a.position.clone();
+            
+            // If part of a product mesh, we might need to apply the mesh's transform
+            if (productMesh) {
+                vector.applyMatrix4(productMesh.matrixWorld);
+            }
+
+            vector.project(camera);
+
+            // Check if marker is behind the camera
+            if (vector.z > 1) {
+                a.element.style.display = 'none';
+                return;
+            }
+
+            const xPos = (vector.x * widthHalf) + widthHalf;
+            const yPos = -(vector.y * heightHalf) + heightHalf;
+
+            a.element.style.display = 'flex';
+            a.element.style.left = `${xPos}px`;
+            a.element.style.top = `${yPos}px`;
+        });
+    }
+
+    function showAnnotationPopup(annotation) {
         const popup = document.getElementById('annotation-popup');
+        const container = document.getElementById('canvas-container');
         document.getElementById('annotation-title').textContent = annotation.title;
         document.getElementById('annotation-content').textContent = annotation.content;
         
-        // Convert 3D position to screen coordinates
-        const vector = new THREE.Vector3(x, y, z);
-        vector.project(camera);
-        
-        const widthHalf = window.innerWidth / 2;
-        const heightHalf = window.innerHeight / 2;
-        
-        const xPos = (vector.x * widthHalf) + widthHalf;
-        const yPos = -(vector.y * heightHalf) + heightHalf;
-        
-        popup.style.left = xPos + 'px';
-        popup.style.top = yPos + 'px';
         popup.style.display = 'block';
+        
+        const rect = annotation.element.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const popupRect = popup.getBoundingClientRect();
+
+        let left = (rect.left + rect.width / 2) - containerRect.left;
+        let top = rect.top - containerRect.left - 10; // 10px offset
+
+        // Prevent overflow
+        if (left + popupRect.width / 2 > containerRect.width) {
+            left = containerRect.width - popupRect.width / 2 - 20;
+        }
+        if (left - popupRect.width / 2 < 0) {
+            left = popupRect.width / 2 + 20;
+        }
+
+        popup.style.left = `${left}px`;
+        popup.style.top = `${rect.top - containerRect.top}px`;
     }
 
     function closeAnnotation() {
@@ -473,111 +554,13 @@
         });
     }
 
-    function changeColor(color) {
-        currentColor = color;
-        forEachMeshMaterial(material => {
-            if (material.color) {
-                material.color.setStyle(color);
-            }
-        });
-        
-        // Update selected color UI
-        document.querySelectorAll('.color-option').forEach(opt => {
-            opt.classList.remove('selected');
-        });
-        document.querySelector(`[data-color="${color}"]`).classList.add('selected');
-    }
-
-    function changeMaterial(materialType) {
-        currentMaterial = materialType;
-        if (!productMesh) return;
-
-        const color = new THREE.Color(currentColor);
-
-        forEachMeshMaterial((material, mesh) => {
-            let newMaterial;
-
-            switch(materialType) {
-                case 'metal':
-                    newMaterial = new THREE.MeshStandardMaterial({
-                        color: color,
-                        metalness: 0.9,
-                        roughness: 0.1
-                    });
-                    break;
-                case 'glass':
-                    newMaterial = new THREE.MeshPhysicalMaterial({
-                        color: color,
-                        transparent: true,
-                        opacity: 0.7,
-                        roughness: 0.1,
-                        metalness: 0.0
-                    });
-                    break;
-                case 'plastic':
-                    newMaterial = new THREE.MeshStandardMaterial({
-                        color: color,
-                        metalness: 0.0,
-                        roughness: 0.8
-                    });
-                    break;
-                case 'wood':
-                    newMaterial = new THREE.MeshStandardMaterial({
-                        color: color,
-                        metalness: 0.0,
-                        roughness: 0.9
-                    });
-                    break;
-                default:
-                    newMaterial = new THREE.MeshStandardMaterial({
-                        color: color,
-                        metalness: 0.3,
-                        roughness: 0.4
-                    });
-            }
-
-            newMaterial.wireframe = wireframeMode;
-            mesh.material = newMaterial;
-        });
-    }
-
-    function toggleComponent(componentName, enabled) {
-        // This would show/hide specific parts of the 3D model
-        console.log(`Component ${componentName} ${enabled ? 'enabled' : 'disabled'}`);
-        // In a real implementation, you would manipulate the 3D model parts here
-    }
 
     function enterAR() {
-        if (!SUPPORT_AR) {
-            alert('Sản phẩm này chưa bật chế độ AR.');
-            return;
-        }
-        if (navigator.xr) {
-            const arButton = ARButton.createButton(renderer, {
-                sessionInit: {
-                    requiredFeatures: ['local-floor'],
-                    optionalFeatures: ['bounded-floor']
-                }
-            });
-            document.body.appendChild(arButton);
-            arButton.click();
-        } else {
-            alert('Trình duyệt của bạn không hỗ trợ AR. Vui lòng sử dụng Chrome trên Android hoặc Safari trên iOS.');
-        }
+        // Removed as requested
     }
 
     function enterVR() {
-        if (!SUPPORT_VR) {
-            alert('Sản phẩm này chưa bật chế độ VR.');
-            return;
-        }
-        if (navigator.xr) {
-            const vrButton = VRButton.createButton(renderer);
-            document.body.appendChild(vrButton);
-            vrButton.click();
-        } else {
-            alert('Trình duyệt của bạn không hỗ trợ VR. Vui lòng sử dụng trình duyệt hỗ trợ WebXR.');
-        }
+        // Removed as requested
     }
 
     function addToCart3D() {
@@ -605,6 +588,7 @@
     function animate() {
         requestAnimationFrame(animate);
         controls.update();
+        updateAnnotations();
         renderer.render(scene, camera);
     }
 
